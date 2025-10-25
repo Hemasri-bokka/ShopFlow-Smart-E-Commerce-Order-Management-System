@@ -5,34 +5,51 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.examly.springapp.model.Product;
+import com.examly.springapp.repository.ProductRepo;
 @Service
 public class ProductServiceImpl implements ProductService{
 
-    public Product addProduct(Product product){
+    private ProductRepo prepo;
 
+    public ProductServiceImpl(ProductRepo prepo){
+        this.prepo = prepo;
     }
 
-    public List<Product> getAllProducts(){
-
+    @Override
+    public Product addProduct(Product product) {
+        return prepo.save(product);
     }
 
-    public Product getProductById(Long id){
-
+    @Override
+    public void deleteProduct(Long id) {
+         prepo.deleteById(id);
     }
 
-    public List<Product> getProductByUserId(Long userId){
-
+    @Override
+    public List<Product> getAllProducts() {
+      return prepo.findAll();
     }
 
-    public List<Product> getProductsByCategory(String category){
-
+    @Override
+    public Product getProductById(Long id) {
+       return prepo.findById(id).orElse(null);
     }
 
-    public void deleteProduct(Long id){
+    // @Override
+    // public List<Product> getProductByUserId(Long userId) {
+       
+    // }
 
+    @Override
+    public List<Product> getProductsByCategory(String category) {
+        return prepo.findByCategory(category);
     }
 
-    public Product updateProduct(Long productId, ProductRequest productRequest){
+    // @Override
+    // public Product updateProduct(Long productId, ProductRequest productRequest) {
+       
+    //     return null;
+    // }
 
-    }
+    
 }
