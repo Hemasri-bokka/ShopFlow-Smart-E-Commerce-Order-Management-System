@@ -12,8 +12,8 @@ import com.examly.springapp.service.FeedbackService;
 @RestController
 public class FeedbackController {
 
-    @Autowired
-    private FeedbackService ser;
+    // @Autowired
+    // private FeedbackService ser;
 
     // @PostMapping("/api/feedback") 
     // public ResponseEntity<Feedback> createFeedback(@RequestBody Feedback fb){
