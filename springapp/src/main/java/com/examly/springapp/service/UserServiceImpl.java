@@ -4,14 +4,15 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Service;
 
 import com.examly.springapp.model.User;
 import com.examly.springapp.repository.UserRepo;
 
+@Service
 public class UserServiceImpl implements UserService{
 
     private UserRepo uRepo;
-
     public UserServiceImpl(UserRepo uRepo) {
         this.uRepo = uRepo;
     }
@@ -20,17 +21,20 @@ public class UserServiceImpl implements UserService{
     public User createUser(User user) {
         return uRepo.save(user);
     }
+    
 
     @Override
     public UserDetails loadUserByUsername(String userName) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'loadUserByUsername'");
+        User user = uRepo.findByUsername(userName).orElseThrow();
+
     }
 
     @Override
     public List<User> findAllUsers() {
         return uRepo.findAll();
     }
+
+
 
     @Override
     public User loginUser(User user) {
@@ -40,32 +44,33 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User getById(int id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getById'");
+        long lid = id;
+        return uRepo.findById(lid).orElse(null);
     }
 
     @Override
     public void deleteUser(int id) {
-        long ind = int id;
-        return uRepo.deleteById(ind).orElse(null);
+        long ind = id;
+        uRepo.deleteById(ind);
     }
 
     @Override
     public boolean validateUserByUsername(String username, String password) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'validateUserByUsername'");
-    }
+        return uRepo.findByEmailAndPassword(username, password).isPresent();
+      }
 
-    @Override
-    public void updateUser(User user) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'updateUser'");
-    }
+      @Override
+      public void updateUser(User user) {
+          if (uRepo.existsById(user.getUserId())) {
+              uRepo.save(user);
+          }
+      }
+      
 
     @Override
     public Optional<User> getUserByName(String name) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getUserByName'");
+        return uRepo.findByUsername(name);
+
     }
     
 

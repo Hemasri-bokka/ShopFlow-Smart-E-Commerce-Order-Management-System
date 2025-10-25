@@ -12,16 +12,16 @@ public class User {
     private String email;
     private String password;
     private String username;
-    private String mobileNUmber;
+    private String mobileNumber;
     private String userRole;
     public User() {
     }
-    public User(long userId, String email, String password, String username, String mobileNUmber, String userRole) {
+    public User(long userId, String email, String password, String username, String mobileNumber, String userRole) {
         this.userId = userId;
         this.email = email;
         this.password = password;
         this.username = username;
-        this.mobileNUmber = mobileNUmber;
+        this.mobileNumber = mobileNumber;
         this.userRole = userRole;
     }
     public long getUserId() {
@@ -48,11 +48,11 @@ public class User {
     public void setUsername(String username) {
         this.username = username;
     }
-    public String getMobileNUmber() {
-        return mobileNUmber;
+    public String getMobileNumber() {
+        return mobileNumber;
     }
-    public void setMobileNUmber(String mobileNUmber) {
-        this.mobileNUmber = mobileNUmber;
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
     }
     public String getUserRole() {
         return userRole;
