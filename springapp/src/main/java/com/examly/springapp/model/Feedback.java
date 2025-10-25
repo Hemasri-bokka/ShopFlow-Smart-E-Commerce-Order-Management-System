@@ -2,6 +2,7 @@ package com.examly.springapp.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -10,7 +11,7 @@ import jakarta.persistence.ManyToOne;
 public class Feedback {
 
     @Id
-    @GeneratedValue 
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long feedbackId;
     private String message;
     private int rating;
