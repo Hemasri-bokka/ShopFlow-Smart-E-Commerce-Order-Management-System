@@ -15,11 +15,7 @@ public interface UserService {
     User getById(int id);
     void deleteUser(int id);
     boolean validateUserByUsername(String username, String password);
-    void UpdateUser(User user);
+    void updateUser(User user);
     Optional<User> getUserByName(String name);
-
-
-
-
 
 }
