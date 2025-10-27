@@ -46,12 +46,8 @@ public class UserController {
 
 @PostMapping("/api/login")
 public ResponseEntity<?> loginUser(@RequestBody User user) {
-    try {
         LoginDTO loginDTO = ser.loginUser(user);
         return ResponseEntity.ok(loginDTO);
-    } catch (Exception e) {
-        return ResponseEntity.status(401).body("Invalid credentials");
-    }
 }
 
     @GetMapping("/api/user")

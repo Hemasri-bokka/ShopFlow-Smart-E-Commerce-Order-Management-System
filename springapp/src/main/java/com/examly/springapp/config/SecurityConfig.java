@@ -17,6 +17,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import com.examly.springapp.service.UserServiceImpl;
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -24,6 +26,8 @@ public class SecurityConfig {
 UserDetailsService userDetailsService; 
 @Autowired
 JwtAuthenticationFilter jwtFilter;
+
+
 
    @Bean
    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{

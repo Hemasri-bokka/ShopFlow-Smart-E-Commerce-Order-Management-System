@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -17,13 +19,11 @@ import com.examly.springapp.model.User;
 import com.examly.springapp.repository.UserRepo;
 
 @Service
-public class UserServiceImpl implements UserService{
-
-    private JwtUtils jwtUtils;
-    private UserRepo uRepo;
+public class UserServiceImpl implements UserService {
+    UserRepo uRepo;
+    JwtUtils jwtUtils;
     PasswordEncoder passwordEncoder;
     AuthenticationManager authenticationManager;
-    
 
     @Autowired
     public UserServiceImpl(JwtUtils jwtUtils, UserRepo uRepo, PasswordEncoder passwordEncoder,
@@ -33,20 +33,22 @@ public class UserServiceImpl implements UserService{
         this.passwordEncoder = passwordEncoder;
         this.authenticationManager = authenticationManager;
     }
+
     @Override
     public User createUser(User user) {
-        Optional<User> existUser = uRepo.findByUsername(user.getUsername());
-        if(existUser.isPresent()){
-          throw new UsernameAlreadyExistsException("Username already exists");
+        User existUser = uRepo.findByUsername(user.getUsername());
+        if (existUser != null) {
+            throw new UsernameAlreadyExistsException("Username already exists");
         }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user = uRepo.save(user);
         return user;
 
     }
+
     @Override
     public UserDetails loadUserByUsername(String userName) {
-        User user =  uRepo.findByUsername(userName).orElse(null);
+        User user = uRepo.findByUsername(userName);
         return new UserPrinciple(user);
     }
 
@@ -54,41 +56,29 @@ public class UserServiceImpl implements UserService{
     public List<User> findAllUsers() {
         return uRepo.findAll();
     }
+
     @Override
     public LoginDTO loginUser(User user) {
-        Optional<User> optionalUser = uRepo.findByUsername(user.getUsername());
-    
-        if (optionalUser.isPresent()) {
-            User dbUser = optionalUser.get();
-    
-            if (dbUser.getPassword().equals(user.getPassword())) {
-                UserDetails userDetails = new UserPrinciple(dbUser);
-                String token = jwtUtils.generateToken(userDetails);
-    
-                return new LoginDTO(
-                    token,
-                    dbUser.getUsername(),
-                    dbUser.getUserRole(),
-                    (int) dbUser.getUserId() // safely cast long to int
-                );
-            }
-        }
+    // Fetch user from DB
+    User dbUser = uRepo.findByUsername(user.getUsername());
+    if (dbUser == null) {
         throw new RuntimeException("Invalid username or password");
     }
-    
-    
+    Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
+    if (authentication.isAuthenticated()) {
+        UserDetails userDetails = new UserPrinciple(dbUser);
+        String token = jwtUtils.generateToken(userDetails);
 
-    // @Override
-    // public User loginUser(User user) {
-    //     // String username = user.getUsername();
-    //     // String password = user.getPassword();
-    //     // // User use = uRepo.findByEmailAndPassword(username, password);
-    //     // // if(use == null){
+        return new LoginDTO(
+            token,
+            dbUser.getUsername(),
+            dbUser.getUserRole(),
+            (int) dbUser.getUserId()
+        );
+    }
 
-    //     // // }
-    //     return user;
-
-    // }
+        return null;
+}
 
     @Override
     public User getById(int id) {
@@ -106,23 +96,19 @@ public class UserServiceImpl implements UserService{
     public boolean validateUserByUsername(String username, String password) {
         return uRepo.findByUsernameAndPassword(username, password).isPresent();
 
-        
-      }
+    }
 
-      @Override
-      public void updateUser(User user) {
-          if (uRepo.existsById(user.getUserId())) {
-              uRepo.save(user);
-          }
-      }
-      
+    @Override
+    public void updateUser(User user) {
+        if (uRepo.existsById(user.getUserId())) {
+            uRepo.save(user);
+        }
+    }
 
     @Override
     public Optional<User> getUserByName(String name) {
-        return uRepo.findByUsername(name);
-
+        User user = uRepo.findByUsername(name);
+        return Optional.ofNullable(user);
     }
-    
-
 
 }

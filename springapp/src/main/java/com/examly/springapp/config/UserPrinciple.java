@@ -1,8 +1,7 @@
 package com.examly.springapp.config;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
+import java.util.Collections;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -10,51 +9,38 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.examly.springapp.model.User;
 
-public class UserPrinciple implements UserDetails{
-    private String username;
-    private String password;
-    private String role;
-    private List<GrantedAuthority> authorities = new ArrayList<>();
+public class UserPrinciple implements UserDetails {
 
+    private  User user;
     public UserPrinciple(User user){
-        setUsername(user.getUsername());
-        setPassword(user.getPassword());
-        setRole(user.getUserRole());
-        authorities.add(new SimpleGrantedAuthority(role));
+        this.user = user;
     }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return authorities;
+         return Collections.singleton(new SimpleGrantedAuthority(user.getUserRole()));
     }
-
     @Override
     public String getPassword() {
-        return password;
+        return user.getPassword();
     }
-
     @Override
     public String getUsername() {
-        return username;
-    }
-
-    public String getRole(){
-        return role;
+       return user.getUsername();
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return true;
+         return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+       return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true;
+       return true;
     }
 
     @Override
@@ -62,19 +48,4 @@ public class UserPrinciple implements UserDetails{
         return true;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public void setAuthorities(List<GrantedAuthority> authorities) {
-        this.authorities = authorities;
-    }
 }
