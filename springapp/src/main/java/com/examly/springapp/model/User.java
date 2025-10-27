@@ -1,5 +1,8 @@
 package com.examly.springapp.model;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
 public class User {
     @Id
     @GeneratedValue
