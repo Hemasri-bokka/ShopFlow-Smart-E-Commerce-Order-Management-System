@@ -3,30 +3,57 @@ package com.examly.springapp.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+// import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.examly.springapp.config.JwtUtils;
 import com.examly.springapp.config.UserPrinciple;
+import com.examly.springapp.exception.UsernameAlreadyExistsException;
+import com.examly.springapp.model.LoginDTO;
 import com.examly.springapp.model.User;
 import com.examly.springapp.repository.UserRepo;
 
 @Service
-public class UserServiceImpl implements UserService{
-
+public class UserServiceImpl implements UserService {
+    @Autowired
     private UserRepo uRepo;
-    public UserServiceImpl(UserRepo uRepo) {
-        this.uRepo = uRepo;
-    }
+    @Autowired
+    JwtUtils jwtUtils;
+    @Autowired
+    PasswordEncoder passwordEncoder;
+    @Autowired
+    AuthenticationManager authenticationManager;
+
+    // public UserServiceImpl(JwtUtils jwtUtils, UserRepo uRepo, PasswordEncoder
+    // passwordEncoder,
+    // AuthenticationManager authenticationManager) {
+    // this.jwtUtils = jwtUtils;
+    // this.uRepo = uRepo;
+    // this.passwordEncoder = passwordEncoder;
+    // this.authenticationManager = authenticationManager;
+    // }
 
     @Override
     public User createUser(User user) {
-        return uRepo.save(user);
+        User existUser = uRepo.findByUsername(user.getUsername());
+        if (existUser != null) {
+            throw new UsernameAlreadyExistsException("Username already exists");
+        }
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user = uRepo.save(user);
+        return user;
+
     }
-    
 
     @Override
     public UserDetails loadUserByUsername(String userName) {
-        User user =  uRepo.findByUsername(userName).orElse(null);
+        User user = uRepo.findByUsername(userName);
         return new UserPrinciple(user);
     }
 
@@ -35,20 +62,27 @@ public class UserServiceImpl implements UserService{
         return uRepo.findAll();
     }
 
-    
-
-
-
     @Override
-    public User loginUser(User user) {
-        // String username = user.getUsername();
-        // String password = user.getPassword();
-        // // User use = uRepo.findByEmailAndPassword(username, password);
-        // // if(use == null){
+    public LoginDTO loginUser(User user) {
+        // Fetch user from DB
+        User dbUser = uRepo.findByUsername(user.getUsername());
+        if (dbUser == null) {
+            throw new RuntimeException("Invalid username or password");
+        }
+        Authentication authentication = authenticationManager
+                .authenticate(new UsernamePasswordAuthenticationToken(dbUser.getUsername(), user.getPassword()));
+        if (authentication.isAuthenticated()) {
+            UserDetails userDetails = new UserPrinciple(dbUser);
+            String token = jwtUtils.generateToken(userDetails);
 
-        // // }
-        return user;
+            return new LoginDTO(
+                    token,
+                    dbUser.getUsername(),
+                    dbUser.getUserRole(),
+                    (int) dbUser.getUserId());
+        }
 
+        return null;
     }
 
     @Override
@@ -65,19 +99,21 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public boolean validateUserByUsername(String username, String password) {
-        return uRepo.findByEmailAndPassword(username, password).isPresent();
-      }
-
-      @Override
-      public void updateUser(User user) {
-          if (uRepo.existsById(user.getUserId())) {
-              uRepo.save(user);
-          }
-      }
-      
-    @Override
-    public Optional<User> getUserByName(String name) {
-        return uRepo.findByUsername(name);
+        return uRepo.findByUsernameAndPassword(username, password).isPresent();
 
     }
+
+    @Override
+    public void updateUser(User user) {
+        if (uRepo.existsById(user.getUserId())) {
+            uRepo.save(user);
+        }
+    }
+
+    @Override
+    public Optional<User> getUserByName(String name) {
+        User user = uRepo.findByUsername(name);
+        return Optional.ofNullable(user);
+    }
+
 }
