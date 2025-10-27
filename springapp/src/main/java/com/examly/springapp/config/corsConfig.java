@@ -1,4 +1,4 @@
-package com.examly.springapp.config;
-public class corsConfig {
+// package com.examly.springapp.config;
+// public class corsConfig {
     
-}
+// }
