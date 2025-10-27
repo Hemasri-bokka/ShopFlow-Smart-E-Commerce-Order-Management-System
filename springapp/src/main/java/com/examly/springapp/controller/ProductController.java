@@ -53,18 +53,18 @@ public class ProductController {
     public ResponseEntity<Product> getProductById( @PathVariable Long id) {
        Product found = service.getProductById(id);
        if(found == null){
-        return ResponseEntity.status(404).body(found);
+        return ResponseEntity.status(404).build();
     }
-    return ResponseEntity.status(200).build();
-     }
+    return ResponseEntity.status(200).body(found);
+    }
 
     @DeleteMapping("/api/products/{id}")
     public ResponseEntity<Boolean> deleteProduct(@PathVariable Long id){
         boolean found = service.deleteProduct(id);
         if(found){
-            return ResponseEntity.status(200).build();
+            return ResponseEntity.status(200).body(found);
         }
-        return ResponseEntity.status(404).body(found);
+        return ResponseEntity.status(404).build();
     }
 
     @GetMapping("/api/products/category/{category}")
