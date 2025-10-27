@@ -5,15 +5,19 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.examly.springapp.model.Order;
+import com.examly.springapp.model.User;
 import com.examly.springapp.model.enums.OrderStatus;
 import com.examly.springapp.repository.OrderRepo;
+import com.examly.springapp.repository.UserRepo;
 
 @Service
 public class OrderServiceImpl implements OrderService{
     private OrderRepo orepo;
+    private UserRepo urepo;
 
-    public OrderServiceImpl(OrderRepo orepo){
+    public OrderServiceImpl(OrderRepo orepo,UserRepo urepo){
         this.orepo=orepo;
+        this.urepo=urepo;
     }
 
     @Override
@@ -44,13 +48,21 @@ public class OrderServiceImpl implements OrderService{
     @Override
     public List<Order> getOrdersByUser(int userId) {
         long ind = userId;
-        //return orepo.findById(userId).orElse(null);
+        return null;
     }
 
     @Override
     public List<Order> getOrdersByUserId(Long userId) {
-        // TODO Auto-generated method stub
-        return null;
+        User user = urepo.findById(userId).orElse(null);
+        if(user != null){
+
+        }
+        return orepo.findByUser(user);
+    }
+
+    @Override
+    public Order updateOrder(long id, Order updateOrder){
+        return orepo.save(updateOrder);
     }
 
     
