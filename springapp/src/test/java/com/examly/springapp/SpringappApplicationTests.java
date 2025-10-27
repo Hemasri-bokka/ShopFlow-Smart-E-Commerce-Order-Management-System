@@ -73,7 +73,6 @@ class SpringappApplicationTests {
                 "src/main/java/com/examly/springapp/repository/ProductRepo.java",
                 "src/main/java/com/examly/springapp/repository/UserRepo.java"
         };
-        
 
         // List of expected files in the 'service' folder
         String[] serviceFiles = {
