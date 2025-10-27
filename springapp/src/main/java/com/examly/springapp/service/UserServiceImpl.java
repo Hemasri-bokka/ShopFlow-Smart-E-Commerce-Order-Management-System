@@ -39,8 +39,14 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public User loginUser(User user) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'loginUser'");
+        String username = user.getUsername();
+        String password = user.getPassword();
+        User use = uRepo.findByEmailAndPassword(username, password);
+        if(use == null){
+
+        }
+        return use;
+
     }
 
     @Override
