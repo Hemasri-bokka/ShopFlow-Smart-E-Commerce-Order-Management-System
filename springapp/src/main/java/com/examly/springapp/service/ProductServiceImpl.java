@@ -21,8 +21,9 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public void deleteProduct(Long id) {
+    public boolean deleteProduct(Long id) {
          prepo.deleteById(id);
+         return true;
     }
 
     @Override
@@ -35,21 +36,20 @@ public class ProductServiceImpl implements ProductService{
        return prepo.findById(id).orElse(null);
     }
 
-    // @Override
-    // public List<Product> getProductByUserId(Long userId) {
-       
-    // }
+    @Override
+    public List<Product> getProductByUserId(Long userId) {
+       return prepo.findByUserId(userId);
+    }
 
     @Override
     public List<Product> getProductsByCategory(String category) {
         return prepo.findByCategory(category);
     }
 
-    // @Override
-    // public Product updateProduct(Long productId, ProductRequest productRequest) {
-       
-    //     return null;
-    // }
+    @Override
+    public Product updateProduct(Long productId, Product productRequest) {
+        return prepo.save(productRequest);
+    }
 
     
 }
