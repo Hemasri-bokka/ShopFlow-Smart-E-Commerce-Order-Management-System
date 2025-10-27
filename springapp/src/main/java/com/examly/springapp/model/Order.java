@@ -11,6 +11,8 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 
@@ -31,8 +33,13 @@ public class Order {
     @ManyToOne
     private User user;
 
-    // @ManyToMany
-    // List<Product> product = new ArrayList<>();
+    @ManyToMany
+    @JoinTable(
+        name = "order_products",
+        joinColumns = @JoinColumn(name="order_id"),
+        inverseJoinColumns = @JoinColumn(name="product_id")
+    )
+    List<Product> product = new ArrayList<>();
 
     public Order() {
     }
@@ -46,7 +53,7 @@ public class Order {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
         this.user = user;
-        //this.product = product;
+        this.product = product;
     }
 
     public long getOrderId() {
@@ -105,13 +112,13 @@ public class Order {
         this.user = user;
     }
 
-    // public List<Product> getProduct() {
-    //     return product;
-    // }
+    public List<Product> getProduct() {
+        return product;
+    }
 
-    // public void setProduct(List<Product> product) {
-    //     this.product = product;
-    // }
+    public void setProduct(List<Product> product) {
+        this.product = product;
+    }
 
     
 
