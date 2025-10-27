@@ -33,13 +33,14 @@ public class UserController {
         }
     }
 
-    @PostMapping("/api/login")
-    public ResponseEntity<?> loginUser(@RequestBody User user) {
-        String message = ser.loginUser(user);
+    // @PostMapping("/api/login")
+    // public ResponseEntity<?> loginUser(@RequestBody User user) {
+    //     String message = ser.loginUser(user);
+    //     return ResponseEntity.status(200).body(message);
         
 
 
-    }
+    // }
 
     @GetMapping("/api/user")
     public ResponseEntity<List<User>> getAllUsers() {

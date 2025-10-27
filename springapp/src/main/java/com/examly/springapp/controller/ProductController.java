@@ -40,9 +40,9 @@ public class ProductController {
         return ResponseEntity.status(200).body(updated);
     }
 
-    @GetMapping("/api/products/{id}")
-    public ResponseEntity<Product> getProductByUserId( @PathVariable Long id){
-        Product found = service.getProductById(id);
+    @GetMapping("/api/products/user/{userId}")
+    public ResponseEntity<Product> getProductByUserId( @PathVariable Long userId){
+        Product found = service.getProductById(userId);
         if(found == null){
             return ResponseEntity.status(404).build();
         }
