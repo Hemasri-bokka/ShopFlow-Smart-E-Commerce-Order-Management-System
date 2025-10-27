@@ -6,15 +6,29 @@ import java.util.Optional;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import com.examly.springapp.config.JwtUtils;
 import com.examly.springapp.config.UserPrinciple;
+import com.examly.springapp.model.LoginDTO;
 import com.examly.springapp.model.User;
 import com.examly.springapp.repository.UserRepo;
 
 @Service
 public class UserServiceImpl implements UserService{
 
+    private JwtUtils jwtUtils;
     private UserRepo uRepo;
+
     public UserServiceImpl(UserRepo uRepo) {
+        this.uRepo = uRepo;
+    }
+
+    
+    public UserServiceImpl() {
+    }
+
+
+    public UserServiceImpl(JwtUtils jwtUtils, UserRepo uRepo) {
+        this.jwtUtils = jwtUtils;
         this.uRepo = uRepo;
     }
 
@@ -34,22 +48,41 @@ public class UserServiceImpl implements UserService{
     public List<User> findAllUsers() {
         return uRepo.findAll();
     }
-
+    @Override
+    public LoginDTO loginUser(User user) {
+        Optional<User> optionalUser = uRepo.findByUsername(user.getUsername());
+    
+        if (optionalUser.isPresent()) {
+            User dbUser = optionalUser.get();
+    
+            if (dbUser.getPassword().equals(user.getPassword())) {
+                UserDetails userDetails = new UserPrinciple(dbUser);
+                String token = jwtUtils.generateToken(userDetails);
+    
+                return new LoginDTO(
+                    token,
+                    dbUser.getUsername(),
+                    dbUser.getUserRole(),
+                    (int) dbUser.getUserId() // safely cast long to int
+                );
+            }
+        }
+        throw new RuntimeException("Invalid username or password");
+    }
+    
     
 
+    // @Override
+    // public User loginUser(User user) {
+    //     // String username = user.getUsername();
+    //     // String password = user.getPassword();
+    //     // // User use = uRepo.findByEmailAndPassword(username, password);
+    //     // // if(use == null){
 
+    //     // // }
+    //     return user;
 
-    @Override
-    public User loginUser(User user) {
-        // String username = user.getUsername();
-        // String password = user.getPassword();
-        // // User use = uRepo.findByEmailAndPassword(username, password);
-        // // if(use == null){
-
-        // // }
-        return user;
-
-    }
+    // }
 
     @Override
     public User getById(int id) {

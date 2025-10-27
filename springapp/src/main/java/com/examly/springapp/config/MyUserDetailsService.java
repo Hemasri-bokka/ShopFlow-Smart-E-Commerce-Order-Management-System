@@ -10,13 +10,17 @@ import org.springframework.stereotype.Service;
 import com.examly.springapp.model.User;
 import com.examly.springapp.repository.UserRepo;
 
-
+@Service
 public class MyUserDetailsService implements UserDetailsService{
     private UserRepo uRepo;
     
     
     public MyUserDetailsService(UserRepo uRepo) {
         this.uRepo = uRepo;
+    }
+
+
+    public MyUserDetailsService() {
     }
 
 
