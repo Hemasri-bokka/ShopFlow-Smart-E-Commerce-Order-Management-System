@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
+// import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -20,19 +21,23 @@ import com.examly.springapp.repository.UserRepo;
 
 @Service
 public class UserServiceImpl implements UserService {
-    UserRepo uRepo;
+    @Autowired
+    private UserRepo uRepo;
+    @Autowired
     JwtUtils jwtUtils;
+    @Autowired
     PasswordEncoder passwordEncoder;
+    @Autowired
     AuthenticationManager authenticationManager;
 
-    @Autowired
-    public UserServiceImpl(JwtUtils jwtUtils, UserRepo uRepo, PasswordEncoder passwordEncoder,
-            AuthenticationManager authenticationManager) {
-        this.jwtUtils = jwtUtils;
-        this.uRepo = uRepo;
-        this.passwordEncoder = passwordEncoder;
-        this.authenticationManager = authenticationManager;
-    }
+    // public UserServiceImpl(JwtUtils jwtUtils, UserRepo uRepo, PasswordEncoder
+    // passwordEncoder,
+    // AuthenticationManager authenticationManager) {
+    // this.jwtUtils = jwtUtils;
+    // this.uRepo = uRepo;
+    // this.passwordEncoder = passwordEncoder;
+    // this.authenticationManager = authenticationManager;
+    // }
 
     @Override
     public User createUser(User user) {
@@ -59,26 +64,26 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public LoginDTO loginUser(User user) {
-    // Fetch user from DB
-    User dbUser = uRepo.findByUsername(user.getUsername());
-    if (dbUser == null) {
-        throw new RuntimeException("Invalid username or password");
-    }
-    Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword()));
-    if (authentication.isAuthenticated()) {
-        UserDetails userDetails = new UserPrinciple(dbUser);
-        String token = jwtUtils.generateToken(userDetails);
+        // Fetch user from DB
+        User dbUser = uRepo.findByUsername(user.getUsername());
+        if (dbUser == null) {
+            throw new RuntimeException("Invalid username or password");
+        }
+        Authentication authentication = authenticationManager
+                .authenticate(new UsernamePasswordAuthenticationToken(dbUser.getUsername(), user.getPassword()));
+        if (authentication.isAuthenticated()) {
+            UserDetails userDetails = new UserPrinciple(dbUser);
+            String token = jwtUtils.generateToken(userDetails);
 
-        return new LoginDTO(
-            token,
-            dbUser.getUsername(),
-            dbUser.getUserRole(),
-            (int) dbUser.getUserId()
-        );
-    }
+            return new LoginDTO(
+                    token,
+                    dbUser.getUsername(),
+                    dbUser.getUserRole(),
+                    (int) dbUser.getUserId());
+        }
 
         return null;
-}
+    }
 
     @Override
     public User getById(int id) {

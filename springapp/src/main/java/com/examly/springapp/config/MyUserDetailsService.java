@@ -12,12 +12,9 @@ import com.examly.springapp.repository.UserRepo;
 
 @Service
 public class MyUserDetailsService implements UserDetailsService{
+    @Autowired
     private UserRepo uRepo;
     
-    
-    public MyUserDetailsService(UserRepo uRepo) {
-        this.uRepo = uRepo;
-    }
 
 
     public MyUserDetailsService() {
