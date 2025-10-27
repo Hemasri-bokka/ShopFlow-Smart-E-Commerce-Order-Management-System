@@ -66,8 +66,6 @@ public class UserServiceImpl implements UserService{
     @Override
     public boolean validateUserByUsername(String username, String password) {
         return uRepo.findByEmailAndPassword(username, password).isPresent();
-
-        
       }
 
       @Override
@@ -77,13 +75,9 @@ public class UserServiceImpl implements UserService{
           }
       }
       
-
     @Override
     public Optional<User> getUserByName(String name) {
         return uRepo.findByUsername(name);
 
     }
-    
-
-
 }
