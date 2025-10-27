@@ -10,4 +10,5 @@ import com.examly.springapp.model.Product;
 @Repository
 public interface ProductRepo extends JpaRepository<Product,Long>{
     List<Product> findByCategory(String category);
+    List<Product> findByUserId(Long userId);
 }
