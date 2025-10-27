@@ -35,17 +35,19 @@ public class UserServiceImpl implements UserService{
         return uRepo.findAll();
     }
 
+    
+
 
 
     @Override
     public User loginUser(User user) {
-        String username = user.getUsername();
-        String password = user.getPassword();
-        User use = uRepo.findByEmailAndPassword(username, password);
-        if(use == null){
+        // String username = user.getUsername();
+        // String password = user.getPassword();
+        // // User use = uRepo.findByEmailAndPassword(username, password);
+        // // if(use == null){
 
-        }
-        return use;
+        // // }
+        return user;
 
     }
 
