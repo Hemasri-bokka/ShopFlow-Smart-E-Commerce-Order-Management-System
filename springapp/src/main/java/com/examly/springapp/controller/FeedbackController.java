@@ -20,9 +20,9 @@ public class FeedbackController {
     @Autowired
     private FeedbackService ser;
 
-    @PostMapping("/api/feedback") 
-    public ResponseEntity<Feedback> createFeedback(@RequestBody Feedback fb){
-        Feedback found = ser.createFeedback(fb);
+    @PostMapping("/api/feedback/{userId}") 
+    public ResponseEntity<Feedback> createFeedback(@RequestBody Feedback fb, @PathVariable long userId){ 
+        Feedback found = ser.createFeedback(fb, userId);
         if(found != null){
             return ResponseEntity.status(201).body(found);
         }
@@ -39,9 +39,19 @@ public class FeedbackController {
     }
 
     @GetMapping("/api/feedback/user/{userId}")
-    public ResponseEntity<Feedback> getFeedbackById(@PathVariable long userId){
-        Feedback found =  ser.getFeedbackById(userId);
-        if(found == null){
+    public ResponseEntity<List<Feedback>> getFeedbackById(@PathVariable long userId){
+        List<Feedback> found =  ser.getFeedbackByUserId(userId); 
+        if(found.isEmpty()){
+            return ResponseEntity.status(404).build();
+        }
+        return ResponseEntity.status(200).body(found);
+        
+    }
+
+    @GetMapping("/api/feedback/feedback/{feedbackId}")
+    public ResponseEntity<Feedback> getFeedbackByIId(@PathVariable long feedbackId){
+        Feedback found =  ser.getFeedbackById(feedbackId); 
+        if(found == null){ 
             return ResponseEntity.status(404).build();
         }
         return ResponseEntity.status(200).body(found);

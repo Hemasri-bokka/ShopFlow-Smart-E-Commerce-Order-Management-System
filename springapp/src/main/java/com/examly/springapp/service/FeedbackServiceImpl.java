@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.examly.springapp.model.Feedback;
+import com.examly.springapp.model.User;
 import com.examly.springapp.repository.FeedbackRepo;
 import com.examly.springapp.repository.UserRepo;
 
@@ -14,10 +15,16 @@ import com.examly.springapp.repository.UserRepo;
 public class FeedbackServiceImpl implements FeedbackService{
     @Autowired
     private FeedbackRepo frepo;
+    @Autowired
+    private UserRepo urepo;
 
     @Override
-    public Feedback createFeedback(Feedback feedback) {
-        
+    public Feedback createFeedback(Feedback feedback, long userId) {
+        User found = urepo.findById(userId).orElse(null);
+        if(found == null){
+            return null;
+        }
+        feedback.setUser(found);
         return frepo.save(feedback);
     }
 
