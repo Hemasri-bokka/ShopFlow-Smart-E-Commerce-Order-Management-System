@@ -64,6 +64,8 @@ public class UserServiceImpl implements UserService{
     @Override
     public boolean validateUserByUsername(String username, String password) {
         return uRepo.findByEmailAndPassword(username, password).isPresent();
+
+        
       }
 
       @Override
