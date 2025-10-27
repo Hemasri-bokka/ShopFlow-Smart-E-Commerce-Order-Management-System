@@ -48,7 +48,7 @@ public class OrderServiceImpl implements OrderService{
     @Override
     public List<Order> getOrdersByUser(int userId) {
         long ind = userId;
-        return null;
+        return orepo.findById(userId).orElse(null);
     }
 
     @Override

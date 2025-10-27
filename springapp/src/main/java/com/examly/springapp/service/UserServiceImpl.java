@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import com.examly.springapp.config.UserPrinciple;
 import com.examly.springapp.model.User;
 import com.examly.springapp.repository.UserRepo;
 
@@ -25,8 +26,8 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public UserDetails loadUserByUsername(String userName) {
-        User user = uRepo.findByUsername(userName).orElseThrow();
-
+        User user =  uRepo.findByUsername(userName).orElse(null);
+        return new UserPrinciple(user);
     }
 
     @Override
