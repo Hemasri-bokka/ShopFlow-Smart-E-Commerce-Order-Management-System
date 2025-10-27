@@ -20,32 +20,32 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "orders")
 public class Order {
-    @Id
-    @GeneratedValue
-    private long orderId;
-    private String shippingAddress;
-    private double totalAmount;
-    private int quantity;
-    @Enumerated(EnumType.STRING)
-    private OrderStatus status;
-    
-    private Date createdAt;
-    private Date updatedAt;
+        @Id
+        @GeneratedValue
+            private long orderId;
+            private String shippingAddress;
+            private double totalAmount;
+            private int quantity;
+            @Enumerated(EnumType.STRING)
+            private OrderStatus status;
+            
+            private Date createdAt;
+            private Date updatedAt;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+            @ManyToOne
+            @JoinColumn(name = "user_id")
+            private User user;
 
-    @ManyToMany
-    @JoinTable(
-        name = "order_products",
-        joinColumns = @JoinColumn(name="order_id"),
-        inverseJoinColumns = @JoinColumn(name="product_id")
-    )
-    List<Product> product = new ArrayList<>();
+            @ManyToMany
+            @JoinTable(
+                name = "order_products",
+                joinColumns = @JoinColumn(name="order_id"),
+                inverseJoinColumns = @JoinColumn(name="product_id")
+            )
+            List<Product> product = new ArrayList<>();
 
-    public Order() {
-    }
+            public Order() {
+            }
 
     public Order(long orderId, String shippingAddress, double totalAmount, int quantity, Date createdAt, Date updatedAt,
             User user, List<Product> product) {
