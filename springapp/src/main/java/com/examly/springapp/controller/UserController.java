@@ -24,15 +24,13 @@ import com.examly.springapp.service.UserServiceImpl;
 @RestController
 public class UserController {
 
-    
+    @Autowired
     private JwtUtils jwtUtils;
 
-
+    @Autowired
     private UserServiceImpl ser;
     
 
-    public UserController() {
-    }
 
     public UserController(JwtUtils jwtUtils, UserServiceImpl ser) {
         this.jwtUtils = jwtUtils;
@@ -42,22 +40,10 @@ public class UserController {
     // Register User
     @PostMapping("/api/register")
     public ResponseEntity<?> registerUser(@RequestBody User user) {
-        try {
-            User createdUser = ser.createUser(user);
-            return ResponseEntity.status(201).body(createdUser); // Created
-        } catch (Exception e) {
-            return ResponseEntity.status(409).body("Registration failed"); // Conflict
-        }
+        User createdUser = ser.createUser(user);
+        return ResponseEntity.status(201).body(createdUser); 
     }
-//     @PostMapping("/api/login")
-//     public ResponseEntity<?> loginUser(@RequestBody User user) {
-//     try {
-//         User loginResponse = ser.loginUser(user);
-//         return ResponseEntity.ok().body(loginResponse);
-//     } catch (Exception e) {
-//         return ResponseEntity.status(401).body("Invalid credentials");
-//     }
-// }
+
 @PostMapping("/api/login")
 public ResponseEntity<?> loginUser(@RequestBody User user) {
     try {
