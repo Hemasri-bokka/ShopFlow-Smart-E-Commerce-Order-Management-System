@@ -9,6 +9,6 @@ export interface Product {
     category:string;
     photoImage?:string;
     createdAt:Date;
-    UpdatedAt:Date;
+    updatedAt:Date;
     user:User;
 }
