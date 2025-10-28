@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.security.access.prepost.PreAuthorize;
 import com.examly.springapp.model.Order;
 import com.examly.springapp.service.OrderServiceImpl;
 
@@ -23,15 +23,17 @@ public class OrderController {
     }
 
     @PostMapping("/api/orders")
+    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<Order> addorder(@RequestBody Order order){
         Order found = ser.addorder(order);
         if(found==null){
             return ResponseEntity.status(403).build();
         }
-        return ResponseEntity.status(201).body(found);
+        return ResponseEntity.status(200).body(found);
     }
 
     @GetMapping("/api/orders/{id}")
+    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<Order> getOrderById(@PathVariable long id){
         Order found = ser.getOrderById(id);
         if(found==null){
@@ -41,6 +43,7 @@ public class OrderController {
     }
 
     @PutMapping("/api/orders/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Order> updateOrder(@PathVariable long id, @RequestBody Order updateOrder){
         Order found = ser.updateOrder(id,updateOrder);
         if(found==null){
@@ -50,12 +53,14 @@ public class OrderController {
     }
 
     @DeleteMapping("/api/orders/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Void> deleteOrder(@PathVariable long id){
         ser.deleteOrder(id);
         return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/api/orders")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<List<Order>> getAllOrders(){
         List<Order> found = ser.getAllOrders();
         if(found==null){
@@ -65,6 +70,7 @@ public class OrderController {
     }
 
     @GetMapping("/api/orders/user/{userId}")
+    @PreAuthorize("hasRole('USER')")
     public ResponseEntity<List<Order>> getOrdersByUserId(@PathVariable long userId){
         List<Order> found = ser.getOrdersByUserId(userId);
         if(found==null){
