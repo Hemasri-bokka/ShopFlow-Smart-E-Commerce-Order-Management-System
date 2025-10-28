@@ -7,7 +7,7 @@ export interface Order {
     product:Product[];
     shippingAddress:string;
     totalAmount:number;
-    qunatity:number;
+    quantity:number;
     status:string;
     createdAt:Date;
     updatedAt:Date;
