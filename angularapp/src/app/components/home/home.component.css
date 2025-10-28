@@ -1,0 +1,101 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Hero Section with Background Image */
+  .hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('/assets/background.jpg') no-repeat center center/cover;
+  }
+  
+  /* Overlay for Text */
+  .overlay {
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+    max-width: 900px;
+    border-radius: 10px;
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  /* Fade-in Animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .overlay h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #00ffff; /* Cyan for title */
+    letter-spacing: 2px;
+  }
+  
+  .overlay p {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #f1f1f1;
+  }
+  
+  .overlay span {
+    color: #00ffff; /* Highlight keywords */
+    font-weight: bold;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .overlay h1 {
+      font-size: 2.5rem;
+    }
+    .overlay p {
+      font-size: 1rem;
+    }
+  }
+
+
+
+
+
+
+  .overlay {
+    background: rgba(255, 255, 255, 0.15); /* Transparent white */
+    backdrop-filter: blur(10px); /* Glass blur effect */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    text-align: center;
+    padding: 2rem;
+    max-width: 900px;
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  /* Text styling remains same */
+  .overlay h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: #00ffff;
+    letter-spacing: 2px;
+  }
+  
+  .overlay p {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: #f1f1f1;
+  }
+  
+  .overlay span {
+    color: #00ffff;
+    font-weight: bold;
+  }

@@ -11,13 +11,15 @@ import jakarta.persistence.ManyToOne;
 public class Feedback {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue
     private long feedbackId;
     private String message;
     private int rating;
+
     @ManyToOne
     @JoinColumn(name = "userId")
     private User user;
+
     public Feedback() {
     }
     public Feedback(long feedbackId, String message, int rating, User user) {
