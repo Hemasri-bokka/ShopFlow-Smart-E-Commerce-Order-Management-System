@@ -3,6 +3,7 @@ package com.examly.springapp.controller;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +24,7 @@ public class ProductController {
     }
 
     @PostMapping("/api/products")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Product> addProduct( @RequestBody Product product){
         Product added = service.addProduct(product);
         if(added == null){
@@ -32,6 +34,7 @@ public class ProductController {
     }
 
     @PutMapping("/api/products/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody Product productRequest){
         Product updated = service.updateProduct(id, productRequest);
         if(updated == null){
@@ -41,6 +44,7 @@ public class ProductController {
     }
 
     @GetMapping("/api/products/user/{userId}")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     public ResponseEntity<Product> getProductByUserId( @PathVariable Long userId){
         Product found = service.getProductById(userId);
         if(found == null){
@@ -50,6 +54,7 @@ public class ProductController {
     }
 
     @GetMapping("/api/products/{id}")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     public ResponseEntity<Product> getProductById( @PathVariable Long id) {
        Product found = service.getProductById(id);
        if(found == null){
@@ -59,6 +64,7 @@ public class ProductController {
     }
 
     @DeleteMapping("/api/products/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Boolean> deleteProduct(@PathVariable Long id){
         boolean found = service.deleteProduct(id);
         if(found){
@@ -68,6 +74,7 @@ public class ProductController {
     }
 
     @GetMapping("/api/products/category/{category}")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     public ResponseEntity<List<Product>> getProductsByCategory( @PathVariable String category){
        List<Product> found = service.getProductsByCategory(category);
     if(found == null){
@@ -77,6 +84,7 @@ public class ProductController {
     }
     
     @GetMapping("/api/products")
+    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
     public ResponseEntity<List<Product>> getAllProducts(){
        List<Product> found = service.getAllProducts();
     if(found == null){
