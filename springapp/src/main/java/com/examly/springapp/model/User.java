@@ -1,8 +1,12 @@
 package com.examly.springapp.model;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class User {
@@ -14,6 +18,7 @@ public class User {
     private String username;
     private String mobileNumber;
     private String userRole;
+
     public User() {
     }
     public User(long userId, String email, String password, String username, String mobileNumber, String userRole) {
