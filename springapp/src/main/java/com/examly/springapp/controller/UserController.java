@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -51,6 +52,7 @@ public ResponseEntity<?> loginUser(@RequestBody User user) {
 }
 
     @GetMapping("/api/user")
+     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<List<User>> getAllUsers() {
 
         List<User> found = ser.findAllUsers();
@@ -58,6 +60,7 @@ public ResponseEntity<?> loginUser(@RequestBody User user) {
     }
 
     @DeleteMapping("/api/user/{userId}")
+    
     public ResponseEntity<?> deleteUserById(@PathVariable int userId) {
         ser.deleteUser(userId);
         return ResponseEntity.status(200).build(); // OK
