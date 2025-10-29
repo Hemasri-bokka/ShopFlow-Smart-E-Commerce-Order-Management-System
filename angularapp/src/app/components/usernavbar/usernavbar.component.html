@@ -1,1 +1,21 @@
-<p>usernavbar works!</p>
+<nav class="user-navbar">
+    <div class="site-title">
+      <a routerLink="/" style="text-decoration: none; color: inherit;">
+        Smart Mart
+      </a>
+    </div>
+  
+    <!-- Centered User Info -->
+    <div class="user-info">
+      <mat-icon>account_circle</mat-icon>
+      <span class="user-name">{{ userName }}</span>
+    </div>
+  
+    <ul class="nav-links">
+      <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+      <li><a routerLink="/user/products" routerLinkActive="active">Products</a></li>
+      <li><a routerLink="/user/cart" routerLinkActive="active">Cart</a></li>
+      <li><a routerLink="/user/orders" routerLinkActive="active">My Orders</a></li>
+      <li><a routerLink="" routerLinkActive="active">Logout</a></li>
+    </ul>
+  </nav>
