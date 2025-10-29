@@ -20,6 +20,8 @@ import { UsernavbarComponent } from './components/usernavbar/usernavbar.componen
 import { UserviewfeedbackComponent } from './components/userviewfeedback/userviewfeedback.component';
 import { UserviewordersComponent } from './components/uservieworders/uservieworders.component';
 import { UserviewproductComponent } from './components/userviewproduct/userviewproduct.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AdminaddproductComponent } from './components/adminaddproduct/adminaddproduct.component';
 import { FormsModule } from '@angular/forms';
 import { AdminviewfeedbackComponent } from './components/adminviewfeedback/adminviewfeedback.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -33,6 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
     AdminnavbarComponent,
     AdminviewordersComponent,
     AdminviewuserdetailsComponent,
+    AdminaddproductComponent,
     AuthguardComponent,
     LoginComponent,
     NavbarComponent,
@@ -46,8 +49,9 @@ import { HttpClientModule } from '@angular/common/http';
     AdminviewfeedbackComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule, 
     AppRoutingModule,
+    ReactiveFormsModule,
     FormsModule,
     HttpClientModule
    
