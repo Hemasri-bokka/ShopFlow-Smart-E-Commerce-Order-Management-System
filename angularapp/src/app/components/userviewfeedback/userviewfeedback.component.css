@@ -1,0 +1,36 @@
+.user-feedback-wrapper {
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #2c3e50;
+  }
+  
+  .no-feedback {
+    color: #7f8c8d;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  
+  .user-feedback-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+  }
+  
+  .user-feedback-table th,
+  .user-feedback-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .user-feedback-table th {
+    background-color: #ecf0f1;
+    font-weight: bold;
+  }
+  
