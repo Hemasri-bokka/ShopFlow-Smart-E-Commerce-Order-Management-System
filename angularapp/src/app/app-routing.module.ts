@@ -22,13 +22,11 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
   { path: '**', component: ErrorComponent },
-
   { path: 'admin/products', component: AdminviewproductComponent },
   { path: 'admin/orders', component: AdminviewordersComponent},
   { path: 'admin/users', component: AdminviewuserdetailsComponent},
   {path:'admin/products', component: AdminaddproductComponent},
   // {path: 'admin/view-feedback', component: AdminView}
-
   { path: 'user/products', component: UserviewproductComponent},
   { path: 'user/cart', component: UseraddcartComponent },
   { path: 'user/orders', component: UserviewordersComponent },
