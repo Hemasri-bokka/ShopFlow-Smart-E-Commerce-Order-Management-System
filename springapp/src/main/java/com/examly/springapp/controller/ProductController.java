@@ -44,7 +44,7 @@ public class ProductController {
     }
 
     @GetMapping("/api/products/user/{userId}")
-    @PreAuthorize("hasAnyRole('USER', 'ADMIN')")
+    @PreAuthorize("hasAnyRole('USER')")
     public ResponseEntity<Product> getProductByUserId( @PathVariable Long userId){
         Product found = service.getProductById(userId);
         if(found == null){
