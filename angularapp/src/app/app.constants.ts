@@ -1,1 +1,1 @@
-export const APP_URL = '///';
+export const APP_URL = 'https://8080-baadeefefccdbfaaaeedadbddffabbccfeabfadfbfdec.premiumproject.examly.io/api';

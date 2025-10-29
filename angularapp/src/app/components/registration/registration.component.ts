@@ -13,6 +13,7 @@ export class RegistrationComponent implements OnInit {
   registerForm:FormGroup
   users:User[] = [];
   constructor(private fb:FormBuilder,private service:AuthService,private router:Router){
+
     this.registerForm = this.fb.group({
       username:['',Validators.required],
       email:['',Validators.required],
@@ -32,7 +33,7 @@ export class RegistrationComponent implements OnInit {
       (error)=>{
         this.registerForm.reset()
         alert("Registration not done")
-        this.router.navigate(['/error'],{queryParams:{errorMsg:'Registration not done due to exising emailId'}} )
+        this.router.navigate(['/error'],{queryParams:{errorMsg:'Registration not done due to exising Username'}} )
       });
 
     }
