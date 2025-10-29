@@ -19,6 +19,9 @@ import { UsernavbarComponent } from './components/usernavbar/usernavbar.componen
 import { UserviewfeedbackComponent } from './components/userviewfeedback/userviewfeedback.component';
 import { UserviewordersComponent } from './components/uservieworders/uservieworders.component';
 import { UserviewproductComponent } from './components/userviewproduct/userviewproduct.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AdminaddproductComponent } from './components/adminaddproduct/adminaddproduct.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,6 +32,7 @@ import { UserviewproductComponent } from './components/userviewproduct/userviewp
     AdminnavbarComponent,
     AdminviewordersComponent,
     AdminviewuserdetailsComponent,
+    AdminaddproductComponent,
     AuthguardComponent,
     LoginComponent,
     NavbarComponent,
@@ -41,8 +45,10 @@ import { UserviewproductComponent } from './components/userviewproduct/userviewp
     UserviewproductComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+    BrowserModule, 
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
