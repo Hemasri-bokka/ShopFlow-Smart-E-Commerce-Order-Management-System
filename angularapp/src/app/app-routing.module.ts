@@ -14,6 +14,7 @@ import { UserviewfeedbackComponent } from './components/userviewfeedback/uservie
 import { ErrorComponent } from './components/error/error.component';
 import { AuthguardComponent } from './components/authguard/authguard.component';
 import { AdminaddproductComponent } from './components/adminaddproduct/adminaddproduct.component';
+import { AdminviewfeedbackComponent } from './components/adminviewfeedback/adminviewfeedback.component';
 
 
 const routes: Routes = [
@@ -21,17 +22,24 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
-  { path: '**', component: ErrorComponent },
+
   { path: 'admin/products', component: AdminviewproductComponent },
   { path: 'admin/orders', component: AdminviewordersComponent},
   { path: 'admin/users', component: AdminviewuserdetailsComponent},
   {path:'admin/products', component: AdminaddproductComponent},
-  // {path: 'admin/view-feedback', component: AdminView}
+  {path: 'admin/add-product', component: AdminaddproductComponent},
+  {path: 'admin/view-feedback', component: AdminviewfeedbackComponent},
+
+
   { path: 'user/products', component: UserviewproductComponent},
   { path: 'user/cart', component: UseraddcartComponent },
   { path: 'user/orders', component: UserviewordersComponent },
   { path: 'user/feedback', component: UseraddfeedbackComponent },
-  { path: 'user/view-feedback', component: UserviewfeedbackComponent }
+  { path: 'user/view-feedback', component: UserviewfeedbackComponent },
+  { path: '**', component: ErrorComponent }
+
+  
+];
 
   // Admin routes
   // { path: 'admin/products', component: AdminviewproductComponent, canActivate: [AuthguardComponent] },
@@ -45,11 +53,7 @@ const routes: Routes = [
   // { path: 'user/feedback', component: UseraddfeedbackComponent, canActivate: [AuthguardComponent] },
   // { path: 'user/view-feedback', component: UserviewfeedbackComponent, canActivate: [AuthguardComponent] },
 
-import { AdminaddproductComponent } from './components/adminaddproduct/adminaddproduct.component';
 
-const routes: Routes = [
-  { path: 'add-product', component: AdminaddproductComponent}
-];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
