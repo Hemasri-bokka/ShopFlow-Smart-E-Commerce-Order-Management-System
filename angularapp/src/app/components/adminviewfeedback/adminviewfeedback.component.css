@@ -1,0 +1,48 @@
+.feedback-container {
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
+  }
+  
+  h2 {
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .no-data {
+    color: #888;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  
+  .feedback-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+  }
+  
+  .feedback-table th,
+  .feedback-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .feedback-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .btn-view {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+  }
+  
+  .btn-view:hover {
+    background-color: #0056b3;
+  }

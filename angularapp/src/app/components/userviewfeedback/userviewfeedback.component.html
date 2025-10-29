@@ -1,1 +1,24 @@
-<p>userviewfeedback works!</p>
+<div class="user-feedback-wrapper">
+    <h2>Your Submitted Feedback</h2>
+  
+    <div *ngIf="userFeedbackList.length === 0" class="no-feedback">
+      No feedback submitted yet.
+    </div>
+  
+    <table *ngIf="userFeedbackList.length > 0" class="user-feedback-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Comment</th>
+          <th>Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let feedback of userFeedbackList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ feedback.comment }}</td>
+          <td>{{ feedback.rating }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
