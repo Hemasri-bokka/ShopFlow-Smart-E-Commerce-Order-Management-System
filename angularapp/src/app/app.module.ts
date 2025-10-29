@@ -3,16 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { ErrorComponent } from './error/error.component';
+import { HomeComponent } from './components/home/home.component';
+import { ErrorComponent } from './components/error/error.component';
 import { AdminviewproductComponent } from './components/adminviewproduct/adminviewproduct.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ErrorComponent
-    AdminviewproductComponent
+    ErrorComponent,
+    AdminviewproductComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
