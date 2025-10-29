@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
 import { AdminviewproductComponent } from './components/adminviewproduct/adminviewproduct.component';
+import { FormsModule } from '@angular/forms';
 import { AdminnavbarComponent } from './components/adminnavbar/adminnavbar.component';
 import { AdminviewordersComponent } from './components/adminvieworders/adminvieworders.component';
 import { AdminviewuserdetailsComponent } from './components/adminviewuserdetails/adminviewuserdetails.component';
@@ -20,6 +21,7 @@ import { UserviewfeedbackComponent } from './components/userviewfeedback/uservie
 import { UserviewordersComponent } from './components/uservieworders/uservieworders.component';
 import { UserviewproductComponent } from './components/userviewproduct/userviewproduct.component';
 import { FormsModule } from '@angular/forms';
+import { AdminviewfeedbackComponent } from './components/adminviewfeedback/adminviewfeedback.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -40,11 +42,15 @@ import { HttpClientModule } from '@angular/common/http';
     UsernavbarComponent,
     UserviewfeedbackComponent,
     UserviewordersComponent,
-    UserviewproductComponent
+    UserviewproductComponent,
+    AdminviewfeedbackComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
+   
   ],
   providers: [],
   bootstrap: [AppComponent]

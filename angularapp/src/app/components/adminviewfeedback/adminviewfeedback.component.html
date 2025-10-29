@@ -1,0 +1,34 @@
+<div class="feedback-container">
+    <h2>Feedback Details</h2>
+  
+    <!-- If no data -->
+    <div *ngIf="feedbackList.length === 0" class="no-data">
+      No data found
+    </div>
+  
+    <!-- If data exists -->
+    <table *ngIf="feedbackList.length > 0" class="feedback-table">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>User Name</th>
+          <th>Feedback</th>
+          <th>Ratings</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let feedback of feedbackList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ feedback.userName }}</td>
+          <td>{{ feedback.comment }}</td>
+          <td>{{ feedback.rating }}</td>
+          <td>
+            <button class="btn-view" (click)="viewProfile(feedback.userId)">
+              Show Profile
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
