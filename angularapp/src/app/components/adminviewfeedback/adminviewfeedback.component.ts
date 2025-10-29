@@ -12,6 +12,7 @@ export class AdminviewfeedbackComponent implements OnInit {
 
 
   feedbackList: Feedback[] = [];
+ 
 
   constructor(private feedbackService: FeedbackService, private router: Router) {}
 

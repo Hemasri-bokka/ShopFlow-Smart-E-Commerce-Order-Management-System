@@ -20,8 +20,8 @@
       <tbody>
         <tr *ngFor="let feedback of feedbackList; let i = index">
           <td>{{ i + 1 }}</td>
-          <td>{{ feedback.userName }}</td>
-          <td>{{ feedback.comment }}</td>
+          <td>{{ feedback.user.username }}</td>
+          <td>{{ feedback.message }}</td>
           <td>{{ feedback.rating }}</td>
           <td>
             <button class="btn-view" (click)="viewProfile(feedback.userId)">

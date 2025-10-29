@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.examly.springapp.model.enums.OrderStatus;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;

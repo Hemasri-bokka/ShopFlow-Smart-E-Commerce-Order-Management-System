@@ -22,13 +22,12 @@ public class FeedbackController {
 
     @PostMapping("/api/feedback")
     @PreAuthorize("hasRole('USER')")
-    public ResponseEntity<Feedback> createFeedback(@RequestBody Feedback fb){ 
-        long userId = fb.getUser().getUserId();
-        Feedback found = ser.createFeedback(fb, userId);
-        if(found != null){
-            return ResponseEntity.status(201).body(found);
+    public ResponseEntity<Feedback> createFeedback(@RequestBody Feedback fb) {
+        if (fb.getUser() == null || fb.getUser().getUserId() == 0) {
+            return ResponseEntity.badRequest().build();
         }
-        return ResponseEntity.status(409).build(); 
+        Feedback saved = ser.createFeedback(fb);
+        return ResponseEntity.status(201).body(saved);
     }
 
     @GetMapping("/api/feedback")
@@ -64,12 +63,13 @@ public class FeedbackController {
 
     @DeleteMapping("/api/feedback/{id}")
     @PreAuthorize("hasRole('USER')")
-    public ResponseEntity<Feedback> delete(@PathVariable long id){
-        Feedback found = ser.deleteFeedback(id);
-        if(found == null){
-            return ResponseEntity.status(404).build();
+    public ResponseEntity<?> delete(@PathVariable long id){
+        boolean found = ser.deleteFeedback(id);
+        if(found){
+            return ResponseEntity.status(200).build();
         }
-        return ResponseEntity.status(200).body(found); 
+        return ResponseEntity.status(404).build();
+       
     }
 
 }

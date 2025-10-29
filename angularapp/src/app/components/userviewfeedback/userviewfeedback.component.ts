@@ -10,7 +10,7 @@ import { FeedbackService } from 'src/app/services/feedback.service';
   styleUrls: ['./userviewfeedback.component.css']
 })
 export class UserviewfeedbackComponent implements OnInit {
-
+  displayedColumns: string[] = ['index', 'message', 'rating', 'actions'];
   userFeedbackList: Feedback[] = [];
   userId: number = 1; // Replace with dynamic user ID from auth or route
 
@@ -29,6 +29,9 @@ export class UserviewfeedbackComponent implements OnInit {
         console.error('Error loading user feedback:', err);
       }
     });
+  }
+  deleteFeedback(id){
+    this.feedbackService.deleteFeedback(id).subscribe();
   }
 
 }
