@@ -19,6 +19,7 @@ import { UsernavbarComponent } from './components/usernavbar/usernavbar.componen
 import { UserviewfeedbackComponent } from './components/userviewfeedback/userviewfeedback.component';
 import { UserviewordersComponent } from './components/uservieworders/uservieworders.component';
 import { UserviewproductComponent } from './components/userviewproduct/userviewproduct.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { UserviewproductComponent } from './components/userviewproduct/userviewp
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
