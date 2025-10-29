@@ -34,6 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AdminaddproductComponent } from './components/adminaddproduct/adminaddproduct.component'
 import { AdminviewfeedbackComponent } from './components/adminviewfeedback/adminviewfeedback.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +57,7 @@ import { AdminviewfeedbackComponent } from './components/adminviewfeedback/admin
     UserviewfeedbackComponent,
     UserviewordersComponent,
     UserviewproductComponent,
+    FooterComponent,
     
   ],
   imports: [
@@ -71,7 +73,7 @@ import { AdminviewfeedbackComponent } from './components/adminviewfeedback/admin
     MatInputModule,
     MatSelectModule,
     MatIconModule
-
+ 
   ],
   providers: [],
   bootstrap: [AppComponent]
