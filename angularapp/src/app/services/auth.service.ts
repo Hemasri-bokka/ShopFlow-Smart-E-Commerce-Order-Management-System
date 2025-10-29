@@ -70,6 +70,11 @@ export class AuthService {
       return localStorage.getItem(TOKEN);
   }
 
+getUserId(){
+  return localStorage.getItem(USER_ID);
+}
+
+
   pageId(): string {
     var pageId = localStorage.getItem(PAGE_ID);
     if (pageId === null) {

@@ -12,9 +12,9 @@
         </div>
   
         <div class="form-group">
-          <label for="comment">Comment</label>
-          <textarea id="comment" formControlName="comment"></textarea>
-          <div *ngIf="submitted && feedbackForm.controls.comment.invalid" class="error">
+          <label for="message">Comment</label>
+          <textarea id="message" formControlName="message"></textarea>
+          <div *ngIf="submitted && feedbackForm.controls.message.invalid" class="error">
             Comment must be at least 10 characters.
           </div>
         </div>

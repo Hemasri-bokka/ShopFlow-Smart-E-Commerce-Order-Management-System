@@ -1,29 +1,49 @@
 package com.examly.springapp.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import com.examly.springapp.model.Order;
+import com.examly.springapp.model.Product;
 import com.examly.springapp.model.User;
 import com.examly.springapp.model.enums.OrderStatus;
 import com.examly.springapp.repository.OrderRepo;
+import com.examly.springapp.repository.ProductRepo;
 import com.examly.springapp.repository.UserRepo;
 
 @Service
 public class OrderServiceImpl implements OrderService{
     private OrderRepo orepo;
     private UserRepo urepo;
+    private ProductRepo prepo;
 
-    public OrderServiceImpl(OrderRepo orepo,UserRepo urepo){
-        this.orepo=orepo;
-        this.urepo=urepo;
+    
+
+    public OrderServiceImpl(OrderRepo orepo, UserRepo urepo, ProductRepo prepo) {
+        this.orepo = orepo;
+        this.urepo = urepo;
+        this.prepo = prepo;
     }
 
     @Override
-    public Order addorder(Order order) {
-        return orepo.save(order);
+public Order addorder(Order order) {
+    User user = urepo.findById(order.getUser().getUserId())
+        .orElseThrow(() -> new RuntimeException("User not found"));
+
+    // Fetch products from DB using IDs
+    List<Product> managedProducts = new ArrayList<>();
+    for (Product p : order.getProduct()) {
+        Product dbProduct = prepo.findById(p.getProductId())
+            .orElseThrow(() -> new RuntimeException("Product not found: " + p.getProductId()));
+        managedProducts.add(dbProduct);
     }
+
+    order.setUser(user);
+    order.setProduct(managedProducts);
+    return orepo.save(order);
+}
 
     @Override
     public void deleteOrder(long orderId) {

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Order } from '../models/order.model';
+import { APP_URL } from '../app.constants';
 
 @Injectable({
   providedIn: 'root'
@@ -10,29 +11,28 @@ export class OrderService {
 
   constructor(private http:HttpClient) { }
 
-  apiUrl='http://localhost:8080';
 
   placeOrder(order:Order):Observable<any>{
-    return this.http.post<any>(this.apiUrl,order);
+    return this.http.post<any>(`${APP_URL}/orders`,order);
   }
 
   deleteOrder(id:number):Observable<any>{
-    return this.http.delete<any>(`${this.apiUrl}/${id}`);
+    return this.http.delete<any>(`${APP_URL }/orders/${id}`);
   }
 
   getOrderDetails(orderId:number):Observable<any>{
-    return this.http.get<any>(`${this.apiUrl}/${orderId}`);
+    return this.http.get<any>(`${APP_URL }/orders/${orderId}`);
   }
 
   getOrderByUserId(userId:number):Observable<any>{
-    return this.http.get<any>(`${this.apiUrl}/${userId}`);
+    return this.http.get<any>(`${APP_URL}/orders/${userId}`);
   }
 
   getOrders():Observable<any>{
-    return this.http.get<any>(this.apiUrl);
+    return this.http.get<any>(`${APP_URL}/orders`);
   }
 
   updateOrderStatus(id:number,order:any):Observable<any>{
-    return this.http.put<any>(`${this.apiUrl}/${id}`,order);
+    return this.http.put<any>(`${APP_URL}/orders/${id}`,order);
   }
 }

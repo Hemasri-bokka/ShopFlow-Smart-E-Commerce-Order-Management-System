@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Order } from 'src/app/models/order.model';
+import { AuthService } from 'src/app/services/auth.service';
+import { OrderService } from 'src/app/services/order.service';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-useraddcart',
@@ -6,10 +10,83 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./useraddcart.component.css']
 })
 export class UseraddcartComponent implements OnInit {
+    shippingAddress: string = '';
+    cartItems: any[] = [];
+    userId = this.aes.getUserId() ;
+    displayedColumns: string[] = ['name', 'price', 'quantity', 'actions'];
+  
+    constructor(private productService: ProductService, private orderService: OrderService, private aes: AuthService) {}
+  
+    ngOnInit(): void {
+      this.productService.cart$.subscribe(cart => this.cartItems = cart);
+    }
+  
+    removeItem(item: any): void {
+      this.productService.removeFromCart(item);
+    }
+  
+    // getTotal(): number {
+    //   return this.cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    // }
+    getBaseTotal(): number {
+      return this.cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    }
+    
+    getGST(): number {
+      return this.getBaseTotal() * 0.18; // 18% GST
+    }
+    
+    getDeliveryCharge(): number {
+      return this.getBaseTotal() * 0.03; // 3% Delivery
+    }
+    
+    getTotal(): number {
+      return this.getBaseTotal() + this.getGST() + this.getDeliveryCharge();
+    }
+    
+    increaseQuantity(item: any): void {
+      item.quantity += 1;
+      this.updateCart();
+    }
+    
+    decreaseQuantity(item: any): void {
+      if (item.quantity > 1) {
+        item.quantity -= 1;
+        this.updateCart();
+      }
+    }
+    
+    updateCart(): void {
+      localStorage.setItem('cart', JSON.stringify(this.cartItems));
+      this.productService.refreshCart(this.cartItems);
+    }
 
-  constructor() { }
+  placeOrder(): void {
+    if (!this.shippingAddress.trim()) {
+      alert('Please enter a shipping address.');
+      return;
+    }
 
-  ngOnInit(): void {
+    const order: Order = {
+      user: { userId: +this.userId}, // Replace with AuthService user
+      product: this.cartItems,
+      shippingAddress: this.shippingAddress,
+      totalAmount: this.getTotal(),
+      quantity: this.cartItems.reduce((sum, item) => sum + item.quantity, 0),
+      status: 'Pending',
+      createdAt: new Date(),
+      updatedAt: new Date()
+    };
+
+    this.orderService.placeOrder(order).subscribe({
+      next: () => {
+        alert('Order placed successfully!');
+        localStorage.removeItem('cart');
+        this.cartItems = [];
+        this.shippingAddress = '';
+      },
+      error: (err) => console.error('Error placing order:', err)
+    });
   }
-
 }
+

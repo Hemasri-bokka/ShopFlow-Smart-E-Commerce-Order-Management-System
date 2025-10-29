@@ -19,23 +19,26 @@ public class FeedbackServiceImpl implements FeedbackService{
     private UserRepo urepo;
 
     @Override
-    public Feedback createFeedback(Feedback feedback, long userId) {
-        User found = urepo.findById(userId).orElse(null);
-        if(found == null){
-            return null;
+    public Feedback createFeedback(Feedback fb) {
+        if (fb.getUser() == null) {
+            throw new IllegalArgumentException("User cannot be null");
         }
-        feedback.setUser(found);
-        return frepo.save(feedback);
+        User user = urepo.findById(fb.getUser().getUserId())
+            .orElseThrow(() -> new RuntimeException("User not found"));
+    
+        fb.setUser(user); 
+        return frepo.save(fb);
     }
+    
 
     @Override
-    public Feedback deleteFeedback(long feedbackId) {
+    public boolean deleteFeedback(long feedbackId) {
         Feedback found = frepo.findById(feedbackId).orElse(null);
         if(found == null){
-            return null; 
+            return false; 
         }
         frepo.delete(found); 
-        return found;
+        return true;
     }
 
 
