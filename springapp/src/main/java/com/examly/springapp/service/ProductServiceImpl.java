@@ -48,6 +48,11 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public Product updateProduct(Long productId, Product productRequest) {
+        Product p = prepo.findById(productId).orElse(null);
+        if(p == null){
+            return prepo.save(productRequest);
+        }
+        productRequest.setProductId(productId);
         return prepo.save(productRequest);
     }
 
