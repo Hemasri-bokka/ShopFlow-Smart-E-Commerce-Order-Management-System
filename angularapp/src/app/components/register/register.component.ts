@@ -25,12 +25,13 @@ export class RegisterComponent implements OnInit {
     });
   }
 
-  // onSubmit(): void {
-  //   if (this.registrationForm.valid) {
-  //     console.log('Form Data:', this.registrationForm.value);
+  onSubmit(): void {
+    if (this.registrationForm.valid) {
+      console.log('Form Data:', this.registrationForm.value);
+      
 
-  //   } else {
-  //     console.log('Form is invalid');
-  //   }
-  // }
+    } else {
+      console.log('Form is invalid');
+    }
+  }
 }
