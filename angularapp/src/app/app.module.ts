@@ -15,6 +15,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
 
 import { AdminviewproductComponent } from './components/adminviewproduct/adminviewproduct.component';
+import { FormsModule } from '@angular/forms';
 import { AdminnavbarComponent } from './components/adminnavbar/adminnavbar.component';
 import { AdminviewordersComponent } from './components/adminvieworders/adminvieworders.component';
 import { AdminviewuserdetailsComponent } from './components/adminviewuserdetails/adminviewuserdetails.component';
@@ -32,6 +33,7 @@ import { UserviewproductComponent } from './components/userviewproduct/userviewp
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AdminaddproductComponent } from './components/adminaddproduct/adminaddproduct.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AdminnavbarComponent,
     AdminviewordersComponent,
     AdminviewuserdetailsComponent,
+    AdminaddproductComponent,
     AuthguardComponent,
     LoginComponent,
     NavbarComponent,

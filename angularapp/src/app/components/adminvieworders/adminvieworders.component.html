@@ -1,1 +1,40 @@
-<p>adminvieworders works!</p>
+<div class="container">
+    <h2>Requested Orders</h2>
+    <table class="table" border="1" *ngIf="orders.length > 0; else noOrders">
+        <thead>
+            <tr>
+                <td>S.No</td>
+                <td>Order ID</td>
+                <td>Username</td>
+                <td>Product Name</td>
+                <td>Price</td>
+                <td>Shipping Address</td>
+                <td>Total Amount</td>
+                <td>Quantity</td>
+                <td>Status</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let order of orders; let i=index">
+                <td>{{i+1}}</td>
+                <td>{{order.orderId}}</td>
+                <td>{{order.user}}</td>
+                <td>{{order.product}}</td>
+                <td>{{order.price}}</td>
+                <td>{{order.shippingAddress}}</td>
+                <td>{{order.totalAmount}}</td>
+                <td>{{order.quantity}}</td>
+                <td>
+                    <select [(ngModel)]="order.status" (change)="updateStatus(order)">
+                        <option *ngFor="let status of statusOptions" [value]="status">{{ status }}</option>
+                      </select>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ng-template #noOrders>
+        <p>Oops! No Orders found...</p>
+    </ng-template>
+
+</div>

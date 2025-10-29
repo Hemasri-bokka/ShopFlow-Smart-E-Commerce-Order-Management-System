@@ -45,6 +45,10 @@ const routes: Routes = [
   // { path: 'user/feedback', component: UseraddfeedbackComponent, canActivate: [AuthguardComponent] },
   // { path: 'user/view-feedback', component: UserviewfeedbackComponent, canActivate: [AuthguardComponent] },
 
+import { AdminaddproductComponent } from './components/adminaddproduct/adminaddproduct.component';
+
+const routes: Routes = [
+  { path: 'add-product', component: AdminaddproductComponent}
 ];
 
 @NgModule({
