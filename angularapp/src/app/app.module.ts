@@ -14,7 +14,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
-
 import { AdminviewproductComponent } from './components/adminviewproduct/adminviewproduct.component';
 import { AdminnavbarComponent } from './components/adminnavbar/adminnavbar.component';
 import { AdminviewordersComponent } from './components/adminvieworders/adminvieworders.component';
