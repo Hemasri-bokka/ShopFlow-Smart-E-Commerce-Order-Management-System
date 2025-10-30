@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+
 
 @Component({
   selector: 'app-usernavbar',
@@ -9,26 +8,19 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class UsernavbarComponent implements OnInit {
 
-    userName: string = '';
-    showLogoutPopup: boolean = false;
-    constructor(private ser: AuthService, private router: Router){}
-    ngOnInit(): void {
-      this.userName = localStorage.getItem('userName') || 'Guest';
-    }
 
-  openLogoutPopup(): void {
-    this.showLogoutPopup = true;
+
+  userName: string = '';
+
+  @Output() logoutClick = new EventEmitter<void>();
+
+  ngOnInit(): void {
+    this.userName = localStorage.getItem('authenticatedUser') || 'Guest';
   }
 
-  // Confirm logout
-  logout(): void {
-    this.ser.logout();
-    this.showLogoutPopup = false;
-    this.router.navigate(['/home']);
+  triggerLogoutPopup(): void {
+    this.logoutClick.emit(); // Notify app.component to show popup
   }
 
-  // Cancel logout
-  cancelLogout(): void {
-    this.showLogoutPopup = false;
-  }
+
 }

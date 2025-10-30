@@ -1,15 +1,9 @@
 <app-navbar *ngIf="!isUserLoggedIn()"></app-navbar>
- 
- 
-<app-adminnavbar *ngIf="isUserLoggedIn() && isAdmin()"></app-adminnavbar>
- 
-<app-usernavbar *ngIf="isUserLoggedIn() && isUser()"></app-usernavbar>
- 
-<router-outlet></router-outlet>
-<!-- Navbars -->
-<app-navbar *ngIf="!isUserLoggedIn()"></app-navbar>
 <app-adminnavbar *ngIf="isUserLoggedIn() && isAdmin()" (logoutClick)="openLogoutPopup()"></app-adminnavbar>
 <app-usernavbar *ngIf="isUserLoggedIn() && isUser()" (logoutClick)="openLogoutPopup()"></app-usernavbar>
+
+<router-outlet></router-outlet>
+<!-- Navbars -->
 
 <!-- Global Logout Popup -->
 <div class="logout-popup-overlay" *ngIf="showLogoutPopup">

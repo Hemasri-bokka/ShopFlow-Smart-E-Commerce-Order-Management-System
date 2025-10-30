@@ -23,7 +23,7 @@ export class ProductService {
   }
 
   getProductsByCategory(category: string): Observable<any> {
-    return this.http.get<any>(`${APP_URL}/products?category=${category}`);
+    return this.http.get<any>(`${APP_URL}/products/{category}`);
   }
 
   getProducts(): Observable<any[]> {

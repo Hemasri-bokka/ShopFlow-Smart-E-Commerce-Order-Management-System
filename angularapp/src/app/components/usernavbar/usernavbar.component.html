@@ -5,7 +5,6 @@
     </a>
   </div>
 
-  <!-- Centered User Info -->
   <div class="user-info">
     <mat-icon>account_circle</mat-icon>
     <span class="user-name">{{ userName }}</span>
@@ -16,21 +15,11 @@
     <li><a routerLink="/user/products" routerLinkActive="active">Products</a></li>
     <li><a routerLink="/user/cart" routerLinkActive="active">Cart</a></li>
     <li><a routerLink="/user/orders" routerLinkActive="active">My Orders</a></li>
+    <li><a routerLink="/user/view-feedback" routerLinkActive="active">Feedback</a></li>
     <li>
-      <button (click)="openLogoutPopup()" style="background-color: rgb(255, 146, 107);">
+      <button (click)="triggerLogoutPopup()" style="background-color: rgb(255, 146, 107);">
         Logout
       </button>
     </li>
   </ul>
 </nav>
-
-<!-- Logout Confirmation Popup -->
-<div class="logout-popup-overlay" *ngIf="showLogoutPopup">
-  <div class="logout-popup">
-    <p>Are you sure you want to log out?</p>
-    <div class="popup-buttons">
-      <button style="background-color: blue; color: white;" (click)="logout()">Confirm</button>
-      <button style="background-color: gray; color: white;" (click)="cancelLogout()">Cancel</button>
-    </div>
-  </div>
-</div>

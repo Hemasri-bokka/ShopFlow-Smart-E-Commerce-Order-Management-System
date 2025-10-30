@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-adminnavbar',
@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./adminnavbar.component.css']
 })
 export class AdminnavbarComponent implements OnInit {
+  @Output() logoutClick = new EventEmitter<void>();
 
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  triggerLogoutPopup(): void {
+    this.logoutClick.emit(); // Notify app.component to show popup
+  }
 }
