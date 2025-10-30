@@ -48,19 +48,6 @@ public class Order {
             public Order() {
             }
 
-    // public Order(long orderId, String shippingAddress, double totalAmount, int quantity, Date createdAt, Date updatedAt,
-    //         User user, List<Product> product) {
-    //     this.orderId = orderId;
-    //     this.shippingAddress = shippingAddress;
-    //     this.totalAmount = totalAmount;
-    //     this.quantity = quantity;
-    //     this.createdAt = createdAt;
-    //     this.updatedAt = updatedAt;
-    //     this.user = user;
-    //     this.product = product;
-    // }
-    
-
     public Order(long orderId, String shippingAddress, double totalAmount, int quantity, OrderStatus status,
             Date createdAt, Date updatedAt, User user, List<Product> product) {
         this.orderId = orderId;
