@@ -1,1 +1,42 @@
-<p>uservieworders works!</p>
+<div class="container">
+    <h2>My Orders</h2>
+  
+    <table class="table table-bordered" *ngIf="orders.length > 0; else noOrders">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Order ID</th>
+          <th>Products</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total Amount</th>
+          <th>Shipping Address</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ order.orderId }}</td>
+          <td>
+            <ul>
+              <li *ngFor="let p of order.product">{{ p.name }} ({{ p.category }})</li>
+            </ul>
+          </td>
+          <td>
+            <ul>
+              <li *ngFor="let p of order.product">{{ p.price }}</li>
+            </ul>
+          </td>
+          <td>{{ order.quantity }}</td>
+          <td>{{ order.totalAmount }}</td>
+          <td>{{ order.shippingAddress }}</td>
+          <td>{{ order.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <ng-template #noOrders>
+      <p class="text-center text-muted">Oops! No Orders found.</p>
+    </ng-template>
+  </div>

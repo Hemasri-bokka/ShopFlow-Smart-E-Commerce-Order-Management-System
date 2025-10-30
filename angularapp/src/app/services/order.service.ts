@@ -25,7 +25,7 @@ export class OrderService {
   }
 
   getOrderByUserId(userId:number):Observable<any>{
-    return this.http.get<any>(`${APP_URL}/orders/${userId}`);
+    return this.http.get<any>(`${APP_URL}/orders/user/${userId}`);
   }
 
   getOrders():Observable<any>{
