@@ -22,7 +22,16 @@
       </a>
     </li>
     <li><a routerLink="/user/orders" routerLinkActive="active">My Orders</a></li>
-    <li><a routerLink="/user/view-feedback" routerLinkActive="active">Feedback</a></li>
+    <li>
+      <button mat-button [matMenuTriggerFor]="feedbackMenu">
+        Feedback
+        <mat-icon>arrow_drop_down</mat-icon>
+      </button>
+      <mat-menu #feedbackMenu="matMenu">
+        <button mat-menu-item [routerLink]="'/user/feedback'" >Add Feedback</button>
+        <button mat-menu-item [routerLink]="'/user/view-feedback'">View Feedback</button>
+      </mat-menu>
+    </li>
     <li>
       <button (click)="triggerLogoutPopup()" style="background-color: rgb(255, 146, 107);">
         Logout

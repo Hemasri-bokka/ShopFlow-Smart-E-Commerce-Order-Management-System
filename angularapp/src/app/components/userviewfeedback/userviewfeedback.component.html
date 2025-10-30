@@ -1,31 +1,3 @@
-<div class="user-feedback-wrapper">
-    <h2>Your Submitted Feedback</h2>
-  
-    <div *ngIf="userFeedbackList.length === 0" class="no-feedback">
-      No feedback submitted yet.
-    </div>
-  
-    <table *ngIf="userFeedbackList.length > 0" class="user-feedback-table">
-      <thead>
-        <tr>
-          <th>S.No</th>
-          <th>Comment</th>
-          <th>Rating</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let feedback of userFeedbackList; let i = index">
-          <td>{{ i + 1 }}</td>
-          <td>{{ feedback.message }}</td>
-          <td>{{ feedback.rating }}</td>
-          <td><button (click)="deleteFeedback(feedback.feedbackId)">Delete</button></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-
 
   <mat-card class="user-feedback-wrapper">
     <h2 class="title">Your Submitted Feedback</h2>
@@ -70,3 +42,34 @@
       <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="hover-row"></tr>
     </table>
   </mat-card>
+
+
+  <!-- <div class="user-feedback-wrapper">
+    <h2>Your Submitted Feedback</h2>
+  
+    <div *ngIf="userFeedbackList.length === 0" class="no-feedback">
+      No feedback submitted yet.
+    </div>
+  
+    <table *ngIf="userFeedbackList.length > 0" class="user-feedback-table">
+      <thead>
+        <tr>
+          <th>S.No</th>
+          <th>Comment</th>
+          <th>Rating</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let feedback of userFeedbackList; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ feedback.message }}</td>
+          <td>{{ feedback.rating }}</td>
+          <td><button (click)="deleteFeedback(feedback.feedbackId)">Delete</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->
+
+  
+

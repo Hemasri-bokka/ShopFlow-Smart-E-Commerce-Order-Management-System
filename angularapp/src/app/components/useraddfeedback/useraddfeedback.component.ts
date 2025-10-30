@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FeedbackService } from 'src/app/services/feedback.service';
 import { Feedback } from 'src/app/models/feedback.model';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class UseraddfeedbackComponent implements OnInit {
 
-  constructor(private fb: FormBuilder, private feedbackService: FeedbackService, private aes : AuthService) {}
+  constructor(private fb: FormBuilder, private feedbackService: FeedbackService, private aes : AuthService, private router: Router) {}
   feedbackForm!: FormGroup;
   submitted = false; 
   successMessage = '';
@@ -45,6 +46,7 @@ export class UseraddfeedbackComponent implements OnInit {
         this.successMessage = 'Feedback submitted successfully!';
         this.feedbackForm.reset();
         this.submitted = false;
+        this.router.navigate(['/user/view-feedback'])
       },
       error: (err) => {
         console.error('Error submitting feedback:', err);
