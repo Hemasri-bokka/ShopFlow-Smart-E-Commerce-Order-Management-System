@@ -1,7 +1,31 @@
-<app-navbar></app-navbar>
+<app-navbar *ngIf="!isUserLoggedIn()"></app-navbar>
+ 
+ 
+<app-adminnavbar *ngIf="isUserLoggedIn() && isAdmin()"></app-adminnavbar>
+ 
+<app-usernavbar *ngIf="isUserLoggedIn() && isUser()"></app-usernavbar>
+ 
+<router-outlet></router-outlet>
+<!-- Navbars -->
+<app-navbar *ngIf="!isUserLoggedIn()"></app-navbar>
+<app-adminnavbar *ngIf="isUserLoggedIn() && isAdmin()" (logoutClick)="openLogoutPopup()"></app-adminnavbar>
+<app-usernavbar *ngIf="isUserLoggedIn() && isUser()" (logoutClick)="openLogoutPopup()"></app-usernavbar>
+
+<!-- Global Logout Popup -->
+<div class="logout-popup-overlay" *ngIf="showLogoutPopup">
+  <div class="logout-popup">
+    <p>Are you sure you want to log out?</p>
+    <div class="popup-buttons">
+      <button style="background-color: blue; color: white;" (click)="confirmLogout()">Confirm</button>
+      <button style="background-color: gray; color: white;" (click)="cancelLogout()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+
+
 <!-- <app-adminnavbar></app-adminnavbar> -->
 <!-- <app-usernavbar></app-usernavbar> -->
-<router-outlet></router-outlet>
 <!-- 
 <app-useraddfeedback></app-useraddfeedback> -->
 <!-- <app-error></app-error>
