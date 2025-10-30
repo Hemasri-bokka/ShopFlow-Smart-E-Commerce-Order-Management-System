@@ -2,10 +2,12 @@ package com.examly.springapp.model;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
 
 @Entity
@@ -19,7 +21,10 @@ public class Product {
     private double price;
     private int stock;
     private String category;
+    @Lob
+    @Column(columnDefinition = "MEDIUMTEXT")
     private String photoImage;
+
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
