@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -11,11 +12,36 @@ import { ProductService } from 'src/app/services/product.service';
 export class AdminaddproductComponent implements OnInit {
 
   AdminAddForm : FormGroup;
+  isEditMode: boolean = false;
+  productId!: number;
   categories: string[] = ['Electronics', 'Groceries', 'Clothing', 'Books'];
 
-  constructor(private fb: FormBuilder, private productService: ProductService) {
+  constructor(private fb: FormBuilder, private productService: ProductService, private route: ActivatedRoute, private router: Router) {
     this.createControls();
    }
+
+   ngOnInit(): void {
+     
+ this.route.paramMap.subscribe(params => {
+  const id = params.get('id');
+  if (id) {
+    this.isEditMode = true;
+    this.productId = +id;
+    this.loadProduct(this.productId);
+  }
+});
+
+   }
+
+   
+   loadProduct(id: number) {
+    this.productService.getProductsById(id).subscribe(
+      (product) => {
+        this.AdminAddForm.patchValue(product);
+      },
+      (err) => console.error('Error loading product', err)
+    );
+  }
 
    createControls(){
       this.AdminAddForm = this.fb.group({
@@ -31,9 +57,8 @@ export class AdminaddproductComponent implements OnInit {
 
 
 
-  ngOnInit(): void {
+  
 
-  }
   // Convert selected file to Base64 and patch into form
   onFileSelected(event: any) {
     const file = event.target.files[0];
@@ -52,10 +77,21 @@ export class AdminaddproductComponent implements OnInit {
       return;
     }
 
-    const product: Product = this.AdminAddForm.value; // Includes photo as Base64 string
+    const product: Product = this.AdminAddForm.value;
+    
+  if (this.isEditMode) {
+    this.productService.updateProduct(this.productId, product).subscribe(
+      () => {
+        alert('Product updated successfully!'), this.router.navigate(['admin/products'])},
+      (err) => console.error('Error updating product', err)
+    );
+  }
+
+else{
+    // Includes photo as Base64 string
     console.log(product);
     this.productService.addProduct(product).subscribe({
-      next: (response) => {
+      next: () => {
         alert('Product added successfully!');
         this.AdminAddForm.reset();
       },
@@ -64,6 +100,8 @@ export class AdminaddproductComponent implements OnInit {
         alert('Failed to add product.');
       }
     });
+}
+  
   }
 }
 
