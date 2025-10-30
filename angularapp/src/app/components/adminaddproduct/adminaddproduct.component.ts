@@ -50,7 +50,10 @@ export class AdminaddproductComponent implements OnInit {
       price: [null, [Validators.required, Validators.min(1)]],
       stock: [null, [Validators.required, Validators.min(1)]],
       category: ['', Validators.required],
-      photoImage: [null] 
+      photoImage: [null],
+      createdAt: [new Date()],
+      updatedAt: [new Date()]  
+
     });
     
    }
@@ -78,6 +81,7 @@ export class AdminaddproductComponent implements OnInit {
     }
 
     const product: Product = this.AdminAddForm.value;
+    product.updatedAt = new Date();
     
   if (this.isEditMode) {
     this.productService.updateProduct(this.productId, product).subscribe(

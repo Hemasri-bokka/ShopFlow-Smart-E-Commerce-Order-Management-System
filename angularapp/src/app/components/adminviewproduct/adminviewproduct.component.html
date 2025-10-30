@@ -17,7 +17,7 @@
         <p><strong>Stock:</strong> {{ product.stock }}</p>
         <p><strong>Category:</strong> {{ product.category }}</p>
         <p><strong>Created:</strong> {{ product.createdAt | date:'short' }}</p>
-        <p><strong>Updated:</strong> {{ product.UpdatedAt | date:'short' }}</p>
+        <p><strong>Updated:</strong> {{ product.updatedAt | date:'short' }}</p>
         <p *ngIf="product.user"><strong>Added by:</strong> {{ product.user.name }}</p>
         <button (click)="editProduct(product.productId)">Edit</button>
         <button (click)="deleteProduct(product.productId)">Delete</button>
