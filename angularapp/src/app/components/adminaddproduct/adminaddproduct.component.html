@@ -1,6 +1,6 @@
 <div class="form-container">
   
-    <h2>Add Product</h2>
+    <h2>{{ isEditMode ? 'Edit Product' : 'Add Product' }}</h2>
     <form [formGroup]="AdminAddForm" (ngSubmit)="onSubmit()"> 
   
       
@@ -51,7 +51,7 @@
     <input type="file" id="photo" (change)="onFileSelected($event)" class="form-control" accept="image/*"/>
   </div>
   
-      <button type="submit" class="btn btn-primary" [disabled]="AdminAddForm.invalid">Add Product</button>
+      <button type="submit" class="btn btn-primary" [disabled]="AdminAddForm.invalid">{{ isEditMode ? 'Update Product' : 'Add Product' }}</button>
     </form>
    
   </div>

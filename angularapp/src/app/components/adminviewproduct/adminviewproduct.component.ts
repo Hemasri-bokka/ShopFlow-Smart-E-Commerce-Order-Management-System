@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -9,10 +10,11 @@ import { ProductService } from 'src/app/services/product.service';
 export class AdminviewproductComponent implements OnInit {
 
   products: any[] = [];
+  filteredProducts: any[] = [];
   categories: string[] = ['All', 'Electronics', 'Clothing', 'Grocery'];
   selectedCategory = 'All';
 
-  constructor(private ser: ProductService) { }
+  constructor(private ser: ProductService, private router: Router) { }
 
   ngOnInit(): void {
     this.loadProducts();
@@ -20,7 +22,7 @@ export class AdminviewproductComponent implements OnInit {
 
 
   loadProducts() {
-    this.ser.getProducts().subscribe(data => this.products = data);
+    this.ser.getProducts().subscribe((data) => {this.products = data, this.filteredProducts =  data});
   }
 
 
@@ -28,7 +30,7 @@ export class AdminviewproductComponent implements OnInit {
     if (this.selectedCategory === 'All') {
       this.loadProducts();
     } else {
-      this.products = this.products.filter(p => p.category === this.selectedCategory);
+      this.filteredProducts = this.products.filter(p => p.category === this.selectedCategory);
     }
   }
 
@@ -41,4 +43,10 @@ export class AdminviewproductComponent implements OnInit {
       });
     }
   }
+
+  
+editProduct(productId: number) {
+  this.router.navigate(['admin/add-product', productId]);
+}
+
 }
