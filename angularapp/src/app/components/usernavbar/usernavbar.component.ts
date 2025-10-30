@@ -10,12 +10,25 @@ import { AuthService } from 'src/app/services/auth.service';
 export class UsernavbarComponent implements OnInit {
 
     userName: string = '';
+    showLogoutPopup: boolean = false;
     constructor(private ser: AuthService, private router: Router){}
     ngOnInit(): void {
       this.userName = localStorage.getItem('userName') || 'Guest';
     }
-    logout(){
-      this.ser.logout();
-      this.router.navigate(['/home']);
-    }
+
+  openLogoutPopup(): void {
+    this.showLogoutPopup = true;
+  }
+
+  // Confirm logout
+  logout(): void {
+    this.ser.logout();
+    this.showLogoutPopup = false;
+    this.router.navigate(['/home']);
+  }
+
+  // Cancel logout
+  cancelLogout(): void {
+    this.showLogoutPopup = false;
+  }
 }
