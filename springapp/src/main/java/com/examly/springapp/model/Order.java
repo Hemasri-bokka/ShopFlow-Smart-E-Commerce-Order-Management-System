@@ -28,7 +28,7 @@ public class Order {
             private double totalAmount;
             private int quantity;
             @Enumerated(EnumType.STRING)
-            private OrderStatus status;
+            private OrderStatus status = OrderStatus.pending;
             
             private Date createdAt;
             private Date updatedAt;

@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ProductService } from 'src/app/services/product.service';
 
 
 @Component({
@@ -11,11 +12,17 @@ export class UsernavbarComponent implements OnInit {
 
 
   userName: string = '';
+  cartItemCount = 0;
+
+  constructor(private productService: ProductService) { }
 
   @Output() logoutClick = new EventEmitter<void>();
 
   ngOnInit(): void {
     this.userName = localStorage.getItem('authenticatedUser') || 'Guest';
+    this.productService.cart$.subscribe(cart => {
+      this.cartItemCount = cart.reduce((total, item) => total + item.quantity, 0);
+    });
   }
 
   triggerLogoutPopup(): void {
