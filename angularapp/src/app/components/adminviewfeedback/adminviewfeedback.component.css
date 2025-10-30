@@ -46,3 +46,19 @@
   .btn-view:hover {
     background-color: #0056b3;
   }
+
+  body {
+    background-color: #000000;
+    color: #ffffff;
+  }
+  
+  .table-dark {
+    background-color: #000000;
+  }
+  
+  .btn-success {
+    background-color: #CCFF00;
+    color: #000000;
+    border: none;
+  }
+  
