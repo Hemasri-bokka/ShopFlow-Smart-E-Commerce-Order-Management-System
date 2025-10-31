@@ -174,3 +174,12 @@ body, html {
   font-size: 0.875rem;
   margin-top: 5px;
 }
+
+.success-snackbar {
+  background-color: #4caf50;
+  color: #fff;
+}
+.error-snackbar {
+  background-color: #f44336;
+  color: #fff;
+}
