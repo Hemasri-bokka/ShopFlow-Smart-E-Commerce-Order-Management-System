@@ -11,7 +11,7 @@ export class AdminviewproductComponent implements OnInit {
 
   products: any[] = [];
   filteredProducts: any[] = [];
-  categories: string[] = ['All', 'Electronics', 'Clothing', 'Grocery'];
+  categories: string[] = ['All', 'Electronics', 'Clothing', 'Groceries'];
   selectedCategory = 'All';
 
   constructor(private ser: ProductService, private router: Router) { }
