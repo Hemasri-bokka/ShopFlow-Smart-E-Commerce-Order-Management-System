@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Feedback } from 'src/app/models/feedback.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { FeedbackService } from 'src/app/services/feedback.service';
 
 
@@ -12,9 +13,9 @@ import { FeedbackService } from 'src/app/services/feedback.service';
 export class UserviewfeedbackComponent implements OnInit {
   displayedColumns: string[] = ['index', 'message', 'rating', 'actions'];
   userFeedbackList: Feedback[] = [];
-  userId: number = 1; // Replace with dynamic user ID from auth or route
+  userId: number =+ this.aes.getUserId() ;; // Replace with dynamic user ID from auth or route
 
-  constructor(private feedbackService: FeedbackService) {}
+  constructor(private feedbackService: FeedbackService, private aes :AuthService) {}
 
   ngOnInit(): void {
     this.loadUserFeedback();
