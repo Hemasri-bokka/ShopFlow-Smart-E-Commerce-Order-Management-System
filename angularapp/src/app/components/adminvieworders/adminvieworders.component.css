@@ -105,3 +105,8 @@ p {
     text-align: center;
   }
 }
+
+.snackbar-success {
+  background-color: #4CAF50 !important;
+  color: #fff !important;
+}

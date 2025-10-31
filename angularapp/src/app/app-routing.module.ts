@@ -12,10 +12,9 @@ import { UserviewordersComponent } from './components/uservieworders/uservieword
 import { UseraddfeedbackComponent } from './components/useraddfeedback/useraddfeedback.component';
 import { UserviewfeedbackComponent } from './components/userviewfeedback/userviewfeedback.component';
 import { ErrorComponent } from './components/error/error.component';
-import { AuthguardComponent } from './components/authguard/authguard.component';
 import { AdminaddproductComponent } from './components/adminaddproduct/adminaddproduct.component';
 import { AdminviewfeedbackComponent } from './components/adminviewfeedback/adminviewfeedback.component';
-
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -23,34 +22,22 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
 
-  { path: 'admin/products', component: AdminviewproductComponent },
-  { path: 'admin/orders', component: AdminviewordersComponent},
-  { path: 'admin/users', component: AdminviewuserdetailsComponent},
-  {path: 'admin/add-product', component: AdminaddproductComponent},
-  {path: 'admin/view-feedback', component: AdminviewfeedbackComponent},
-  { path: 'admin/add-product/:id', component: AdminaddproductComponent },
+  { path: 'admin/products', component: AdminviewproductComponent,  canActivate: [AuthGuard], },
+  { path: 'admin/orders', component: AdminviewordersComponent,  canActivate: [AuthGuard]},
+  { path: 'admin/users', component: AdminviewuserdetailsComponent, canActivate: [AuthGuard]},
+  {path: 'admin/add-product', component: AdminaddproductComponent, canActivate: [AuthGuard]},
+  {path: 'admin/view-feedback', component: AdminviewfeedbackComponent, canActivate: [AuthGuard]},
+  { path: 'admin/add-product/:id', component: AdminaddproductComponent, canActivate: [AuthGuard] },
 
-  { path: 'user/products', component: UserviewproductComponent},
-  { path: 'user/cart', component: UseraddcartComponent },
-  { path: 'user/orders', component: UserviewordersComponent },
-  { path: 'user/feedback', component: UseraddfeedbackComponent },
-  { path: 'user/view-feedback', component: UserviewfeedbackComponent },
+  { path: 'user/products', component: UserviewproductComponent, canActivate: [AuthGuard]},
+  { path: 'user/cart', component: UseraddcartComponent, canActivate: [AuthGuard] },
+  { path: 'user/orders', component: UserviewordersComponent, canActivate: [AuthGuard] },
+  { path: 'user/feedback', component: UseraddfeedbackComponent, canActivate: [AuthGuard] },
+  { path: 'user/view-feedback', component: UserviewfeedbackComponent, canActivate: [AuthGuard] },
   { path: '**', component: ErrorComponent }
 
   
 ];
-
-  // Admin routes
-  // { path: 'admin/products', component: AdminviewproductComponent, canActivate: [AuthguardComponent] },
-  // { path: 'admin/orders', component: AdminviewordersComponent, canActivate: [AuthguardComponent] },
-  // { path: 'admin/users', component: AdminviewuserdetailsComponent, canActivate: [AuthguardComponent] },
-
-  // User routes
-  // { path: 'user/products', component: UserviewproductComponent, canActivate: [AuthguardComponent] },
-  // { path: 'user/cart', component: UseraddcartComponent, canActivate: [AuthguardComponent] },
-  // { path: 'user/orders', component: UserviewordersComponent, canActivate: [AuthguardComponent] },
-  // { path: 'user/feedback', component: UseraddfeedbackComponent, canActivate: [AuthguardComponent] },
-  // { path: 'user/view-feedback', component: UserviewfeedbackComponent, canActivate: [AuthguardComponent] },
 
 
 
