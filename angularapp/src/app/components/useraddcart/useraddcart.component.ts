@@ -30,7 +30,8 @@ export class UseraddcartComponent implements OnInit {
     }
     
     getGST(): number {
-      return this.getBaseTotal() * 0.18; // 18% GST
+      const gst = this.getBaseTotal() * 0.18; // 18% GST
+      return parseFloat(gst.toFixed(2));
     }
     
     getDeliveryCharge(): number {
@@ -38,8 +39,10 @@ export class UseraddcartComponent implements OnInit {
     }
     
     getTotal(): number {
-      return this.getBaseTotal() + this.getGST() + this.getDeliveryCharge();
+      const total = this.getBaseTotal() + this.getGST() + this.getDeliveryCharge();
+      return parseFloat(total.toFixed(2)); 
     }
+
     
     increaseQuantity(item: any): void {
       item.quantity += 1;

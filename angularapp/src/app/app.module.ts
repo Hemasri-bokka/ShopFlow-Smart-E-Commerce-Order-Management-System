@@ -10,8 +10,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -79,7 +80,10 @@ import { HttpIntercepterAuthService } from './services/http-interceptor-auth.ser
     MatIconModule,
     MatTableModule,
     MatMenuModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatSnackBarModule,
+    MatPaginatorModule,
+    MatSortModule
  
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterAuthService, multi: true }],

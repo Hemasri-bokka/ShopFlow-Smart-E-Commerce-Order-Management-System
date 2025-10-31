@@ -22,7 +22,7 @@ orders :Order[] = [];
   ngOnInit(): void {
     this.getUserOrders();
   }
-
+  userId = 0;
   getUserOrders(): void {
     const userId = +this.authService.getUserId();
     this.orderService.getOrderByUserId(userId).subscribe({
@@ -37,7 +37,7 @@ orders :Order[] = [];
   loadProductDetails(): void {
     this.orders.forEach(order => {
       order.product.forEach((p: any, index: number) => {
-        this.productService.getProductsById(p.id).subscribe({
+        this.productService.getProductsById(this.userId).subscribe({
           next: (fullProduct: Product) => {
             order.product[index] = fullProduct; // Replace with full details
           },
@@ -54,7 +54,8 @@ orders :Order[] = [];
       default: return 'primary';
     }
   }
-  steps = ['pending', 'processing', 'shipped', 'delivered', 'cancelled'];
+  steps = ['pending', 'processing', 'packed','shipped', 'delivered'];
+  
 
   getProgressValue(status: string): number {
     const index = this.steps.indexOf(status);
