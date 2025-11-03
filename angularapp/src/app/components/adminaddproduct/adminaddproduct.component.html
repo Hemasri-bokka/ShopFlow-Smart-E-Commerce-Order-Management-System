@@ -51,6 +51,7 @@
     <input type="file" id="photo" (change)="onFileSelected($event)" class="form-control" accept="image/*"/>
   </div>
   
+  
       <button type="submit" class="btn btn-primary" [disabled]="AdminAddForm.invalid">{{ isEditMode ? 'Update Product' : 'Add Product' }}</button>
     </form>
    

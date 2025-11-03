@@ -7,13 +7,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.examly.springapp.model.LoginDTO;
 import com.examly.springapp.model.User;
+import com.examly.springapp.model.UserDto;
 
 public interface UserService {
     User createUser(User user);
     UserDetails loadUserByUsername(String userName);
     List<User> findAllUsers();
     LoginDTO loginUser(User user);
-    User getById(int id);
+    UserDto getById(long id);
     void deleteUser(int id);
     boolean validateUserByUsername(String username, String password);
     void updateUser(User user);

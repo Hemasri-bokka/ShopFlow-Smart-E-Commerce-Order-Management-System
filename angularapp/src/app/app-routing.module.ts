@@ -14,6 +14,8 @@ import { UserviewfeedbackComponent } from './components/userviewfeedback/uservie
 import { ErrorComponent } from './components/error/error.component';
 import { AdminaddproductComponent } from './components/adminaddproduct/adminaddproduct.component';
 import { AdminviewfeedbackComponent } from './components/adminviewfeedback/adminviewfeedback.component';
+import { AdminviewuserprofileComponent } from './components/adminviewuserprofile/adminviewuserprofile.component';
+
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
@@ -28,6 +30,7 @@ const routes: Routes = [
   {path: 'admin/add-product', component: AdminaddproductComponent, canActivate: [AuthGuard]},
   {path: 'admin/view-feedback', component: AdminviewfeedbackComponent, canActivate: [AuthGuard]},
   { path: 'admin/add-product/:id', component: AdminaddproductComponent, canActivate: [AuthGuard] },
+    {path: 'admin/user-profile/:id', component: AdminviewuserprofileComponent,canActivate: [AuthGuard] },
 
   { path: 'user/products', component: UserviewproductComponent, canActivate: [AuthGuard]},
   { path: 'user/cart', component: UseraddcartComponent, canActivate: [AuthGuard] },

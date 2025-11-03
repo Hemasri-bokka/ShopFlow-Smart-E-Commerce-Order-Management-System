@@ -31,7 +31,7 @@ export class ProductService {
   }
 
   getProductsByUserId(userId: number): Observable<any> {
-    return this.http.get<any>(`${APP_URL}/products/${userId}`);
+    return this.http.get<any>(`${APP_URL}/products/user/${userId}`);
   }
 
   deleteProduct(id: number): Observable<void> {

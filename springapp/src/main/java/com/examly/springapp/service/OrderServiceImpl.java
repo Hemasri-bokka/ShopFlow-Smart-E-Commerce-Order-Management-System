@@ -37,11 +37,15 @@ public Order addorder(Order order) {
     for (Product p : order.getProduct()) {
         Product dbProduct = prepo.findById(p.getProductId())
             .orElseThrow(() -> new RuntimeException("Product not found: " + p.getProductId()));
-        managedProducts.add(dbProduct);
-    }
+           //added this line(Gladson)
+            dbProduct.setUser(user);
+            managedProducts.add(dbProduct); 
+    } 
 
     order.setUser(user);
     order.setProduct(managedProducts);
+    //added this line(Gladson) 
+    prepo.saveAll(managedProducts);
     return orepo.save(order);
 }
 
