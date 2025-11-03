@@ -15,8 +15,6 @@
 .hero {
   background-color: #f8f9fc;
   padding: 4rem 2rem;
-
-   background-color: white;
   background-image:
     linear-gradient(to right, #f0f0f0 1px, transparent 1px),
     linear-gradient(to bottom, #f0f0f0 1px, transparent 1px),
@@ -92,8 +90,6 @@
   background-color: #fff;
   padding: 3rem 2rem;
   text-align: center;
-  
-  background-color: white;
   background-image:
     linear-gradient(to right, #f0f0f0 1px, transparent 1px),
     linear-gradient(to bottom, #f0f0f0 1px, transparent 1px),

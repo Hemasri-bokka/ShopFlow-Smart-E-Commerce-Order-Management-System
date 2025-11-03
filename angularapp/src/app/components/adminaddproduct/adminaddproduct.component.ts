@@ -82,7 +82,9 @@ export class AdminaddproductComponent implements OnInit {
   if (this.isEditMode) {
     this.productService.updateProduct(this.productId, product).subscribe(
       () => {
-        alert('Product updated successfully!'), this.router.navigate(['admin/products'])},
+        alert('Product updated successfully!');
+        this.router.navigate(['admin/products']);
+      },
       (err) => console.error('Error updating product', err)
     );
   }
