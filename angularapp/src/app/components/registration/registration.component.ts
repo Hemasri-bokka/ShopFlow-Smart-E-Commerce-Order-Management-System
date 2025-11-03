@@ -29,21 +29,6 @@ export class RegistrationComponent implements OnInit {
     const confirmPassword = form.get('confirmPassword')?.value;
     return password === confirmPassword ? null : { mismatch: true };
   }
-  // onSubmit(){
-  //   if(this.registerForm.valid){
-  //     this.service.register(this.registerForm.value).subscribe((result)=>{
-  //       this.registerForm.reset()
-  //       alert("Registration successful")
-  //       this.router.navigate(['/login'])
-  //     },
-  //     (error)=>{
-  //       this.registerForm.reset()
-  //       alert("Registration not done")
-  //       this.router.navigate(['/error'],{queryParams:{errorMsg:'Registration not done due to exising Username'}} )
-  //     });
-
-  //   }
-  // }
 
   onSubmit() {
     if (this.registerForm.valid) {
@@ -56,7 +41,6 @@ export class RegistrationComponent implements OnInit {
         (error) => {
           this.registerForm.reset();
           this.snackBar.open('Registration not done due to existing Username', 'Close', { duration: 4000, panelClass: ['error-snackbar'] });
-          // this.router.navigate(['/error'], { queryParams: { errorMsg: 'Registration not done due to existing Username' } });
         }
       );
     }
