@@ -41,6 +41,9 @@ import { AdminviewfeedbackComponent } from './components/adminviewfeedback/admin
 import { FooterComponent } from './components/footer/footer.component';
 import { HttpIntercepterAuthService } from './services/http-interceptor-auth.service';
 import { PaymentComponent } from './components/payment/payment.component';
+import { AdminviewuserprofileComponent } from './components/adminviewuserprofile/adminviewuserprofile.component';
+
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -65,6 +68,9 @@ import { PaymentComponent } from './components/payment/payment.component';
     UserviewproductComponent,
     FooterComponent,
     PaymentComponent,
+    AdminviewuserprofileComponent,
+    
+
     
   ],
   imports: [

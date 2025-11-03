@@ -25,9 +25,28 @@ export class AdminviewordersComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
 
 
-
+  searchText: string = '';
+  selectedStatus: string = '';
+  
   ngOnInit(): void {
     this.getOrders();
+  
+    this.dataSource.filterPredicate = (data: Order, filter: string) => {
+      const parsedFilter = JSON.parse(filter);
+      const searchText = parsedFilter.searchText;
+      const status = parsedFilter.status;
+  
+      // Match search text (orderId, username, product names)
+      const matchesSearch =
+        data.orderId.toString().toLowerCase().includes(searchText) ||
+        data.user.username.toLowerCase().includes(searchText) ||
+        data.product.some(p => p.name.toLowerCase().includes(searchText));
+  
+      // Match status
+      const matchesStatus = status ? data.status.toLowerCase() === status : true;
+  
+      return matchesSearch && matchesStatus;
+    };
   }
 
 
@@ -62,16 +81,23 @@ export class AdminviewordersComponent implements OnInit {
     });
   }
 
-
+  
   applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value.trim().toLowerCase();
-    this.dataSource.filter = filterValue;
+    this.searchText = (event.target as HTMLInputElement).value.trim().toLowerCase();
+    this.updateFilter();
   }
-
+  
   filterByStatus(status: string) {
-    this.dataSource.filter = status.trim().toLowerCase();
+    this.selectedStatus = status.trim().toLowerCase();
+    this.updateFilter();
   }
-
+  
+  updateFilter() {
+    this.dataSource.filter = JSON.stringify({
+      searchText: this.searchText,
+      status: this.selectedStatus
+    });
+  }
 
 
 

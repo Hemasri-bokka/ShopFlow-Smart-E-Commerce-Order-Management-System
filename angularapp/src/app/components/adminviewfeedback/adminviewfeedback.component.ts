@@ -32,7 +32,7 @@ export class AdminviewfeedbackComponent implements OnInit {
   }
 
   viewProfile(userId: number): void {
-    this.router.navigate(['/user-profile', userId]);
+    this.router.navigate(['/admin/user-profile', userId]);
   }
 
 

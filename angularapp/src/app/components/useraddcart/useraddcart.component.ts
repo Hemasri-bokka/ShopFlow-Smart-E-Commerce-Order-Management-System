@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Order } from 'src/app/models/order.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { OrderService } from 'src/app/services/order.service';
@@ -16,7 +17,7 @@ export class UseraddcartComponent implements OnInit {
     userId = this.aes.getUserId() ;
     displayedColumns: string[] = ['name', 'price', 'quantity', 'actions'];
   
-    constructor(private productService: ProductService, private orderService: OrderService, private aes: AuthService, private router: Router) {}
+    constructor(private productService: ProductService, private orderService: OrderService, private aes: AuthService, private router: Router, private snackBar: MatSnackBar) {}
   
     ngOnInit(): void { 
       this.productService.cart$.subscribe(cart => this.cartItems = cart);
