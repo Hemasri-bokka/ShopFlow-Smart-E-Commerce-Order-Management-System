@@ -39,10 +39,10 @@ public Order addorder(Order order) {
             dbProduct.setUser(user);
             managedProducts.add(dbProduct); 
             
-        if (p.getStock() > dbProduct.getStock()) {
+        if (order.getQuantity() > dbProduct.getStock()) {
         throw new RuntimeException("Insufficient stock for product: " + dbProduct.getName());
         }
-        dbProduct.setStock(dbProduct.getStock() - 1);
+        dbProduct.setStock(dbProduct.getStock() - order.getQuantity());
     }
     order.setUser(user);
     order.setProduct(managedProducts);

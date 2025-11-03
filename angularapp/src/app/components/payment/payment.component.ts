@@ -50,50 +50,22 @@ export class PaymentComponent implements OnInit {
             }]
           });
         },
-        // onApprove: (data: any, actions: any) => {
-        //   return actions.order.capture().then((details: any) => {
-        //     console.log('Transaction completed:', details);
-        //     alert(`Payment Successful! Thank you, ${details.payer.name.given_name}`);
-        //     this.ser.placeOrder(this.order).subscribe({
-        //       next: () => {
-
-        //         this.router.navigate(['/user/cart']);
-        //         alert('Order placed successfully!');
-
-
-
-        //       },
-        //       error: (err) => console.error('Error placing order:', err)
-        //     });
-
-        //   });
-        // },
         onApprove: (data: any, actions: any) => {
           return actions.order.capture().then((details: any) => {
             console.log('Transaction completed:', details);
             alert(`Payment Successful! Thank you, ${details.payer.name.given_name}`);
-        
             this.ser.placeOrder(this.order).subscribe({
               next: () => {
-                type CartItem = Product & { quantity: number };
-        
-                (this.order.product as CartItem[]).forEach(item => {
-                  const updatedProduct: Product = {
-                    ...item, 
-                    stock: item.stock - item.quantity 
-                  };
-        
-                  this.pes.updateProduct(item.productId, updatedProduct).subscribe({
-                    next: () => console.log(`Stock updated for product ${item.productId}`),
-                    error: err => console.error('Error updating stock:', err)
-                  });
-                });
-        
-                alert('Order placed successfully!');
+
                 this.router.navigate(['/user/cart']);
+                alert('Order placed successfully!');
+
+
+
               },
               error: (err) => console.error('Error placing order:', err)
             });
+
           });
         },
         onError: (err: any) => {
