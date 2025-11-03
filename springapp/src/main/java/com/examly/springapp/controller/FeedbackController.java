@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.examly.springapp.model.Feedback;
 import com.examly.springapp.service.FeedbackService;
 
+import jakarta.validation.Valid;
+
 @RestController
 public class FeedbackController {
 
@@ -22,7 +24,7 @@ public class FeedbackController {
 
     @PostMapping("/api/feedback")
     @PreAuthorize("hasRole('USER')")
-    public ResponseEntity<Feedback> createFeedback(@RequestBody Feedback fb) {
+    public ResponseEntity<Feedback> createFeedback(@Valid @RequestBody Feedback fb) {
         if (fb.getUser() == null || fb.getUser().getUserId() == 0) {
             return ResponseEntity.badRequest().build();
         }

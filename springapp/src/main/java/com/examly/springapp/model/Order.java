@@ -6,7 +6,6 @@ import java.util.List;
 
 import com.examly.springapp.model.enums.OrderStatus;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -17,6 +16,13 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "orders")
@@ -24,17 +30,28 @@ public class Order {
         @Id
         @GeneratedValue
             private long orderId;
+
+            @NotBlank(message = "Shipping address is required")
+            @Size(max = 255, message = "Shipping address cannot exceed 255 characters")
             private String shippingAddress;
+
+            @Positive(message = "Total amount must be greater than zero")
             private double totalAmount;
+
+            @Min(value = 1, message = "Quantity must be at least 1")
             private int quantity;
             @Enumerated(EnumType.STRING)
             private OrderStatus status = OrderStatus.pending;
             
+            @PastOrPresent(message = "Created date cannot be in the future")
             private Date createdAt;
+
+            @PastOrPresent(message = "Updated date cannot be in the future")
             private Date updatedAt;
 
             @ManyToOne
             @JoinColumn(name = "user_id")
+            @NotNull(message = "User is required")
             private User user;
 
             @ManyToMany
@@ -43,6 +60,7 @@ public class Order {
                 joinColumns = @JoinColumn(name="order_id"),
                 inverseJoinColumns = @JoinColumn(name="product_id")
             )
+            @NotEmpty(message = "Order must contain at least one product")
             List<Product> product = new ArrayList<>();
 
             public Order() {
