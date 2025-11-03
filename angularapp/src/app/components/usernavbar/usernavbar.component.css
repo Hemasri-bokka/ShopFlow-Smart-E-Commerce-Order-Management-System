@@ -1,6 +1,6 @@
 
 nav {
-    background-color: blue;
+     background: linear-gradient(90deg, #1a237e, #283593, #3949ab);
     color: white;
     padding: 1em;
     display: flex;
