@@ -9,6 +9,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
 
 @Entity
 public class Product {
@@ -16,11 +20,24 @@ public class Product {
     @Id
     @GeneratedValue
     private long productId;
+
+    @NotBlank(message = "Product name is required")
+    @Size(max = 100, message = "Product name cannot exceed 100 characters")
     private String name;
+    
+    @NotBlank(message = "Description is required")
+    @Size(max = 4500, message = "Description cannot exceed 4500 characters")
     private String description;
+
+    @Positive(message = "Price must be greater than zero")
     private double price;
+
+    @Min(value = 0, message = "Stock cannot be negative")
     private int stock;
+
+    @NotBlank(message = "Category is required")
     private String category;
+
     @Lob
     @Column(columnDefinition = "MEDIUMTEXT")
     private String photoImage;
