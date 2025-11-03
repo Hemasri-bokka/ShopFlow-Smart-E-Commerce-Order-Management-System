@@ -14,7 +14,7 @@ import com.examly.springapp.repository.UserRepo;
 
 public class FeedbackServiceImpl implements FeedbackService{
     @Autowired
-    private FeedbackRepo frepo;
+    private FeedbackRepo feedbackRepo;
     @Autowired
     private UserRepo urepo;
 
@@ -27,17 +27,17 @@ public class FeedbackServiceImpl implements FeedbackService{
             .orElseThrow(() -> new RuntimeException("User not found"));
     
         fb.setUser(user); 
-        return frepo.save(fb);
+        return feedbackRepo.save(fb);
     }
     
 
     @Override
     public boolean deleteFeedback(long feedbackId) {
-        Feedback found = frepo.findById(feedbackId).orElse(null);
+        Feedback found = feedbackRepo.findById(feedbackId).orElse(null);
         if(found == null){
             return false; 
         }
-        frepo.delete(found); 
+        feedbackRepo.delete(found); 
         return true;
     }
 
@@ -45,23 +45,20 @@ public class FeedbackServiceImpl implements FeedbackService{
     @Override
     public List<Feedback> getAllFeedback() {
         
-        return frepo.findAll();
+        return feedbackRepo.findAll();
     }
 
     @Override
     public Feedback getFeedbackById(long feedbackId) {
             
-        return frepo.findById(feedbackId).orElse(null);
+        return feedbackRepo.findById(feedbackId).orElse(null);
 
     }
 
     @Override
     public List<Feedback> getFeedbackByUserId(long userId) {
         
-        return frepo.findFeedbackByUserId(userId); 
+        return feedbackRepo.findFeedbackByUserId(userId); 
     }
-
-   
-
 
 }
