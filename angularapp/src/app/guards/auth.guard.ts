@@ -27,7 +27,6 @@ export class AuthGuard implements CanActivate {
       };
       console.log(errorObj);
       return this.router.navigate(['/error'], { state: { error: errorObj } })
-      return false;
     }
 
     return true;
