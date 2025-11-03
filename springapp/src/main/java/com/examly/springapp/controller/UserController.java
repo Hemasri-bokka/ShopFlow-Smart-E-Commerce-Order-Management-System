@@ -20,6 +20,7 @@ import com.examly.springapp.config.JwtUtils;
 import com.examly.springapp.config.UserPrinciple;
 import com.examly.springapp.model.LoginDTO;
 import com.examly.springapp.model.User;
+import com.examly.springapp.model.UserDto;
 import com.examly.springapp.service.UserServiceImpl;
 
 @RestController
@@ -64,5 +65,15 @@ public ResponseEntity<?> loginUser(@RequestBody User user) {
     public ResponseEntity<?> deleteUserById(@PathVariable int userId) {
         ser.deleteUser(userId);
         return ResponseEntity.status(200).build(); // OK
+    }
+
+    @GetMapping("/api/user/{userId}")
+    @PreAuthorize("hasRole('ADMIN')")
+    public ResponseEntity<UserDto> getUserById(@PathVariable long userId){
+        UserDto found = ser.getById(userId);
+        if(found == null){
+            return ResponseEntity.status(404).build();
+        }
+        return ResponseEntity.status(200).body(found); 
     }
 }

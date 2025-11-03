@@ -40,6 +40,8 @@ import { AdminaddproductComponent } from './components/adminaddproduct/adminaddp
 import { AdminviewfeedbackComponent } from './components/adminviewfeedback/adminviewfeedback.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HttpIntercepterAuthService } from './services/http-interceptor-auth.service';
+import { AdminviewuserprofileComponent } from './components/adminviewuserprofile/adminviewuserprofile.component';
+
 
 @NgModule({
   declarations: [
@@ -63,6 +65,8 @@ import { HttpIntercepterAuthService } from './services/http-interceptor-auth.ser
     UserviewordersComponent,
     UserviewproductComponent,
     FooterComponent,
+    AdminviewuserprofileComponent,
+    
     
   ],
   imports: [

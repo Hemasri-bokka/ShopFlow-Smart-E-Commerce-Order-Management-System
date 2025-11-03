@@ -15,6 +15,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { AuthguardComponent } from './components/authguard/authguard.component';
 import { AdminaddproductComponent } from './components/adminaddproduct/adminaddproduct.component';
 import { AdminviewfeedbackComponent } from './components/adminviewfeedback/adminviewfeedback.component';
+import { AdminviewuserprofileComponent } from './components/adminviewuserprofile/adminviewuserprofile.component';
 
 
 const routes: Routes = [
@@ -29,8 +30,9 @@ const routes: Routes = [
   {path: 'admin/add-product', component: AdminaddproductComponent},
   {path: 'admin/view-feedback', component: AdminviewfeedbackComponent},
   { path: 'admin/add-product/:id', component: AdminaddproductComponent },
+  {path: 'admin/user-profile/:id', component: AdminviewuserprofileComponent},
 
-  { path: 'user/products', component: UserviewproductComponent},
+  { path: 'user/products', component: UserviewproductComponent}, 
   { path: 'user/cart', component: UseraddcartComponent },
   { path: 'user/orders', component: UserviewordersComponent },
   { path: 'user/feedback', component: UseraddfeedbackComponent },

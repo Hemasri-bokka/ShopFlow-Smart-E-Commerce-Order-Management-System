@@ -58,11 +58,7 @@ export class AdminaddproductComponent implements OnInit {
     
    }
 
-
-
-  
-
-  // Convert selected file to Base64 and patch into form
+ 
   onFileSelected(event: any) {
     const file = event.target.files[0];
     if (file) {
@@ -92,7 +88,7 @@ export class AdminaddproductComponent implements OnInit {
   }
 
 else{
-    // Includes photo as Base64 string
+
     console.log(product);
     this.productService.addProduct(product).subscribe({
       next: () => {

@@ -17,6 +17,7 @@ import com.examly.springapp.config.UserPrinciple;
 import com.examly.springapp.exception.UsernameAlreadyExistsException;
 import com.examly.springapp.model.LoginDTO;
 import com.examly.springapp.model.User;
+import com.examly.springapp.model.UserDto;
 import com.examly.springapp.repository.UserRepo;
 
 @Service
@@ -86,10 +87,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getById(int id) {
-        long lid = id;
-        return uRepo.findById(lid).orElse(null);
+   public UserDto getById(long id) {
+    User user = uRepo.findById(id).orElse(null);
+    if (user == null) {
+        return null; 
     }
+    return new UserDto(user.getUserId(), user.getUsername(), user.getEmail(), user.getMobileNumber());
+}
 
     @Override
     public void deleteUser(int id) {

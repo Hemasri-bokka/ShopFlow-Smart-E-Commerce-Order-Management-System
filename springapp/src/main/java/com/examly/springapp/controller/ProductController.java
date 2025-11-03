@@ -44,11 +44,11 @@ public class ProductController {
     }
 
     @GetMapping("/api/products/user/{userId}")
-    @PreAuthorize("hasAnyRole('USER')")
-    public ResponseEntity<Product> getProductByUserId( @PathVariable Long userId){
-        Product found = service.getProductById(userId);
-        if(found == null){
-            return ResponseEntity.status(404).build();
+    @PreAuthorize("hasAnyRole('USER','ADMIN')") 
+    public ResponseEntity<List<Product>> getProductByUserId( @PathVariable Long userId){
+       List <Product> found = service.getProductByUserId(userId);
+        if(found.isEmpty()){
+            return ResponseEntity.status(200).body(found);
         }
         return ResponseEntity.status(200).body(found);
     }
