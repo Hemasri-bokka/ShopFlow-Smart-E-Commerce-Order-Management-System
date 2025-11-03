@@ -9,51 +9,51 @@ import com.examly.springapp.repository.ProductRepo;
 @Service
 public class ProductServiceImpl implements ProductService{
 
-    private ProductRepo prepo;
+    private ProductRepo productRepository;
 
-    public ProductServiceImpl(ProductRepo prepo){
-        this.prepo = prepo;
+    public ProductServiceImpl(ProductRepo productRepository){
+        this.productRepository = productRepository;
     }
 
     @Override
     public Product addProduct(Product product) {
-        return prepo.save(product);
+        return productRepository.save(product);
     }
 
     @Override
     public boolean deleteProduct(Long id) {
-         prepo.deleteById(id);
+        productRepository.deleteById(id);
          return true;
     }
 
     @Override
     public List<Product> getAllProducts() {
-      return prepo.findAll();
+      return productRepository.findAll();
     }
 
     @Override
     public Product getProductById(Long id) {
-       return prepo.findById(id).orElse(null);
+       return productRepository.findById(id).orElse(null);
     }
 
     @Override
     public List<Product> getProductByUserId(Long userId) {
-       return prepo.findByUserId(userId);
+       return productRepository.findByUserId(userId);
     }
 
     @Override
     public List<Product> getProductsByCategory(String category) {
-        return prepo.findByCategory(category);
+        return productRepository.findByCategory(category);
     }
 
     @Override
     public Product updateProduct(Long productId, Product productRequest) {
-        Product p = prepo.findById(productId).orElse(null);
+        Product p = productRepository.findById(productId).orElse(null);
         if(p == null){
-            return prepo.save(productRequest);
+            return productRepository.save(productRequest);
         }
         productRequest.setProductId(productId);
-        return prepo.save(productRequest);
+        return productRepository.save(productRequest);
     }
 
     
