@@ -46,7 +46,6 @@ export class ProductService {
     return this.http.get<any>(`${APP_URL}/products/${productId}`);
   }
 
-
   loadCart(): void {
     const storedCart = localStorage.getItem('cart');
     const cart = storedCart ? JSON.parse(storedCart) : [];

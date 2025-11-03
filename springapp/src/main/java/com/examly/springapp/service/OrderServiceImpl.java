@@ -14,12 +14,10 @@ import com.examly.springapp.repository.ProductRepo;
 import com.examly.springapp.repository.UserRepo;
 
 @Service
-public class OrderServiceImpl implements OrderService{
+public class OrderServiceImpl implements OrderService {
     private OrderRepo orepo;
     private UserRepo urepo;
     private ProductRepo prepo;
-
-    
 
     public OrderServiceImpl(OrderRepo orepo, UserRepo urepo, ProductRepo prepo) {
         this.orepo = orepo;
@@ -40,18 +38,23 @@ public Order addorder(Order order) {
            //added this line(Gladson)
             dbProduct.setUser(user);
             managedProducts.add(dbProduct); 
-    } 
-
+            
+        if (p.getStock() > dbProduct.getStock()) {
+        throw new RuntimeException("Insufficient stock for product: " + dbProduct.getName());
+        }
+        dbProduct.setStock(dbProduct.getStock() - 1);
+    }
     order.setUser(user);
     order.setProduct(managedProducts);
     //added this line(Gladson) 
     prepo.saveAll(managedProducts);
     return orepo.save(order);
+    
 }
 
     @Override
     public void deleteOrder(long orderId) {
-         orepo.deleteById(orderId);
+        orepo.deleteById(orderId);
     }
 
     @Override
@@ -61,7 +64,7 @@ public Order addorder(Order order) {
 
     @Override
     public Order getOrderById(long orderId) {
-       return orepo.findById(orderId).orElse(null);
+        return orepo.findById(orderId).orElse(null);
     }
 
     @Override
@@ -78,16 +81,15 @@ public Order addorder(Order order) {
     @Override
     public List<Order> getOrdersByUserId(Long userId) {
         User user = urepo.findById(userId).orElse(null);
-        if(user != null){
+        if (user != null) {
 
         }
         return orepo.findByUser(user);
     }
 
     @Override
-    public Order updateOrder(long id, Order updateOrder){
+    public Order updateOrder(long id, Order updateOrder) {
         return orepo.save(updateOrder);
     }
 
-    
 }

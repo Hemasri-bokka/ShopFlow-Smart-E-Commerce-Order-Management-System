@@ -1,7 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Order } from 'src/app/models/order.model';
+import { Product } from 'src/app/models/product.model';
 import { OrderService } from 'src/app/services/order.service';
+import { ProductService } from 'src/app/services/product.service';
 
 declare var paypal: any; // Declare PayPal globally
 
@@ -11,22 +13,22 @@ declare var paypal: any; // Declare PayPal globally
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
- 
+
 
   @ViewChild('paymentRef', { static: true }) paymentRef!: ElementRef;
 
-  constructor(private router: Router, private ser: OrderService) {}
+  constructor(private router: Router, private ser: OrderService, private pes: ProductService) { }
   order: Order = null;
   amount: number = 0;
   ngOnInit(): void {
     this.order = this.ser.getOrder();
-    
-  if (!this.order) {
-    console.error('Order is null. Redirecting to cart or showing error.');
-    alert('No order found. Please place an order before proceeding to payment.');
-    this.router.navigate(['/user/cart']);
-    return;
-  }
+
+    if (!this.order) {
+      console.error('Order is null. Redirecting to cart or showing error.');
+      alert('No order found. Please place an order before proceeding to payment.');
+      this.router.navigate(['/user/cart']);
+      return;
+    }
 
     this.amount = this.order?.totalAmount;
     if (paypal) {
@@ -48,21 +50,50 @@ export class PaymentComponent implements OnInit {
             }]
           });
         },
+        // onApprove: (data: any, actions: any) => {
+        //   return actions.order.capture().then((details: any) => {
+        //     console.log('Transaction completed:', details);
+        //     alert(`Payment Successful! Thank you, ${details.payer.name.given_name}`);
+        //     this.ser.placeOrder(this.order).subscribe({
+        //       next: () => {
+
+        //         this.router.navigate(['/user/cart']);
+        //         alert('Order placed successfully!');
+
+
+
+        //       },
+        //       error: (err) => console.error('Error placing order:', err)
+        //     });
+
+        //   });
+        // },
         onApprove: (data: any, actions: any) => {
           return actions.order.capture().then((details: any) => {
             console.log('Transaction completed:', details);
             alert(`Payment Successful! Thank you, ${details.payer.name.given_name}`);
+        
             this.ser.placeOrder(this.order).subscribe({
               next: () => {
-                                
-                this.router.navigate(['/user/cart']);
+                type CartItem = Product & { quantity: number };
+        
+                (this.order.product as CartItem[]).forEach(item => {
+                  const updatedProduct: Product = {
+                    ...item, 
+                    stock: item.stock - item.quantity 
+                  };
+        
+                  this.pes.updateProduct(item.productId, updatedProduct).subscribe({
+                    next: () => console.log(`Stock updated for product ${item.productId}`),
+                    error: err => console.error('Error updating stock:', err)
+                  });
+                });
+        
                 alert('Order placed successfully!');
-                
-
+                this.router.navigate(['/user/cart']);
               },
               error: (err) => console.error('Error placing order:', err)
             });
-            
           });
         },
         onError: (err: any) => {
@@ -74,7 +105,6 @@ export class PaymentComponent implements OnInit {
       console.error('PayPal SDK not loaded.');
     }
   }
-
   cancel() {
     this.router.navigate(['/user/cart']);
   }
