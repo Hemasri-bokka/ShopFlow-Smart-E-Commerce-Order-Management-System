@@ -1,0 +1,7 @@
+<p>Payment works!</p>
+<div class="paypal-container">
+  <div class="amount">Total Amount to Pay: ₹{{amount}}</div>
+  <div class="info">Please do not refresh the browser while the transaction is Processing</div>
+  <div #paymentRef></div>
+  <div class="back" (click)="cancel()">Cancel</div>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Order } from 'src/app/models/order.model';
 import { AuthService } from 'src/app/services/auth.service';
@@ -16,9 +17,9 @@ export class UseraddcartComponent implements OnInit {
     userId = this.aes.getUserId() ;
     displayedColumns: string[] = ['name', 'price', 'quantity', 'actions'];
   
-    constructor(private productService: ProductService, private orderService: OrderService, private aes: AuthService, private snackBar: MatSnackBar) {}
+    constructor(private productService: ProductService, private orderService: OrderService, private aes: AuthService, private router: Router, private snackBar: MatSnackBar) {}
   
-    ngOnInit(): void {
+    ngOnInit(): void { 
       this.productService.cart$.subscribe(cart => this.cartItems = cart);
     }
   
@@ -81,29 +82,24 @@ export class UseraddcartComponent implements OnInit {
       updatedAt: new Date()
     };
 
-    this.orderService.placeOrder(order).subscribe({
-      next: () => {
-        this.cartItems.forEach(item => {
-                  const newQuantity = item.availableQuantity - item.quantity;
-                  this.productService.updateProduct(item.productId, { ...item, availableQuantity: newQuantity })
-                    .subscribe({
-                      next: () => console.log(`Stock updated for product ${item.productId}`),
-                      error: err => console.error('Error updating stock:', err)
-                    });
-                  });
+   
+    //changes
+    this.orderService.setOrder(order);
+    this.productService.refreshCart([]);
+    this.cartItems = [];
+    this.shippingAddress = '';
+    localStorage.removeItem('cart');
+    this.router.navigate(['/payment']);
 
-                  this.snackBar.open(`Order Placed Successfully`, 'Close', {
-                    duration: 3000,
-                    panelClass: ['snackbar-success'],
-         
-                  });
-        // alert('Order placed successfully!');
-        localStorage.removeItem('cart');
-        this.cartItems = [];
-        this.shippingAddress = '';
-      },
-      error: (err) => console.error('Error placing order:', err)
-    });
+    // this.orderService.placeOrder(order).subscribe({
+    //   next: () => {
+    //     alert('Order placed successfully!');
+    //     localStorage.removeItem('cart');
+    //     this.cartItems = [];
+    //     this.shippingAddress = '';
+    //   },
+    //   error: (err) => console.error('Error placing order:', err)
+    // });
   }
 }
 

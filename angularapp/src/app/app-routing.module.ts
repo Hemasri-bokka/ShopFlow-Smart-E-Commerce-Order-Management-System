@@ -14,6 +14,7 @@ import { UserviewfeedbackComponent } from './components/userviewfeedback/uservie
 import { ErrorComponent } from './components/error/error.component';
 import { AdminaddproductComponent } from './components/adminaddproduct/adminaddproduct.component';
 import { AdminviewfeedbackComponent } from './components/adminviewfeedback/adminviewfeedback.component';
+import { PaymentComponent } from './components/payment/payment.component';
 import { AdminviewuserprofileComponent } from './components/adminviewuserprofile/adminviewuserprofile.component';
 
 import { AuthGuard } from './guards/auth.guard';
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
+  { path: 'payment', component: PaymentComponent },
 
   { path: 'admin/products', component: AdminviewproductComponent,  canActivate: [AuthGuard], },
   { path: 'admin/orders', component: AdminviewordersComponent,  canActivate: [AuthGuard]},

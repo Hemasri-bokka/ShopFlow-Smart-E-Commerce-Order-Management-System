@@ -40,6 +40,7 @@ import { AdminaddproductComponent } from './components/adminaddproduct/adminaddp
 import { AdminviewfeedbackComponent } from './components/adminviewfeedback/adminviewfeedback.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HttpIntercepterAuthService } from './services/http-interceptor-auth.service';
+import { PaymentComponent } from './components/payment/payment.component';
 import { AdminviewuserprofileComponent } from './components/adminviewuserprofile/adminviewuserprofile.component';
 
 import { AuthGuard } from './guards/auth.guard';
@@ -66,6 +67,7 @@ import { AuthGuard } from './guards/auth.guard';
     UserviewordersComponent,
     UserviewproductComponent,
     FooterComponent,
+    PaymentComponent,
     AdminviewuserprofileComponent,
     
 
