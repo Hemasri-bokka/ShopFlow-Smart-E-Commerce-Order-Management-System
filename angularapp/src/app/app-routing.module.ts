@@ -15,6 +15,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { AuthguardComponent } from './components/authguard/authguard.component';
 import { AdminaddproductComponent } from './components/adminaddproduct/adminaddproduct.component';
 import { AdminviewfeedbackComponent } from './components/adminviewfeedback/adminviewfeedback.component';
+import { PaymentComponent } from './components/payment/payment.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
+  { path: 'payment', component: PaymentComponent },
 
   { path: 'admin/products', component: AdminviewproductComponent },
   { path: 'admin/orders', component: AdminviewordersComponent},

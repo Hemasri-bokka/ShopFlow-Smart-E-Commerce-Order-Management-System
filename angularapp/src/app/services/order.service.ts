@@ -11,7 +11,22 @@ export class OrderService {
 
   constructor(private http:HttpClient) { }
 
+  //change start
+private orderData: Order | null = null;
 
+setOrder(order: Order): void {
+  this.orderData = order;
+}
+
+getOrder(): Order | null {
+  return this.orderData;
+}
+
+clearOrder(): void {
+  this.orderData = null;
+}
+
+//end
   placeOrder(order:Order):Observable<any>{
     return this.http.post<any>(`${APP_URL}/orders`,order);
   }
