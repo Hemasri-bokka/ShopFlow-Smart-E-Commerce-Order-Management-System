@@ -15,14 +15,14 @@ import com.examly.springapp.repository.UserRepo;
 
 @Service
 public class OrderServiceImpl implements OrderService {
-    private OrderRepo orepo;
+    private OrderRepo orderRepository;
     private UserRepo urepo;
-    private ProductRepo prepo;
+    private ProductRepo productRepository;
 
-    public OrderServiceImpl(OrderRepo orepo, UserRepo urepo, ProductRepo prepo) {
-        this.orepo = orepo;
+    public OrderServiceImpl(OrderRepo orderRepository, UserRepo urepo, ProductRepo productRepository) {
+        this.orderRepository = orderRepository;
         this.urepo = urepo;
-        this.prepo = prepo;
+        this.productRepository = productRepository;
     }
 
     @Override
@@ -33,7 +33,7 @@ public Order addorder(Order order) {
     // Fetch products from DB using IDs
     List<Product> managedProducts = new ArrayList<>();
     for (Product p : order.getProduct()) {
-        Product dbProduct = prepo.findById(p.getProductId())
+        Product dbProduct = productRepository.findById(p.getProductId())
             .orElseThrow(() -> new RuntimeException("Product not found: " + p.getProductId()));
            //added this line(Gladson)
             dbProduct.setUser(user);
@@ -47,35 +47,35 @@ public Order addorder(Order order) {
     order.setUser(user);
     order.setProduct(managedProducts);
     //added this line(Gladson) 
-    prepo.saveAll(managedProducts);
-    return orepo.save(order);
+    productRepository.saveAll(managedProducts);
+    return orderRepository.save(order);
     
 }
 
     @Override
     public void deleteOrder(long orderId) {
-        orepo.deleteById(orderId);
+        orderRepository.deleteById(orderId);
     }
 
     @Override
     public List<Order> getAllOrders() {
-        return orepo.findAll();
+        return orderRepository.findAll();
     }
 
     @Override
     public Order getOrderById(long orderId) {
-        return orepo.findById(orderId).orElse(null);
+        return orderRepository.findById(orderId).orElse(null);
     }
 
     @Override
     public List<Order> getOrdersByStatus(OrderStatus status) {
-        return orepo.findByStatus(status);
+        return orderRepository.findByStatus(status);
     }
 
     @Override
     public List<Order> getOrdersByUser(int userId) {
         long id = userId;
-        return orepo.findByUserId(id);
+        return orderRepository.findByUserId(id);
     }
 
     @Override
@@ -84,12 +84,12 @@ public Order addorder(Order order) {
         if (user != null) {
 
         }
-        return orepo.findByUser(user);
+        return orderRepository.findByUser(user);
     }
 
     @Override
     public Order updateOrder(long id, Order updateOrder) {
-        return orepo.save(updateOrder);
+        return orderRepository.save(updateOrder);
     }
 
 }

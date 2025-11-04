@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Order } from 'src/app/models/order.model';
 import { Product } from 'src/app/models/product.model';
@@ -17,7 +18,7 @@ export class PaymentComponent implements OnInit {
 
   @ViewChild('paymentRef', { static: true }) paymentRef!: ElementRef;
 
-  constructor(private router: Router, private ser: OrderService, private pes: ProductService) { }
+  constructor(private router: Router, private ser: OrderService, private pes: ProductService, private snackBar: MatSnackBar) { }
   order: Order = null;
   amount: number = 0;
   ngOnInit(): void {
@@ -25,7 +26,13 @@ export class PaymentComponent implements OnInit {
 
     if (!this.order) {
       console.error('Order is null. Redirecting to cart or showing error.');
-      alert('No order found. Please place an order before proceeding to payment.');
+
+      this.snackBar.open('No order found. Please place an order before proceeding to payment.', 'Close', {
+        duration: 4000,
+        verticalPosition: 'bottom',
+        horizontalPosition: 'center'
+      });
+
       this.router.navigate(['/user/cart']);
       return;
     }
@@ -53,15 +60,20 @@ export class PaymentComponent implements OnInit {
         onApprove: (data: any, actions: any) => {
           return actions.order.capture().then((details: any) => {
             console.log('Transaction completed:', details);
-            alert(`Payment Successful! Thank you, ${details.payer.name.given_name}`);
+
+            this.snackBar.open(`Payment Successful! Thank you, ${details.payer.name.given_name}`, 'Close', {
+              duration: 4000,
+              verticalPosition: 'bottom',
+              horizontalPosition: 'center'
+            });
             this.ser.placeOrder(this.order).subscribe({
               next: () => {
-
                 this.router.navigate(['/user/cart']);
-                alert('Order placed successfully!');
-
-
-
+                this.snackBar.open('Order placed successfully!', 'Close', {
+                  duration: 4000,
+                  verticalPosition: 'bottom',
+                  horizontalPosition: 'center'
+                });
               },
               error: (err) => console.error('Error placing order:', err)
             });
@@ -70,7 +82,11 @@ export class PaymentComponent implements OnInit {
         },
         onError: (err: any) => {
           console.error('Payment error:', err);
-          alert('Payment failed. Please try again.');
+          this.snackBar.open('Payment failed. Please try again.', 'Close', {
+            duration: 4000,
+            verticalPosition: 'bottom',
+            horizontalPosition: 'center'
+          });
         }
       }).render(this.paymentRef.nativeElement);
     } else {
