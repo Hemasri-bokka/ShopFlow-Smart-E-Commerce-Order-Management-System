@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
@@ -16,7 +17,7 @@ export class AdminaddproductComponent implements OnInit {
   productId!: number;
   categories: string[] = ['Electronics', 'Groceries', 'Clothing', 'Books'];
 
-  constructor(private fb: FormBuilder, private productService: ProductService, private route: ActivatedRoute, private router: Router) {
+  constructor(private fb: FormBuilder, private productService: ProductService, private route: ActivatedRoute, private router: Router, private snackBar: MatSnackBar) {
     this.createControls();
    }
 
@@ -75,34 +76,50 @@ export class AdminaddproductComponent implements OnInit {
     if (this.AdminAddForm.invalid) {
       return;
     }
-
+  
     const product: Product = this.AdminAddForm.value;
     product.updatedAt = new Date();
-    
-  if (this.isEditMode) {
-    this.productService.updateProduct(this.productId, product).subscribe(
-      () => {
-        alert('Product updated successfully!');
-        this.router.navigate(['admin/products']);
-      },
-      (err) => console.error('Error updating product', err)
-    );
-  }
-
-else{
-
-    console.log(product);
-    this.productService.addProduct(product).subscribe({
-      next: () => {
-        alert('Product added successfully!');
-        this.AdminAddForm.reset();
-      },
-      error: (err) => {
-        console.error('Error adding product', err);
-        alert('Failed to add product.');
-      }
-    });
-}
+  
+    if (this.isEditMode) {
+      this.productService.updateProduct(this.productId, product).subscribe(
+        () => {
+          this.snackBar.open('Product updated successfully!', 'Close', {
+            duration: 3000,
+            horizontalPosition: 'right',
+            verticalPosition: 'top'
+          });
+          this.router.navigate(['admin/products']);
+        },
+        (err) => {
+          console.error('Error updating product', err);
+          this.snackBar.open('Failed to update product.', 'Close', {
+            duration: 3000,
+            horizontalPosition: 'right',
+            verticalPosition: 'top'
+          });
+        }
+      );
+    } else {
+      this.productService.addProduct(product).subscribe({
+        next: () => {
+          this.snackBar.open('Product added successfully!', 'Close', {
+            duration: 3000,
+            horizontalPosition: 'right',
+            verticalPosition: 'top'
+          });
+          this.AdminAddForm.reset();
+        },
+        error: (err) => {
+          console.error('Error adding product', err);
+          this.snackBar.open('Failed to add product.', 'Close', {
+            duration: 3000,
+            horizontalPosition: 'right',
+            verticalPosition: 'top'
+          });
+        }
+      });
+    }
+  
   
   }
 }
