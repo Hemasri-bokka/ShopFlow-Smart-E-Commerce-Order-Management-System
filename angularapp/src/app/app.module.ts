@@ -13,6 +13,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSliderModule } from '@angular/material/slider';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -44,6 +46,7 @@ import { PaymentComponent } from './components/payment/payment.component';
 import { AdminviewuserprofileComponent } from './components/adminviewuserprofile/adminviewuserprofile.component';
 
 import { AuthGuard } from './guards/auth.guard';
+import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -69,9 +72,7 @@ import { AuthGuard } from './guards/auth.guard';
     FooterComponent,
     PaymentComponent,
     AdminviewuserprofileComponent,
-    
-
-    
+    ConfirmDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -91,8 +92,10 @@ import { AuthGuard } from './guards/auth.guard';
     MatProgressBarModule,
     MatSnackBarModule,
     MatPaginatorModule,
-    MatSortModule
- 
+    MatSortModule,
+    MatDialogModule,
+    MatSliderModule,
+
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterAuthService, multi: true }],
   bootstrap: [AppComponent]

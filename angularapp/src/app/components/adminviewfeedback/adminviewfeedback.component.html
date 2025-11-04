@@ -1,12 +1,10 @@
-<div class="feedback-container">
+<!-- <div class="feedback-container">
     <h2>Feedback Details</h2>
   
-    <!-- If no data -->
     <div *ngIf="feedbackList.length === 0" class="no-data">
       No data found
     </div>
   
-    <!-- If data exists -->
     <table *ngIf="feedbackList.length > 0" class="feedback-table">
       <thead>
         <tr>
@@ -31,4 +29,66 @@
         </tr>
       </tbody>
     </table>
-  </div>
+  </div> -->
+
+  <mat-card class="container">
+    <h2>Feedback Details</h2>
+  
+    <!-- Filters -->
+    <div class="filters">
+      <!-- Search Filter -->
+      <mat-form-field appearance="outline">
+        <mat-label>Search by Username</mat-label>
+        <input matInput [(ngModel)]="searchText" (keyup)="applyFilters()" placeholder="Search username">
+      </mat-form-field>
+    </div>
+  
+    <!-- No Data Message -->
+    <div *ngIf="dataSource.filteredData.length === 0" class="no-data">
+      No data found
+    </div>
+  
+    <!-- Feedback Table -->
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" *ngIf="dataSource.filteredData.length > 0">
+      <!-- S.No Column -->
+      <ng-container matColumnDef="sno">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>S.No</th>
+        <td mat-cell *matCellDef="let feedback; let i = index">{{ i + 1 }}</td>
+      </ng-container>
+  
+      <!-- Username Column -->
+      <ng-container matColumnDef="username">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>User Name</th>
+        <td mat-cell *matCellDef="let feedback">{{ feedback.user.username }}</td>
+      </ng-container>
+  
+      <!-- Feedback Column -->
+      <ng-container matColumnDef="message">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Feedback</th>
+        <td mat-cell *matCellDef="let feedback">{{ feedback.message }}</td>
+      </ng-container>
+  
+      <!-- Rating Column -->
+      <ng-container matColumnDef="rating">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Ratings</th>
+        <td mat-cell *matCellDef="let feedback">{{ feedback.rating }}</td>
+      </ng-container>
+  
+      <!-- Action Column -->
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let feedback">
+          <button mat-raised-button color="primary" (click)="viewProfile(feedback.user.userId)">
+            <mat-icon>person</mat-icon> Show Profile
+          </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  
+    <!-- Paginator -->
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </mat-card>
+  

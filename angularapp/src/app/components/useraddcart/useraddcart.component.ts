@@ -12,67 +12,73 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./useraddcart.component.css']
 })
 export class UseraddcartComponent implements OnInit {
-    shippingAddress: string = '';
-    cartItems: any[] = [];
-    userId = this.aes.getUserId() ;
-    displayedColumns: string[] = ['name', 'price', 'quantity', 'actions'];
-  
-    constructor(private productService: ProductService, private orderService: OrderService, private aes: AuthService, private router: Router, private snackBar: MatSnackBar) {}
-  
-    ngOnInit(): void { 
-      this.productService.cart$.subscribe(cart => this.cartItems = cart);
-    }
-  
-    removeItem(item: any): void {
-      this.productService.removeFromCart(item);
-    }
-  
-    getBaseTotal(): number {
-      return this.cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    }
-    
-    getGST(): number {
-      const gst = this.getBaseTotal() * 0.18; // 18% GST
-      return parseFloat(gst.toFixed(2));
-    }
-    
-    getDeliveryCharge(): number {
-      return this.getBaseTotal() * 0.03; // 3% Delivery
-    }
-    
-    getTotal(): number {
-      const total = this.getBaseTotal() + this.getGST() + this.getDeliveryCharge();
-      return parseFloat(total.toFixed(2)); 
-    }
+  shippingAddress: string = '';
+  cartItems: any[] = [];
+  userId = this.aes.getUserId();
+  displayedColumns: string[] = ['name', 'price', 'quantity', 'actions'];
 
-    
-    increaseQuantity(item: any): void {
-      item.quantity += 1;
+  constructor(private productService: ProductService, private orderService: OrderService, private aes: AuthService, private router: Router, private snackBar: MatSnackBar) { }
+
+  ngOnInit(): void {
+    this.productService.cart$.subscribe(cart => this.cartItems = cart);
+  }
+
+  removeItem(item: any): void {
+    this.productService.removeFromCart(item);
+  }
+
+  getBaseTotal(): number {
+    return this.cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  }
+
+  getGST(): number {
+    const gst = this.getBaseTotal() * 0.18; // 18% GST
+    return parseFloat(gst.toFixed(2));
+  }
+
+  getDeliveryCharge(): number {
+    return this.getBaseTotal() * 0.03; // 3% Delivery
+  }
+
+  getTotal(): number {
+    const total = this.getBaseTotal() + this.getGST() + this.getDeliveryCharge();
+    return parseFloat(total.toFixed(2));
+  }
+
+
+  increaseQuantity(item: any): void {
+    item.quantity += 1;
+    this.updateCart();
+  }
+
+  decreaseQuantity(item: any): void {
+    if (item.quantity > 1) {
+      item.quantity -= 1;
       this.updateCart();
     }
-    
-    decreaseQuantity(item: any): void {
-      if (item.quantity > 1) {
-        item.quantity -= 1;
-        this.updateCart();
-      }
-    }
-    
-    updateCart(): void {
-      localStorage.setItem('cart', JSON.stringify(this.cartItems));
-      this.productService.refreshCart(this.cartItems);
-    }
-   
+  }
+
+  updateCart(): void {
+    localStorage.setItem('cart', JSON.stringify(this.cartItems));
+    this.productService.refreshCart(this.cartItems);
+  }
+
+
 
 
   placeOrder(): void {
-   if (!this.shippingAddress.trim()) {
-      alert('Please enter a shipping address.');
+    if (!this.shippingAddress.trim()) {
+      this.snackBar.open('Please enter a shipping address.', 'Close', {
+        duration: 3000,
+        verticalPosition: 'bottom',
+        horizontalPosition: 'center'
+      });
       return;
     }
 
+
     const order: Order = {
-      user: { userId: +this.userId}, // Replace with AuthService user
+      user: { userId: +this.userId }, // Replace with AuthService user
       product: this.cartItems,
       shippingAddress: this.shippingAddress,
       totalAmount: this.getTotal(),
@@ -82,7 +88,7 @@ export class UseraddcartComponent implements OnInit {
       updatedAt: new Date()
     };
 
-   
+
     //changes
     this.orderService.setOrder(order);
     this.productService.refreshCart([]);
