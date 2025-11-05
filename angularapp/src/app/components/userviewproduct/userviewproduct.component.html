@@ -35,10 +35,14 @@
         </mat-card-content>
       
         <mat-card-actions>
-          <button mat-raised-button color="primary" class="add-btn" (click)="addToCart(product)">
+          <button mat-raised-button color="primary" class="add-btn"
+                  (click)="addToCart(product)"
+                  [disabled]="product.stock === 0">
             <mat-icon>add_shopping_cart</mat-icon> Add to Cart
           </button>
+          <span *ngIf="product.stock === 0" style="color: red; margin-left: 10px;">No Stock</span>
         </mat-card-actions>
+        
       </mat-card>
     </div>
   </div>
