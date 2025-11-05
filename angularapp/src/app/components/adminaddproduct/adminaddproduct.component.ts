@@ -12,10 +12,18 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class AdminaddproductComponent implements OnInit {
 
+  
   AdminAddForm : FormGroup;
   isEditMode: boolean = false;
   productId!: number;
   categories: string[] = ['Electronics', 'Groceries', 'Clothing', 'Books'];
+  
+private getISTDateISO(): Date {
+  const date = new Date();
+  const istOffset = 5.5 * 60 * 60 * 1000; // IST = UTC + 5:30
+  return new Date(date.getTime() + istOffset);
+}
+
 
   constructor(private fb: FormBuilder, private productService: ProductService, private route: ActivatedRoute, private router: Router, private snackBar: MatSnackBar) {
     this.createControls();
@@ -52,13 +60,13 @@ export class AdminaddproductComponent implements OnInit {
       stock: [null, [Validators.required, Validators.min(1)]],
       category: ['', Validators.required],
       photoImage: [null],
-      createdAt: [new Date()],
-      updatedAt: [new Date()]  
+      createdAt: [this.getISTDateISO()],
+      updatedAt: [this.getISTDateISO()] 
 
     });
-    
-   }
-
+   
+  }
+   
  
   onFileSelected(event: any) {
     const file = event.target.files[0];
@@ -78,7 +86,7 @@ export class AdminaddproductComponent implements OnInit {
     }
   
     const product: Product = this.AdminAddForm.value;
-    product.updatedAt = new Date();
+    product.updatedAt = this.getISTDateISO();
   
     if (this.isEditMode) {
       this.productService.updateProduct(this.productId, product).subscribe(
