@@ -10,8 +10,11 @@ import { APP_URL } from '../app.constants';
 export class ProductService {
 
   private cartSubject = new BehaviorSubject<any[]>([]);
+  //cartSubject is a BehaviorSubject, which is both an Observable and an Observer.
+  //But exposing the subject directly is not good practice because components could call .next() and mutate the state.
   cart$ = this.cartSubject.asObservable();
-
+  //So, you convert it to an Observable using .asObservable().
+  // This way, components can only subscribe and cannot modify the cart directly.
   constructor(private http: HttpClient) {
     this.loadCart();
    }
@@ -48,13 +51,13 @@ export class ProductService {
 
   loadCart(): void {
     const storedCart = localStorage.getItem('cart');
-    const cart = storedCart ? JSON.parse(storedCart) : [];
+    const cart = storedCart ? JSON.parse(storedCart) : []; //coverts JSON to array
     this.cartSubject.next(cart); 
   }
 
 
   private updateLocalStorage(cart: any[]): void {
-    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem('cart', JSON.stringify(cart)); //converts array[] to string to store it in LOCAL STORAGE
     this.cartSubject.next(cart);
 
   }
@@ -66,7 +69,7 @@ removeFromCart(product: any): void {
 addToCart(product: any): void {
   const cart = this.cartSubject.value;
   const index = cart.findIndex(item => item.productId === product.productId);
-  if (index > -1) {
+  if (index > -1) { //if found naah index = 0 or 1 ,so increasing the quantity
     cart[index].quantity += 1;
   } else {
     cart.push({ ...product, quantity: 1 });
