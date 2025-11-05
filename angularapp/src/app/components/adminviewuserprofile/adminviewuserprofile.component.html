@@ -20,11 +20,9 @@
         <img *ngIf="product.photoImage" [src]="product.photoImage" alt="{{ product.name }}">
         <h5>{{ product.name }}</h5>
         <p><span class="label">Description:</span> {{ product.description }}</p>
-        <p><span class="label">Price:</span> {{ product.price | currency }}</p>
+        <p><span class="label">Price:</span> {{ product.price | currency:'INR' }}</p>
         <p><span class="label">Stock:</span> {{ product.stock }}</p>
         <p><span class="label">Category:</span> {{ product.category }}</p>
-        <p><span class="label">Created At:</span> {{ product.createdAt | date:'medium' }}</p>
-        <p><span class="label">Updated At:</span> {{ product.updatedAt | date:'medium' }}</p>
       </div>
     </div>
   </div>

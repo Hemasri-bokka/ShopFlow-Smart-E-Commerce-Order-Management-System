@@ -53,6 +53,17 @@ nav {
     margin-right: 8px;
     font-size: 24px;
   }
+  .google-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* space between logo, icon, and name */
+  }
+  
+  .google-logo img {
+    height: 30px;
+    cursor: pointer;
+  }
+  
 /*   
   .nav-links {
     list-style: none;
