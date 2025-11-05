@@ -68,6 +68,7 @@ export class PaymentComponent implements OnInit {
             });
             this.ser.placeOrder(this.order).subscribe({
               next: () => {
+                localStorage.removeItem('cart');
                 this.router.navigate(['/user/cart']);
                 this.snackBar.open('Order placed successfully!', 'Close', {
                   duration: 4000,
@@ -77,8 +78,8 @@ export class PaymentComponent implements OnInit {
               },
               error: (err) => console.error('Error placing order:', err)
             });
-
           });
+
         },
         onError: (err: any) => {
           console.error('Payment error:', err);

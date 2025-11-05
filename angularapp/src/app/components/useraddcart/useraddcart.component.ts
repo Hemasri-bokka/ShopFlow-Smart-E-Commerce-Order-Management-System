@@ -47,9 +47,17 @@ export class UseraddcartComponent implements OnInit {
 
 
   increaseQuantity(item: any): void {
+  if (item.quantity < item.stock) {
     item.quantity += 1;
     this.updateCart();
+  } else {
+    this.snackBar.open('Cannot add more than available stock.', 'Close', {
+      duration: 3000,
+      verticalPosition: 'bottom',
+      horizontalPosition: 'center'
+    });
   }
+}
 
   decreaseQuantity(item: any): void {
     if (item.quantity > 1) {

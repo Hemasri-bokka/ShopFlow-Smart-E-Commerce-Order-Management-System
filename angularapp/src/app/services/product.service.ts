@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Product } from '../models/product.model';
 import { APP_URL } from '../app.constants';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class ProductService {
   cart$ = this.cartSubject.asObservable();
   //So, you convert it to an Observable using .asObservable().
   // This way, components can only subscribe and cannot modify the cart directly.
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private snackBar: MatSnackBar) {
     this.loadCart();
    }
 
@@ -69,13 +70,33 @@ removeFromCart(product: any): void {
 addToCart(product: any): void {
   const cart = this.cartSubject.value;
   const index = cart.findIndex(item => item.productId === product.productId);
-  if (index > -1) { //if found naah index = 0 or 1 ,so increasing the quantity
+
+  if (index > -1) {
+    // Check if adding one more exceeds stock
+    if (cart[index].quantity >= product.stock) {
+      this.snackBar.open('You cannot add more than available stock.', 'Close', {
+        duration: 3000,
+        verticalPosition: 'top',
+        horizontalPosition: 'center'
+      });
+      return;
+    }
     cart[index].quantity += 1;
   } else {
+    if (product.stock === 0) {
+      this.snackBar.open('This product is out of stock.', 'Close', {
+        duration: 3000,
+        verticalPosition: 'top',
+        horizontalPosition: 'center'
+      });
+      return;
+    }
     cart.push({ ...product, quantity: 1 });
   }
+
   this.updateLocalStorage(cart);
 }
+
 refreshCart(cart: any[]): void {
   this.cartSubject.next(cart);
   localStorage.setItem('cart', JSON.stringify(cart));
