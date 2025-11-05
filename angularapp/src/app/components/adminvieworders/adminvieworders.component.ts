@@ -56,7 +56,7 @@ export class AdminviewordersComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
-  }
+  } 
 
   updateStatus(order: Order): void {
     this.ser.updateOrderStatus(order.orderId, order).subscribe({
