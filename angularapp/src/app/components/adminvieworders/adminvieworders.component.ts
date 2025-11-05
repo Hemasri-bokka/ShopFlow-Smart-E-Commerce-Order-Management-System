@@ -16,7 +16,7 @@ export class AdminviewordersComponent implements OnInit {
   constructor(private ser: OrderService, private snackBar: MatSnackBar) { }
   dataSource = new MatTableDataSource<Order>();
   // statusOptions: string[] = ['PENDING', 'ACCEPTED', 'PACKED', 'SHIPPED', 'DELIVERED', 'OUT FOR DELIVERY', 'CANCEL', 'RETURN'];
-  statusOptions: string[] = ['pending', 'accepted', 'packed', 'shipped', 'delivered', 'out for delivery', 'cancel', 'return', 'processing'];
+  statusOptions: string[] = ['pending', 'processing', 'packed', 'shipped', 'delivered', 'out for delivery', 'cancel', 'return','accepted' ];
   displayedColumns: string[] = [
     'sno', 'orderId', 'username', 'productName', 'price', 'shippingAddress', 'totalAmount', 'quantity', 'status'
   ];
