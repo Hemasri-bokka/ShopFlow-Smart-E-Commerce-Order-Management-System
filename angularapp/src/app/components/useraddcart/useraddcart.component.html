@@ -20,9 +20,9 @@
                 <mat-icon>remove</mat-icon>
               </button>
               <span class="quantity">{{ item.quantity }}</span>
-              <button mat-mini-fab color="primary" (click)="increaseQuantity(item)">
+              <button mat-mini-fab color="primary" (click)="increaseQuantity(item)" [disabled]="item.quantity >= item.stock">
                 <mat-icon>add</mat-icon>
-              </button>
+              </button>              
             </div>
   
             <!-- Subtotal -->
