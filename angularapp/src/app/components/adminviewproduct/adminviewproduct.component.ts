@@ -14,7 +14,7 @@ export class AdminviewproductComponent implements OnInit {
 
   products: any[] = [];
   filteredProducts: any[] = [];
-  categories: string[] = ['Electronics', 'Clothing', 'Groceries'];
+  categories: string[] = ['Electronics', 'Clothing', 'Groceries', 'Books'];
   selectedCategory: string = '';
   searchTerm: string = '';
 
