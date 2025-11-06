@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.security.access.prepost.PreAuthorize;
 import com.examly.springapp.model.Order;
 import com.examly.springapp.service.OrderServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestController
 public class OrderController {
     private OrderServiceImpl ser;
@@ -25,6 +27,7 @@ public class OrderController {
     @PostMapping("/api/orders")
     @PreAuthorize("hasRole('USER')")
     public ResponseEntity<Order> addorder(@RequestBody Order order){
+        log.info("Added order Method Called");
         Order found = ser.addorder(order);
         if(found==null){
             return ResponseEntity.status(403).build();
@@ -35,6 +38,7 @@ public class OrderController {
     @GetMapping("/api/orders/{id}")
     @PreAuthorize("hasRole('USER')")
     public ResponseEntity<Order> getOrderById(@PathVariable long id){
+        log.info("Get order Method Called");
         Order found = ser.getOrderById(id);
         if(found==null){
             return ResponseEntity.status(403).build();
@@ -45,6 +49,7 @@ public class OrderController {
     @PutMapping("/api/orders/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<Order> updateOrder(@PathVariable long id, @RequestBody Order updateOrder){
+        log.info("Update  order Method Called");
         Order found = ser.updateOrder(id,updateOrder);
         if(found==null){
             return ResponseEntity.status(403).build();
