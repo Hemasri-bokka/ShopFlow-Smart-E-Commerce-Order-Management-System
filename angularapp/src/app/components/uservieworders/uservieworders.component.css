@@ -1,202 +1,161 @@
+/* Container */
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+  background: linear-gradient(135deg, #f9f9f9, #ffffff);
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+}
 
-   .container {
-    max-width: 900px;
-    margin: auto;
-    padding: 20px;
-  }
-  
-  .page-title {
-    text-align: center;
-    margin-bottom: 20px;
-    font-weight: 600;
-  }
-  
-  .order-card {
-    margin-bottom: 20px;
-  }
-  
-  .order-details p {
-    margin: 5px 0;
-  }
-  
-  .status-section {
-    margin-top: 15px;
-  }
-  
+/* Page Title */
+.page-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #3f51b5;
+  border-bottom: 3px solid #3f51b5;
+  padding-bottom: 10px;
+}
 
-  
-  .price {
-    font-weight: bold;
-    color: #4caf50;
-  }
+/* Order Card */
+.order-card {
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-  .product-card img {
-    width: 100px;       /* Fixed width */
-    height: 100px;      /* Fixed height */
-    object-fit: cover;  /* Crop image to fit */
-    border-radius: 8px; /* Optional rounded corners */
-    margin-bottom: 10px;
-  }
+.order-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
 
-  .product-card {
-    width: 140px;
-    text-align: center;
-    padding: 10px;
-  }
-  .product-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-  }
+/* Card Header */
+mat-card-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333;
+}
 
-    .product-card img {
-    width: 100px;       /* Fixed width */
-    height: 100px;      /* Fixed height */
-    object-fit: cover;  /* Crop image to fit */
-    border-radius: 8px; /* Optional rounded corners */
-    margin-bottom: 10px;
-  }
+mat-card-subtitle {
+  color: #757575;
+  font-size: 14px;
+}
 
-  .product-card {
-    width: 140px;
-    text-align: center;
-    padding: 10px;
-  }
-  .product-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-  .container {
-    max-width: 1000px;
-    margin: auto;
-    padding: 20px;
-  }
-  
-  .page-title {
-    text-align: center;
-    margin-bottom: 20px;
-    font-weight: 600;
-  }
-  
-  .order-card {
-    margin-bottom: 20px;
-    padding: 15px;
-  }
-  
-  .product-list {
-    display: flex;
+/* Order Details */
+.order-details h4 {
+  margin-bottom: 10px;
+  color: #3f51b5;
+  font-weight: 600;
+}
+
+.order-details p {
+  margin: 5px 0;
+  color: #555;
+}
+
+/* Product List */
+.product-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s ease;
+}
+
+.product-item:hover {
+  background-color: #e3f2fd;
+}
+
+.product-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.product-info h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.price {
+  font-weight: bold;
+  color: #4caf50;
+}
+
+/* Status Section */
+.status-section {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.status-section p strong {
+  color: #333;
+}
+
+/* Steps Progress */
+.steps-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.step {
+  flex: 1;
+  text-align: center;
+  padding: 12px;
+  border-bottom: 3px solid #ccc;
+  color: #666;
+  font-weight: 500;
+}
+
+.step.active {
+  border-color: #4caf50;
+  color: #4caf50;
+  font-weight: bold;
+}
+
+/* Cancelled & Delivered Orders */
+.cancelled-order {
+  background-color: #f8d7da;
+  border-left: 5px solid #dc3545;
+}
+
+.delivered-order {
+  background-color: #d4edda;
+  border-left: 5px solid #28a745;
+}
+
+/* Empty State */
+.text-muted {
+  font-size: 1.2rem;
+  color: #757575;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .order-product-wrapper {
     flex-direction: column;
     gap: 15px;
   }
-  
-  .product-item {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 8px;
-  }
-  
-  .product-image img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 6px;
-  }
-  
-  .product-info {
-    flex: 1;
-  }
-  
-  .price {
-    font-weight: bold;
-    color: #4caf50;
-  }
-  
-  .status-section {
-    margin-top: 15px;
-  }
-  .order-product-wrapper {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap; /* Makes it responsive */
-  }
-  
-  .order-details {
-    flex: 1;
-    min-width: 250px;
-  }
-  
-  .product-list {
-    flex: 1;
-    min-width: 250px;
-  }
-  
-  .product-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
-  }
-  
+
   .product-item img {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    border-radius: 6px;
+    width: 80px;
+    height: 80px;
   }
-  
-  .product-info h3 {
-    margin: 0;
+
+  .page-title {
+    font-size: 1.5rem;
   }
-  
-  .price {
-    font-weight: bold;
-    color: #4caf50;
-  }
-  
-  .status-section {
-    margin-top: 15px;
-  }
-  
-  .steps-container {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
-  }
-  
-  .step {
-    flex: 1;
-    text-align: center;
-    padding: 15px;
-    border-bottom: 3px solid #ccc;
-    color: #666;
-  }
-  
-  .step.active {
-    border-color: green;
-    color: green;
-    font-weight: bold;
-  }
-  
-  .big-progress-bar {
-    height: 20px !important;
-    border-radius: 8px;
-    background-color: #e0e0e0; /* Track color */
-  }
-  
-  ::ng-deep .mat-progress-bar-fill::after {
-    border-radius: 8px;
-  }
-  
-  .cancelled-order {
-    background-color: #f8d7da; /* Light red */
-    border-left: 5px solid #dc3545; /* Red border for emphasis */
-  }
-  
-  .delivered-order {
-    background-color: #d4edda; /* Light green */
-    border-left: 5px solid #28a745; /* Green border for emphasis */
-  }
+}
