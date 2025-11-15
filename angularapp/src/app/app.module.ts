@@ -95,6 +95,7 @@ import { ConfirmDialogComponent } from './shared/confirm-dialog/confirm-dialog.c
     MatSortModule,
     MatDialogModule,
     MatSliderModule,
+    
 
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: HttpIntercepterAuthService, multi: true }],
