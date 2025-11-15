@@ -102004,3 +102004,1117 @@ org.postgresql.util.PSQLException: This connection has been closed.
         (order_id, product_id) 
     values
         (?, ?)
+2025-11-15 18:29:58 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-15 18:29:58 WARN  PoolBase - HikariPool-18 - Failed to validate connection org.postgresql.jdbc.PgConnection@7ee8efff (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-15 18:29:58 WARN  PoolBase - HikariPool-18 - Failed to validate connection org.postgresql.jdbc.PgConnection@30be9829 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-15 18:29:58 WARN  PoolBase - HikariPool-18 - Failed to validate connection org.postgresql.jdbc.PgConnection@2dde4def (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-15 18:30:00 DEBUG SQL - 
+    select
+        o1_0.order_id,
+        o1_0.created_at,
+        o1_0.quantity,
+        o1_0.shipping_address,
+        o1_0.status,
+        o1_0.total_amount,
+        o1_0.updated_at,
+        o1_0.user_id 
+    from
+        orders o1_0
+2025-11-15 18:30:01 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.user_id=?
+2025-11-15 18:30:03 DEBUG SQL - 
+    select
+        p1_0.order_id,
+        p1_1.product_id,
+        p1_1.category,
+        p1_1.created_at,
+        p1_1.description,
+        p1_1.name,
+        p1_1.photo_image,
+        p1_1.price,
+        p1_1.stock,
+        p1_1.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        order_products p1_0 
+    join
+        product p1_1 
+            on p1_1.product_id=p1_0.product_id 
+    left join
+        "user" u1_0 
+            on u1_0.user_id=p1_1.user_id 
+    where
+        p1_0.order_id=?
+2025-11-15 18:30:04 DEBUG SQL - 
+    select
+        p1_0.order_id,
+        p1_1.product_id,
+        p1_1.category,
+        p1_1.created_at,
+        p1_1.description,
+        p1_1.name,
+        p1_1.photo_image,
+        p1_1.price,
+        p1_1.stock,
+        p1_1.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        order_products p1_0 
+    join
+        product p1_1 
+            on p1_1.product_id=p1_0.product_id 
+    left join
+        "user" u1_0 
+            on u1_0.user_id=p1_1.user_id 
+    where
+        p1_0.order_id=?
+2025-11-15 18:30:05 DEBUG SQL - 
+    select
+        p1_0.order_id,
+        p1_1.product_id,
+        p1_1.category,
+        p1_1.created_at,
+        p1_1.description,
+        p1_1.name,
+        p1_1.photo_image,
+        p1_1.price,
+        p1_1.stock,
+        p1_1.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        order_products p1_0 
+    join
+        product p1_1 
+            on p1_1.product_id=p1_0.product_id 
+    left join
+        "user" u1_0 
+            on u1_0.user_id=p1_1.user_id 
+    where
+        p1_0.order_id=?
+2025-11-15 18:30:12 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-15 18:30:13 INFO  OrderController - Update  order Method Called
+2025-11-15 18:30:13 DEBUG SQL - 
+    select
+        o1_0.order_id,
+        o1_0.created_at,
+        o1_0.quantity,
+        o1_0.shipping_address,
+        o1_0.status,
+        o1_0.total_amount,
+        o1_0.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        orders o1_0 
+    join
+        "user" u1_0 
+            on u1_0.user_id=o1_0.user_id 
+    where
+        o1_0.order_id=?
+2025-11-15 18:30:13 DEBUG SQL - 
+    select
+        p1_0.order_id,
+        p1_1.product_id,
+        p1_1.category,
+        p1_1.created_at,
+        p1_1.description,
+        p1_1.name,
+        p1_1.photo_image,
+        p1_1.price,
+        p1_1.stock,
+        p1_1.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        order_products p1_0 
+    join
+        product p1_1 
+            on p1_1.product_id=p1_0.product_id 
+    left join
+        "user" u1_0 
+            on u1_0.user_id=p1_1.user_id 
+    where
+        p1_0.order_id=?
+2025-11-15 18:30:13 DEBUG SQL - 
+    update
+        orders 
+    set
+        created_at=?,
+        quantity=?,
+        shipping_address=?,
+        status=?,
+        total_amount=?,
+        updated_at=?,
+        user_id=? 
+    where
+        order_id=?
+2025-11-15 18:30:13 DEBUG SQL - 
+    delete 
+    from
+        order_products 
+    where
+        order_id=?
+2025-11-15 18:30:14 DEBUG SQL - 
+    insert 
+    into
+        order_products
+        (order_id, product_id) 
+    values
+        (?, ?)
+2025-11-15 18:30:15 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-15 18:30:16 INFO  OrderController - Update  order Method Called
+2025-11-15 18:30:16 DEBUG SQL - 
+    select
+        o1_0.order_id,
+        o1_0.created_at,
+        o1_0.quantity,
+        o1_0.shipping_address,
+        o1_0.status,
+        o1_0.total_amount,
+        o1_0.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        orders o1_0 
+    join
+        "user" u1_0 
+            on u1_0.user_id=o1_0.user_id 
+    where
+        o1_0.order_id=?
+2025-11-15 18:30:16 DEBUG SQL - 
+    select
+        p1_0.order_id,
+        p1_1.product_id,
+        p1_1.category,
+        p1_1.created_at,
+        p1_1.description,
+        p1_1.name,
+        p1_1.photo_image,
+        p1_1.price,
+        p1_1.stock,
+        p1_1.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        order_products p1_0 
+    join
+        product p1_1 
+            on p1_1.product_id=p1_0.product_id 
+    left join
+        "user" u1_0 
+            on u1_0.user_id=p1_1.user_id 
+    where
+        p1_0.order_id=?
+2025-11-15 18:30:16 DEBUG SQL - 
+    update
+        orders 
+    set
+        created_at=?,
+        quantity=?,
+        shipping_address=?,
+        status=?,
+        total_amount=?,
+        updated_at=?,
+        user_id=? 
+    where
+        order_id=?
+2025-11-15 18:30:16 DEBUG SQL - 
+    delete 
+    from
+        order_products 
+    where
+        order_id=?
+2025-11-15 18:30:17 DEBUG SQL - 
+    insert 
+    into
+        order_products
+        (order_id, product_id) 
+    values
+        (?, ?)
+2025-11-15 18:30:18 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-15 18:30:18 INFO  OrderController - Update  order Method Called
+2025-11-15 18:30:18 DEBUG SQL - 
+    select
+        o1_0.order_id,
+        o1_0.created_at,
+        o1_0.quantity,
+        o1_0.shipping_address,
+        o1_0.status,
+        o1_0.total_amount,
+        o1_0.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        orders o1_0 
+    join
+        "user" u1_0 
+            on u1_0.user_id=o1_0.user_id 
+    where
+        o1_0.order_id=?
+2025-11-15 18:30:19 DEBUG SQL - 
+    select
+        p1_0.order_id,
+        p1_1.product_id,
+        p1_1.category,
+        p1_1.created_at,
+        p1_1.description,
+        p1_1.name,
+        p1_1.photo_image,
+        p1_1.price,
+        p1_1.stock,
+        p1_1.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        order_products p1_0 
+    join
+        product p1_1 
+            on p1_1.product_id=p1_0.product_id 
+    left join
+        "user" u1_0 
+            on u1_0.user_id=p1_1.user_id 
+    where
+        p1_0.order_id=?
+2025-11-15 18:30:19 DEBUG SQL - 
+    update
+        orders 
+    set
+        created_at=?,
+        quantity=?,
+        shipping_address=?,
+        status=?,
+        total_amount=?,
+        updated_at=?,
+        user_id=? 
+    where
+        order_id=?
+2025-11-15 18:30:19 DEBUG SQL - 
+    delete 
+    from
+        order_products 
+    where
+        order_id=?
+2025-11-15 18:30:19 DEBUG SQL - 
+    insert 
+    into
+        order_products
+        (order_id, product_id) 
+    values
+        (?, ?)
+2025-11-15 18:30:20 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-15 18:30:20 DEBUG SQL - 
+    select
+        p1_0.product_id,
+        p1_0.category,
+        p1_0.created_at,
+        p1_0.description,
+        p1_0.name,
+        p1_0.photo_image,
+        p1_0.price,
+        p1_0.stock,
+        p1_0.updated_at,
+        p1_0.user_id 
+    from
+        product p1_0
+2025-11-15 18:30:20 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.user_id=?
+2025-11-15 18:30:20 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.user_id=?
+2025-11-15 18:30:23 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-15 18:30:23 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0
+2025-11-15 18:33:34 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-15 18:33:36 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0
+2025-11-15 18:34:25 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-15 18:34:27 DEBUG SQL - 
+    select
+        o1_0.order_id,
+        o1_0.created_at,
+        o1_0.quantity,
+        o1_0.shipping_address,
+        o1_0.status,
+        o1_0.total_amount,
+        o1_0.updated_at,
+        o1_0.user_id 
+    from
+        orders o1_0
+2025-11-15 18:34:27 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.user_id=?
+2025-11-15 18:34:30 DEBUG SQL - 
+    select
+        p1_0.order_id,
+        p1_1.product_id,
+        p1_1.category,
+        p1_1.created_at,
+        p1_1.description,
+        p1_1.name,
+        p1_1.photo_image,
+        p1_1.price,
+        p1_1.stock,
+        p1_1.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        order_products p1_0 
+    join
+        product p1_1 
+            on p1_1.product_id=p1_0.product_id 
+    left join
+        "user" u1_0 
+            on u1_0.user_id=p1_1.user_id 
+    where
+        p1_0.order_id=?
+2025-11-15 18:34:31 DEBUG SQL - 
+    select
+        p1_0.order_id,
+        p1_1.product_id,
+        p1_1.category,
+        p1_1.created_at,
+        p1_1.description,
+        p1_1.name,
+        p1_1.photo_image,
+        p1_1.price,
+        p1_1.stock,
+        p1_1.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        order_products p1_0 
+    join
+        product p1_1 
+            on p1_1.product_id=p1_0.product_id 
+    left join
+        "user" u1_0 
+            on u1_0.user_id=p1_1.user_id 
+    where
+        p1_0.order_id=?
+2025-11-15 18:34:33 DEBUG SQL - 
+    select
+        p1_0.order_id,
+        p1_1.product_id,
+        p1_1.category,
+        p1_1.created_at,
+        p1_1.description,
+        p1_1.name,
+        p1_1.photo_image,
+        p1_1.price,
+        p1_1.stock,
+        p1_1.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        order_products p1_0 
+    join
+        product p1_1 
+            on p1_1.product_id=p1_0.product_id 
+    left join
+        "user" u1_0 
+            on u1_0.user_id=p1_1.user_id 
+    where
+        p1_0.order_id=?
+2025-11-15 18:34:37 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-15 18:34:40 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-15 18:34:41 DEBUG SQL - 
+    select
+        o1_0.order_id,
+        o1_0.created_at,
+        o1_0.quantity,
+        o1_0.shipping_address,
+        o1_0.status,
+        o1_0.total_amount,
+        o1_0.updated_at,
+        o1_0.user_id 
+    from
+        orders o1_0
+2025-11-15 18:34:41 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0
+2025-11-15 18:34:43 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.user_id=?
+2025-11-15 18:34:47 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-15 18:34:48 DEBUG SQL - 
+    select
+        p1_0.order_id,
+        p1_1.product_id,
+        p1_1.category,
+        p1_1.created_at,
+        p1_1.description,
+        p1_1.name,
+        p1_1.photo_image,
+        p1_1.price,
+        p1_1.stock,
+        p1_1.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        order_products p1_0 
+    join
+        product p1_1 
+            on p1_1.product_id=p1_0.product_id 
+    left join
+        "user" u1_0 
+            on u1_0.user_id=p1_1.user_id 
+    where
+        p1_0.order_id=?
+2025-11-15 18:34:49 DEBUG SQL - 
+    select
+        p1_0.order_id,
+        p1_1.product_id,
+        p1_1.category,
+        p1_1.created_at,
+        p1_1.description,
+        p1_1.name,
+        p1_1.photo_image,
+        p1_1.price,
+        p1_1.stock,
+        p1_1.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        order_products p1_0 
+    join
+        product p1_1 
+            on p1_1.product_id=p1_0.product_id 
+    left join
+        "user" u1_0 
+            on u1_0.user_id=p1_1.user_id 
+    where
+        p1_0.order_id=?
+2025-11-15 18:34:52 DEBUG SQL - 
+    select
+        p1_0.order_id,
+        p1_1.product_id,
+        p1_1.category,
+        p1_1.created_at,
+        p1_1.description,
+        p1_1.name,
+        p1_1.photo_image,
+        p1_1.price,
+        p1_1.stock,
+        p1_1.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        order_products p1_0 
+    join
+        product p1_1 
+            on p1_1.product_id=p1_0.product_id 
+    left join
+        "user" u1_0 
+            on u1_0.user_id=p1_1.user_id 
+    where
+        p1_0.order_id=?
+2025-11-15 18:34:55 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-15 18:34:59 DEBUG SQL - 
+    select
+        f1_0.feedback_id,
+        f1_0.message,
+        f1_0.rating,
+        f1_0.user_id 
+    from
+        feedback f1_0
+2025-11-15 18:34:59 DEBUG SQL - 
+    select
+        f1_0.feedback_id,
+        f1_0.message,
+        f1_0.rating,
+        f1_0.user_id 
+    from
+        feedback f1_0
+2025-11-15 18:35:00 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.user_id=?
+2025-11-15 18:35:02 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.user_id=?
+2025-11-15 18:35:02 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.user_id=?
+2025-11-15 18:35:03 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.user_id=?
+2025-11-15 18:35:05 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-15 18:35:07 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0
+2025-11-15 18:35:12 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-15 18:35:14 DEBUG SQL - 
+    select
+        f1_0.feedback_id,
+        f1_0.message,
+        f1_0.rating,
+        f1_0.user_id 
+    from
+        feedback f1_0
+2025-11-15 18:35:16 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.user_id=?
+2025-11-15 18:35:17 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.user_id=?
+2025-11-15 18:36:38 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-15 18:36:39 DEBUG SQL - 
+    select
+        p1_0.product_id,
+        p1_0.category,
+        p1_0.created_at,
+        p1_0.description,
+        p1_0.name,
+        p1_0.photo_image,
+        p1_0.price,
+        p1_0.stock,
+        p1_0.updated_at,
+        p1_0.user_id 
+    from
+        product p1_0
+2025-11-15 18:36:40 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.user_id=?
+2025-11-15 18:36:40 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.user_id=?
+2025-11-15 18:36:51 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-15 18:36:54 DEBUG SQL - 
+    select
+        o1_0.order_id,
+        o1_0.created_at,
+        o1_0.quantity,
+        o1_0.shipping_address,
+        o1_0.status,
+        o1_0.total_amount,
+        o1_0.updated_at,
+        o1_0.user_id 
+    from
+        orders o1_0
+2025-11-15 18:36:54 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.user_id=?
+2025-11-15 18:36:54 DEBUG SQL - 
+    select
+        p1_0.order_id,
+        p1_1.product_id,
+        p1_1.category,
+        p1_1.created_at,
+        p1_1.description,
+        p1_1.name,
+        p1_1.photo_image,
+        p1_1.price,
+        p1_1.stock,
+        p1_1.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        order_products p1_0 
+    join
+        product p1_1 
+            on p1_1.product_id=p1_0.product_id 
+    left join
+        "user" u1_0 
+            on u1_0.user_id=p1_1.user_id 
+    where
+        p1_0.order_id=?
+2025-11-15 18:36:54 DEBUG SQL - 
+    select
+        p1_0.order_id,
+        p1_1.product_id,
+        p1_1.category,
+        p1_1.created_at,
+        p1_1.description,
+        p1_1.name,
+        p1_1.photo_image,
+        p1_1.price,
+        p1_1.stock,
+        p1_1.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        order_products p1_0 
+    join
+        product p1_1 
+            on p1_1.product_id=p1_0.product_id 
+    left join
+        "user" u1_0 
+            on u1_0.user_id=p1_1.user_id 
+    where
+        p1_0.order_id=?
+2025-11-15 18:36:55 DEBUG SQL - 
+    select
+        p1_0.order_id,
+        p1_1.product_id,
+        p1_1.category,
+        p1_1.created_at,
+        p1_1.description,
+        p1_1.name,
+        p1_1.photo_image,
+        p1_1.price,
+        p1_1.stock,
+        p1_1.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        order_products p1_0 
+    join
+        product p1_1 
+            on p1_1.product_id=p1_0.product_id 
+    left join
+        "user" u1_0 
+            on u1_0.user_id=p1_1.user_id 
+    where
+        p1_0.order_id=?
+2025-11-15 18:37:10 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-15 18:37:11 DEBUG SQL - 
+    select
+        f1_0.feedback_id,
+        f1_0.message,
+        f1_0.rating,
+        f1_0.user_id 
+    from
+        feedback f1_0
+2025-11-15 18:37:11 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.user_id=?
+2025-11-15 18:37:12 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.user_id=?

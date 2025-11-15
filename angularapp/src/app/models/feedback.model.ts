@@ -5,4 +5,5 @@ export interface Feedback{
     user: User;
     message: String;
     rating: number;
+    
 }
