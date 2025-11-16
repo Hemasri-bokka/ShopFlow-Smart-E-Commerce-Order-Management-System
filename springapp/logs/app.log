@@ -103118,3 +103118,505 @@ org.postgresql.util.PSQLException: This connection has been closed.
         "user" u1_0 
     where
         u1_0.user_id=?
+2025-11-15 18:49:05 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-15 18:49:05 WARN  PoolBase - HikariPool-18 - Failed to validate connection org.postgresql.jdbc.PgConnection@77f5c371 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-15 18:49:05 WARN  PoolBase - HikariPool-18 - Failed to validate connection org.postgresql.jdbc.PgConnection@1b63b961 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-15 18:49:05 WARN  PoolBase - HikariPool-18 - Failed to validate connection org.postgresql.jdbc.PgConnection@680c4a4d (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-15 18:49:05 WARN  PoolBase - HikariPool-18 - Failed to validate connection org.postgresql.jdbc.PgConnection@31bbf276 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-15 18:49:05 WARN  PoolBase - HikariPool-18 - Failed to validate connection org.postgresql.jdbc.PgConnection@7f3365ab (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-15 18:49:05 WARN  PoolBase - HikariPool-18 - Failed to validate connection org.postgresql.jdbc.PgConnection@799d739d (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-15 18:49:05 WARN  PoolBase - HikariPool-18 - Failed to validate connection org.postgresql.jdbc.PgConnection@734900c1 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-15 18:49:05 WARN  PoolBase - HikariPool-18 - Failed to validate connection org.postgresql.jdbc.PgConnection@1d0f749c (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-15 18:49:05 WARN  PoolBase - HikariPool-18 - Failed to validate connection org.postgresql.jdbc.PgConnection@79f544ab (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-15 18:49:05 WARN  PoolBase - HikariPool-18 - Failed to validate connection org.postgresql.jdbc.PgConnection@6b66d193 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-15 18:49:21 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-15 18:50:37 INFO  LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 37 class path changes (0 additions, 37 deletions, 0 modifications)
+2025-11-15 18:50:37 INFO  Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-11-15 18:50:37 INFO  StandardService - Stopping service [Tomcat]
+2025-11-15 18:50:38 INFO  [/] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2025-11-15 18:50:38 WARN  WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [HikariPool-18 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.2/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.2/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.2/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.2/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.2/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.2/java.lang.Thread.run(Thread.java:833)
+2025-11-15 18:50:38 INFO  Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-11-15 18:50:38 INFO  Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2025-11-15 18:50:38 INFO  LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-15 18:50:38 INFO  HikariDataSource - HikariPool-18 - Shutdown initiated...
+2025-11-15 18:50:48 INFO  HikariDataSource - HikariPool-18 - Shutdown completed.
+2025-11-15 18:50:50 INFO  SpringappApplication - Starting SpringappApplication using Java 17.0.2 with PID 24384 (E:\deep\c895e847-d5b4-44c7-a3ff-f3c0174a45f8-ab781bcc-fe1a-4bf9-a675-df7bfd0e3c17\springapp\target\classes started by Dell in E:\deep\c895e847-d5b4-44c7-a3ff-f3c0174a45f8-ab781bcc-fe1a-4bf9-a675-df7bfd0e3c17\springapp)
+2025-11-15 18:50:50 INFO  SpringappApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-15 18:50:51 INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-15 18:50:52 INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 159 ms. Found 4 JPA repository interfaces.
+2025-11-15 18:50:52 INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2025-11-15 18:50:52 INFO  AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-11-15 18:50:52 INFO  TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-11-15 18:50:52 INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-11-15 18:50:52 INFO  StandardService - Starting service [Tomcat]
+2025-11-15 18:50:52 INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.4]
+2025-11-15 18:50:52 INFO  [/] - Initializing Spring embedded WebApplicationContext
+2025-11-15 18:50:52 INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2549 ms
+2025-11-15 18:50:53 INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-15 18:50:53 WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2025-11-15 18:50:53 INFO  HikariDataSource - HikariPool-19 - Starting...
+2025-11-15 18:51:04 INFO  HikariPool - HikariPool-19 - Added connection org.postgresql.jdbc.PgConnection@67acf10e
+2025-11-15 18:51:04 INFO  HikariDataSource - HikariPool-19 - Start completed.
+2025-11-15 18:51:06 INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2025-11-15 18:51:13 INFO  JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-11-15 18:51:13 INFO  LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-15 18:51:14 WARN  JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-15 18:51:14 INFO  DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@10025613, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@34c743dd, org.springframework.security.web.context.SecurityContextHolderFilter@395eae47, org.springframework.security.web.header.HeaderWriterFilter@5d6f41cd, org.springframework.web.filter.CorsFilter@2f4306d1, org.springframework.security.web.authentication.logout.LogoutFilter@540643dc, com.examly.springapp.config.JwtAuthenticationFilter@30998928, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@78f8d728, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@328c00a5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@154a4e10, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@113cc586, org.springframework.security.web.session.SessionManagementFilter@7a04a590, org.springframework.security.web.access.ExceptionTranslationFilter@4e18a829, org.springframework.security.web.access.intercept.AuthorizationFilter@73fd0c58]
+2025-11-15 18:51:15 INFO  OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-11-15 18:51:15 INFO  Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-11-15 18:51:15 INFO  TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-11-15 18:51:15 INFO  SpringappApplication - Started SpringappApplication in 25.519 seconds (process running for 9469.019)
+2025-11-15 18:51:15 INFO  ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-11-15 18:51:15 INFO  SpringappApplication - Application started successfully!
+2025-11-15 18:51:16 INFO  LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 37 class path changes (37 additions, 0 deletions, 0 modifications)
+2025-11-15 18:51:17 INFO  Http11NioProtocol - Pausing ProtocolHandler ["http-nio-8080"]
+2025-11-15 18:51:17 INFO  StandardService - Stopping service [Tomcat]
+2025-11-15 18:51:17 WARN  WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [HikariPool-19 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.2/jdk.internal.misc.Unsafe.park(Native Method)
+ java.base@17.0.2/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:252)
+ java.base@17.0.2/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1672)
+ java.base@17.0.2/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1182)
+ java.base@17.0.2/java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:899)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1062)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1122)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.2/java.lang.Thread.run(Thread.java:833)
+2025-11-15 18:51:17 WARN  WebappClassLoaderBase - The web application [ROOT] appears to have started a thread named [HikariPool-19 connection adder] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ java.base@17.0.2/sun.nio.ch.Net.poll(Native Method)
+ java.base@17.0.2/sun.nio.ch.NioSocketImpl.park(NioSocketImpl.java:181)
+ java.base@17.0.2/sun.nio.ch.NioSocketImpl.park(NioSocketImpl.java:190)
+ java.base@17.0.2/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:314)
+ java.base@17.0.2/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:350)
+ java.base@17.0.2/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:803)
+ java.base@17.0.2/java.net.Socket$SocketInputStream.read(Socket.java:966)
+ java.base@17.0.2/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:478)
+ java.base@17.0.2/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:472)
+ java.base@17.0.2/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70)
+ java.base@17.0.2/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1455)
+ java.base@17.0.2/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1059)
+ app//org.postgresql.core.VisibleBufferedInputStream.readMore(VisibleBufferedInputStream.java:161)
+ app//org.postgresql.core.VisibleBufferedInputStream.ensureBytes(VisibleBufferedInputStream.java:128)
+ app//org.postgresql.core.VisibleBufferedInputStream.ensureBytes(VisibleBufferedInputStream.java:113)
+ app//org.postgresql.core.VisibleBufferedInputStream.read(VisibleBufferedInputStream.java:73)
+ app//org.postgresql.core.PGStream.receiveChar(PGStream.java:465)
+ app//org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:678)
+ app//org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:203)
+ app//org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:258)
+ app//org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+ app//org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:263)
+ app//org.postgresql.Driver.makeConnection(Driver.java:443)
+ app//org.postgresql.Driver.connect(Driver.java:297)
+ app//com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+ app//com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+ app//com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+ app//com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+ app//com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:733)
+ app//com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:712)
+ java.base@17.0.2/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+ java.base@17.0.2/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+ java.base@17.0.2/java.lang.Thread.run(Thread.java:833)
+2025-11-15 18:51:17 INFO  Http11NioProtocol - Stopping ProtocolHandler ["http-nio-8080"]
+2025-11-15 18:51:17 INFO  Http11NioProtocol - Destroying ProtocolHandler ["http-nio-8080"]
+2025-11-15 18:51:17 INFO  LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-15 18:51:17 INFO  HikariDataSource - HikariPool-19 - Shutdown initiated...
+2025-11-15 18:51:18 INFO  HikariDataSource - HikariPool-19 - Shutdown completed.
+2025-11-15 18:51:18 INFO  SpringappApplication - Starting SpringappApplication using Java 17.0.2 with PID 24384 (E:\deep\c895e847-d5b4-44c7-a3ff-f3c0174a45f8-ab781bcc-fe1a-4bf9-a675-df7bfd0e3c17\springapp\target\classes started by Dell in E:\deep\c895e847-d5b4-44c7-a3ff-f3c0174a45f8-ab781bcc-fe1a-4bf9-a675-df7bfd0e3c17\springapp)
+2025-11-15 18:51:18 INFO  SpringappApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-15 18:51:19 INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-15 18:51:19 INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 46 ms. Found 4 JPA repository interfaces.
+2025-11-15 18:51:19 INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2025-11-15 18:51:19 INFO  AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-11-15 18:51:19 INFO  TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-11-15 18:51:19 INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-11-15 18:51:19 INFO  StandardService - Starting service [Tomcat]
+2025-11-15 18:51:19 INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.4]
+2025-11-15 18:51:19 INFO  [/] - Initializing Spring embedded WebApplicationContext
+2025-11-15 18:51:19 INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 873 ms
+2025-11-15 18:51:19 INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-15 18:51:19 WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2025-11-15 18:51:19 INFO  HikariDataSource - HikariPool-20 - Starting...
+2025-11-15 18:51:21 INFO  HikariPool - HikariPool-20 - Added connection org.postgresql.jdbc.PgConnection@66029eeb
+2025-11-15 18:51:21 INFO  HikariDataSource - HikariPool-20 - Start completed.
+2025-11-15 18:51:22 INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2025-11-15 18:51:29 INFO  JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-11-15 18:51:29 INFO  LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-15 18:51:30 WARN  JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-15 18:51:30 INFO  DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5cc1b6a6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3b4f9eb9, org.springframework.security.web.context.SecurityContextHolderFilter@6e088394, org.springframework.security.web.header.HeaderWriterFilter@3c26cee3, org.springframework.web.filter.CorsFilter@5d338814, org.springframework.security.web.authentication.logout.LogoutFilter@62f1da5e, com.examly.springapp.config.JwtAuthenticationFilter@53165a9a, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3419cfe2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@b5497de, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@10f0181, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@272f3a8f, org.springframework.security.web.session.SessionManagementFilter@d689c3c, org.springframework.security.web.access.ExceptionTranslationFilter@27ce8bb, org.springframework.security.web.access.intercept.AuthorizationFilter@458473cf]
+2025-11-15 18:51:30 INFO  OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-11-15 18:51:30 INFO  Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-11-15 18:51:30 INFO  TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-11-15 18:51:30 INFO  SpringappApplication - Started SpringappApplication in 11.987 seconds (process running for 9484.097)
+2025-11-15 18:51:30 INFO  ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2025-11-15 18:51:30 INFO  SpringappApplication - Application started successfully!
+2025-11-16 07:56:41 INFO  Version - HV000001: Hibernate Validator 8.0.0.Final
+2025-11-16 07:56:41 INFO  SpringappApplication - Starting SpringappApplication using Java 17.0.2 with PID 12896 (E:\deep\c895e847-d5b4-44c7-a3ff-f3c0174a45f8-ab781bcc-fe1a-4bf9-a675-df7bfd0e3c17\springapp\target\classes started by Dell in E:\deep\c895e847-d5b4-44c7-a3ff-f3c0174a45f8-ab781bcc-fe1a-4bf9-a675-df7bfd0e3c17\springapp)
+2025-11-16 07:56:41 INFO  SpringappApplication - No active profile set, falling back to 1 default profile: "default"
+2025-11-16 07:56:41 INFO  ChangeableUrls - The Class-Path manifest attribute in C:\Users\Dell\.m2\repository\com\sun\xml\bind\jaxb-impl\4.0.1\jaxb-impl-4.0.1.jar referenced one or more files that do not exist: file:/C:/Users/Dell/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.1/jaxb-core.jar,file:/C:/Users/Dell/.m2/repository/com/sun/xml/bind/jaxb-impl/4.0.1/angus-activation.jar
+2025-11-16 07:56:41 INFO  ChangeableUrls - The Class-Path manifest attribute in C:\Users\Dell\.m2\repository\com\sun\xml\bind\jaxb-core\4.0.1\jaxb-core-4.0.1.jar referenced one or more files that do not exist: file:/C:/Users/Dell/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.1/jakarta.activation-api.jar,file:/C:/Users/Dell/.m2/repository/com/sun/xml/bind/jaxb-core/4.0.1/jakarta.xml.bind-api.jar
+2025-11-16 07:56:41 INFO  DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-11-16 07:56:41 INFO  DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-11-16 07:56:42 INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-16 07:56:42 INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 91 ms. Found 4 JPA repository interfaces.
+2025-11-16 07:56:43 INFO  PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$SpringCGLIB$$0] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2025-11-16 07:56:43 INFO  AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0]
+2025-11-16 07:56:43 INFO  TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2025-11-16 07:56:43 INFO  Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-11-16 07:56:43 INFO  StandardService - Starting service [Tomcat]
+2025-11-16 07:56:43 INFO  StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.4]
+2025-11-16 07:56:43 INFO  [/] - Initializing Spring embedded WebApplicationContext
+2025-11-16 07:56:44 INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2600 ms
+2025-11-16 07:56:44 INFO  LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-16 07:56:44 INFO  Version - HHH000412: Hibernate ORM core version 6.1.6.Final
+2025-11-16 07:56:44 WARN  deprecation - HHH90000021: Encountered deprecated setting [javax.persistence.sharedCache.mode], use [jakarta.persistence.sharedCache.mode] instead
+2025-11-16 07:56:44 INFO  HikariDataSource - HikariPool-1 - Starting...
+2025-11-16 07:57:06 INFO  HikariPool - HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4952ba49
+2025-11-16 07:57:06 INFO  HikariDataSource - HikariPool-1 - Start completed.
+2025-11-16 07:57:06 INFO  SQL dialect - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+2025-11-16 07:57:11 INFO  JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2025-11-16 07:57:11 INFO  LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-16 07:57:12 WARN  JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-16 07:57:13 INFO  DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@55959d4f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@53f5e1df, org.springframework.security.web.context.SecurityContextHolderFilter@404fbc77, org.springframework.security.web.header.HeaderWriterFilter@69915f1e, org.springframework.web.filter.CorsFilter@5ff902ea, org.springframework.security.web.authentication.logout.LogoutFilter@4ff2f390, com.examly.springapp.config.JwtAuthenticationFilter@259df05a, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3a678032, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@72ce2117, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5a92cc06, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5aabe9bf, org.springframework.security.web.session.SessionManagementFilter@7bea91dc, org.springframework.security.web.access.ExceptionTranslationFilter@6129ec0e, org.springframework.security.web.access.intercept.AuthorizationFilter@78b01313]
+2025-11-16 07:57:13 INFO  OptionalLiveReloadServer - LiveReload server is running on port 35729
+2025-11-16 07:57:13 INFO  Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-11-16 07:57:13 INFO  TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+2025-11-16 07:57:13 INFO  SpringappApplication - Started SpringappApplication in 32.847 seconds (process running for 34.045)
+2025-11-16 07:57:13 INFO  SpringappApplication - Application started successfully!
+2025-11-16 08:01:12 INFO  [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-16 08:01:12 INFO  DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-11-16 08:01:13 INFO  DispatcherServlet - Completed initialization in 86 ms
+2025-11-16 08:01:13 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-16 08:01:13 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-16 08:01:22 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-16 08:01:23 DEBUG SQL - 
+    select
+        p1_0.product_id,
+        p1_0.category,
+        p1_0.created_at,
+        p1_0.description,
+        p1_0.name,
+        p1_0.photo_image,
+        p1_0.price,
+        p1_0.stock,
+        p1_0.updated_at,
+        p1_0.user_id 
+    from
+        product p1_0
+2025-11-16 08:01:23 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.user_id=?
+2025-11-16 08:01:23 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.user_id=?
+2025-11-16 08:01:30 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-16 08:01:30 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.user_id=?
+2025-11-16 08:01:31 DEBUG SQL - 
+    select
+        o1_0.order_id,
+        o1_0.created_at,
+        o1_0.quantity,
+        o1_0.shipping_address,
+        o1_0.status,
+        o1_0.total_amount,
+        o1_0.updated_at,
+        o1_0.user_id 
+    from
+        orders o1_0 
+    where
+        o1_0.user_id=?
+2025-11-16 08:01:31 DEBUG SQL - 
+    select
+        p1_0.order_id,
+        p1_1.product_id,
+        p1_1.category,
+        p1_1.created_at,
+        p1_1.description,
+        p1_1.name,
+        p1_1.photo_image,
+        p1_1.price,
+        p1_1.stock,
+        p1_1.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        order_products p1_0 
+    join
+        product p1_1 
+            on p1_1.product_id=p1_0.product_id 
+    left join
+        "user" u1_0 
+            on u1_0.user_id=p1_1.user_id 
+    where
+        p1_0.order_id=?
+2025-11-16 08:01:31 DEBUG SQL - 
+    select
+        p1_0.order_id,
+        p1_1.product_id,
+        p1_1.category,
+        p1_1.created_at,
+        p1_1.description,
+        p1_1.name,
+        p1_1.photo_image,
+        p1_1.price,
+        p1_1.stock,
+        p1_1.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        order_products p1_0 
+    join
+        product p1_1 
+            on p1_1.product_id=p1_0.product_id 
+    left join
+        "user" u1_0 
+            on u1_0.user_id=p1_1.user_id 
+    where
+        p1_0.order_id=?
+2025-11-16 08:01:31 DEBUG SQL - 
+    select
+        p1_0.order_id,
+        p1_1.product_id,
+        p1_1.category,
+        p1_1.created_at,
+        p1_1.description,
+        p1_1.name,
+        p1_1.photo_image,
+        p1_1.price,
+        p1_1.stock,
+        p1_1.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        order_products p1_0 
+    join
+        product p1_1 
+            on p1_1.product_id=p1_0.product_id 
+    left join
+        "user" u1_0 
+            on u1_0.user_id=p1_1.user_id 
+    where
+        p1_0.order_id=?
+2025-11-16 08:01:31 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-16 08:01:31 DEBUG SQL - 
+    select
+        p1_0.product_id,
+        p1_0.category,
+        p1_0.created_at,
+        p1_0.description,
+        p1_0.name,
+        p1_0.photo_image,
+        p1_0.price,
+        p1_0.stock,
+        p1_0.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        product p1_0 
+    left join
+        "user" u1_0 
+            on u1_0.user_id=p1_0.user_id 
+    where
+        p1_0.product_id=?
+2025-11-16 08:01:32 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-16 08:01:32 DEBUG SQL - 
+    select
+        p1_0.product_id,
+        p1_0.category,
+        p1_0.created_at,
+        p1_0.description,
+        p1_0.name,
+        p1_0.photo_image,
+        p1_0.price,
+        p1_0.stock,
+        p1_0.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        product p1_0 
+    left join
+        "user" u1_0 
+            on u1_0.user_id=p1_0.user_id 
+    where
+        p1_0.product_id=?
+2025-11-16 08:01:32 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-16 08:01:32 DEBUG SQL - 
+    select
+        p1_0.product_id,
+        p1_0.category,
+        p1_0.created_at,
+        p1_0.description,
+        p1_0.name,
+        p1_0.photo_image,
+        p1_0.price,
+        p1_0.stock,
+        p1_0.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        product p1_0 
+    left join
+        "user" u1_0 
+            on u1_0.user_id=p1_0.user_id 
+    where
+        p1_0.product_id=?
