@@ -103969,3 +103969,4 @@ org.postgresql.util.PSQLException: This connection has been closed.
         "user" u1_0 
     where
         u1_0.username=?
+2025-11-16 17:41:19 WARN  HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6h47m38s684ms721µs200ns).
