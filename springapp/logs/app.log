@@ -103620,3 +103620,352 @@ org.postgresql.util.PSQLException: This connection has been closed.
             on u1_0.user_id=p1_0.user_id 
     where
         p1_0.product_id=?
+2025-11-16 09:10:43 WARN  HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=51m5s948ms125µs900ns).
+2025-11-16 09:28:18 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-16 09:28:19 WARN  PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@6e27aa29 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-16 09:28:19 WARN  PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@6c2cbd72 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-16 09:28:19 WARN  PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@6692f4a6 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-16 09:28:19 WARN  PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@35376cbf (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-16 09:28:19 WARN  PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@7bff124b (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-16 09:28:19 WARN  PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@72b1e76b (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-16 09:28:19 WARN  PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@3771a5f (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-16 09:28:19 WARN  PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@d2bcc1a (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-16 09:28:19 WARN  PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@e45fabe (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-16 09:28:19 WARN  PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@7332dea2 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-16 09:28:21 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-16 09:28:27 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-16 09:28:27 DEBUG SQL - 
+    select
+        p1_0.product_id,
+        p1_0.category,
+        p1_0.created_at,
+        p1_0.description,
+        p1_0.name,
+        p1_0.photo_image,
+        p1_0.price,
+        p1_0.stock,
+        p1_0.updated_at,
+        p1_0.user_id 
+    from
+        product p1_0
+2025-11-16 09:28:27 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.user_id=?
+2025-11-16 09:28:27 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.user_id=?
+2025-11-16 09:28:28 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-16 09:28:28 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.user_id=?
+2025-11-16 09:28:28 DEBUG SQL - 
+    select
+        o1_0.order_id,
+        o1_0.created_at,
+        o1_0.quantity,
+        o1_0.shipping_address,
+        o1_0.status,
+        o1_0.total_amount,
+        o1_0.updated_at,
+        o1_0.user_id 
+    from
+        orders o1_0 
+    where
+        o1_0.user_id=?
+2025-11-16 09:28:29 DEBUG SQL - 
+    select
+        p1_0.order_id,
+        p1_1.product_id,
+        p1_1.category,
+        p1_1.created_at,
+        p1_1.description,
+        p1_1.name,
+        p1_1.photo_image,
+        p1_1.price,
+        p1_1.stock,
+        p1_1.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        order_products p1_0 
+    join
+        product p1_1 
+            on p1_1.product_id=p1_0.product_id 
+    left join
+        "user" u1_0 
+            on u1_0.user_id=p1_1.user_id 
+    where
+        p1_0.order_id=?
+2025-11-16 09:28:29 DEBUG SQL - 
+    select
+        p1_0.order_id,
+        p1_1.product_id,
+        p1_1.category,
+        p1_1.created_at,
+        p1_1.description,
+        p1_1.name,
+        p1_1.photo_image,
+        p1_1.price,
+        p1_1.stock,
+        p1_1.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        order_products p1_0 
+    join
+        product p1_1 
+            on p1_1.product_id=p1_0.product_id 
+    left join
+        "user" u1_0 
+            on u1_0.user_id=p1_1.user_id 
+    where
+        p1_0.order_id=?
+2025-11-16 09:28:29 DEBUG SQL - 
+    select
+        p1_0.order_id,
+        p1_1.product_id,
+        p1_1.category,
+        p1_1.created_at,
+        p1_1.description,
+        p1_1.name,
+        p1_1.photo_image,
+        p1_1.price,
+        p1_1.stock,
+        p1_1.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        order_products p1_0 
+    join
+        product p1_1 
+            on p1_1.product_id=p1_0.product_id 
+    left join
+        "user" u1_0 
+            on u1_0.user_id=p1_1.user_id 
+    where
+        p1_0.order_id=?
+2025-11-16 09:28:29 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-16 09:28:29 DEBUG SQL - 
+    select
+        p1_0.product_id,
+        p1_0.category,
+        p1_0.created_at,
+        p1_0.description,
+        p1_0.name,
+        p1_0.photo_image,
+        p1_0.price,
+        p1_0.stock,
+        p1_0.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        product p1_0 
+    left join
+        "user" u1_0 
+            on u1_0.user_id=p1_0.user_id 
+    where
+        p1_0.product_id=?
+2025-11-16 09:28:29 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-16 09:28:30 DEBUG SQL - 
+    select
+        p1_0.product_id,
+        p1_0.category,
+        p1_0.created_at,
+        p1_0.description,
+        p1_0.name,
+        p1_0.photo_image,
+        p1_0.price,
+        p1_0.stock,
+        p1_0.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        product p1_0 
+    left join
+        "user" u1_0 
+            on u1_0.user_id=p1_0.user_id 
+    where
+        p1_0.product_id=?
+2025-11-16 09:28:30 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-16 09:28:30 DEBUG SQL - 
+    select
+        p1_0.product_id,
+        p1_0.category,
+        p1_0.created_at,
+        p1_0.description,
+        p1_0.name,
+        p1_0.photo_image,
+        p1_0.price,
+        p1_0.stock,
+        p1_0.updated_at,
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        product p1_0 
+    left join
+        "user" u1_0 
+            on u1_0.user_id=p1_0.user_id 
+    where
+        p1_0.product_id=?
+2025-11-16 09:48:46 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
+2025-11-16 09:48:47 WARN  PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@670029ef (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-16 09:48:47 WARN  PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@5ee21e9 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-16 09:48:47 WARN  PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@320760e1 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-16 09:48:47 WARN  PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@54ae781f (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-16 09:48:47 WARN  PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@1f0584b9 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-16 09:48:47 WARN  PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@6b100fd9 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-16 09:48:47 WARN  PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@62197a32 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-16 09:48:47 WARN  PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@45d088ee (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-16 09:48:47 WARN  PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@76c3eca1 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-16 09:48:47 WARN  PoolBase - HikariPool-1 - Failed to validate connection org.postgresql.jdbc.PgConnection@1dc64b67 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+2025-11-16 09:48:49 DEBUG SQL - 
+    select
+        u1_0.user_id,
+        u1_0.email,
+        u1_0.mobile_number,
+        u1_0.password,
+        u1_0.user_role,
+        u1_0.username 
+    from
+        "user" u1_0 
+    where
+        u1_0.username=?
