@@ -45,13 +45,14 @@ Built using **Spring Boot + Hibernate (Backend)** and **Angular + Angular Materi
 ---
 
 ## 📂 Folder Structure  
+```
 Smart-Mart/
 │── springapp/ # Spring Boot + Hibernate Services
 |    │── logs/ # Log4j output & audit logs
 │── angularapp// # Angular + Angular Material UI
 │── docs/ # Screenshots, diagrams, docs
 └── README.md
-
+```
 ----
 ## 🛠 Tech Used
 

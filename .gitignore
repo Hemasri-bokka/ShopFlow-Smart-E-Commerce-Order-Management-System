@@ -6,3 +6,4 @@
 /angularapp/src/app/models/login.model.spec.ts
 /angularapp/src/app/models/user.model.spec.ts
 /springapp/logs
+/.env
