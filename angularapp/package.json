@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "cross-env NODE_OPTIONS=--openssl-legacy-provider npx ng serve --port 8081 --disable-host-check --host=0.0.0.0",
-    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider npx ng build --configuration production",
-    "test": "cross-env NODE_OPTIONS=--openssl-legacy-provider npx ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e"
+    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider ./node_modules/@angular/cli/bin/ng build --configuration production",
+  "start": "cross-env NODE_OPTIONS=--openssl-legacy-provider ./node_modules/@angular/cli/bin/ng serve --port 8081 --disable-host-check --host=0.0.0.0",
+  "test": "cross-env NODE_OPTIONS=--openssl-legacy-provider ./node_modules/@angular/cli/bin/ng test",
+  "lint": "npx ng lint",
+  "e2e": "npx ng e2e"
   },
   "private": true,
   "dependencies": {
