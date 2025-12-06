@@ -49,7 +49,7 @@
     <!-- Product Grid -->
     <div class="product-grid">
       <mat-card class="product-card" *ngFor="let product of filteredProducts">
-        <img mat-card-image [src]="product.photoImage || 'assets/default-image.png'" alt="{{ product.name }}" />
+        <img mat-card-image [src]="product.photoImage || 'assets/images.png'" alt="{{ product.name }}" />
   
         <mat-card-header>
           <mat-card-title>{{ product.name }}</mat-card-title>
