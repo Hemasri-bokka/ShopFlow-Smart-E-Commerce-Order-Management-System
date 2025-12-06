@@ -106969,3 +106969,5 @@ Caused by: java.lang.RuntimeException: Driver org.postgresql.Driver claims to no
 2025-12-06 12:12:42 INFO  TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
 2025-12-06 12:12:42 INFO  SpringappApplication - Started SpringappApplication in 10.104 seconds (process running for 11.804)
 2025-12-06 12:12:42 INFO  SpringappApplication - Application started successfully!
+2025-12-06 14:12:23 WARN  HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=37m14s734ms530µs300ns).
+2025-12-06 21:30:19 WARN  HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=4h53m26s331ms898µs600ns).
