@@ -10,6 +10,8 @@
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 ![GitHub contributors](https://img.shields.io/github/contributors/rohith2201/SmartMart?style=for-the-badge)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/t/rohith2201/SmartMart?style=for-the-badge)
+![Website](https://img.shields.io/website?url=https%3A%2F%2Fsmart--mart.vercel.app%2F&up_message=Online&down_message=Offline&style=for-the-badge&logo=googlechrome&logoColor=white)
+
 
 ---
 
