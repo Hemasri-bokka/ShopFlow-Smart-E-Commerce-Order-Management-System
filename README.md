@@ -51,6 +51,7 @@ Smart-Mart/
 |    │── logs/ # Log4j output & audit logs
 │── angularapp// # Angular + Angular Material UI
 │── docs/ # Screenshots, diagrams, docs
+|    |── ui # Screenshots
 └── README.md
 ```
 ----
