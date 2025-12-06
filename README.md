@@ -1,5 +1,3 @@
-#smartMart
-
 
 # 🛍️ Smart Mart – E-Commerce Platform  
 ### Built using **Spring Boot | Hibernate | Angular | Angular Material**
