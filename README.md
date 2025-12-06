@@ -9,7 +9,7 @@
 [![GitHub repo size](https://img.shields.io/github/repo-size/rohith2201/SmartMart?logo=github&style=for-the-badge)](https://github.com/rohith2201/SmartMart)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 ![GitHub contributors](https://img.shields.io/github/contributors/rohith2201/SmartMart?style=for-the-badge)
-
+![GitHub commit activity](https://img.shields.io/github/commit-activity/t/rohith2201/SmartMart?style=for-the-badge)
 
 ---
 
