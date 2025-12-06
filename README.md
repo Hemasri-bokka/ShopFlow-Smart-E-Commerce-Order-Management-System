@@ -106,10 +106,19 @@ npm start
 
 ## 📸 Screenshots (To Add)
 
-| Page            | Path                    |
-| --------------- | ----------------------- |
-| Home UI         | `/docs/ui/home.png`     |
-| Product Listing | `/docs/ui/products.png` |
+# 📄 Application UI Map
+
+| Page            | Path                          |
+|-----------------|-------------------------------|
+| Home UI         | `/docs/ui/home.png`             |
+| Product Listing | `/docs/ui/user/products.png`    |
+| Cart Page       | `/docs/ui/user/cart.png`        |
+| Order History   | `/docs/ui/user/Orders.png`      |
+| Submit Feedback | `/docs/ui/user/submitfeedback.png` |
+| View Feedback   | `/docs/ui/user/viewfeedback.png`   |
+| Admin Orders    | `/docs/ui/admin/orders.png`        |
+| Admin Feedback  | `/docs/ui/admin/feedback.png`      |
+| Manage Products | `/docs/ui/admin/manageProducts.png ` |
 
 ---
 
