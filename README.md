@@ -1,139 +1,304 @@
+# 🛍️ ShopFlow – Smart E-Commerce & Order Management System
 
-# 🛍️ Smart Mart – E-Commerce Platform  
 ### Built using **Spring Boot | Hibernate | Angular | Angular Material**
 
-![Java Badge](https://img.shields.io/badge/Backend-Java%20%2F%20SpringBoot-blue?style=for-the-badge&logo=springboot)
-![Hibernate Badge](https://img.shields.io/badge/ORM-Hibernate-yellow?style=for-the-badge&logo=hibernate)
-![Angular Badge](https://img.shields.io/badge/Frontend-Angular-red?style=for-the-badge&logo=angular)
-![Material UI](https://img.shields.io/badge/UI-Angular%20Material-orange?style=for-the-badge&logo=angular)
-[![GitHub repo size](https://img.shields.io/github/repo-size/rohith2201/SmartMart?logo=github&style=for-the-badge)](https://github.com/rohith2201/SmartMart)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-![GitHub contributors](https://img.shields.io/github/contributors/rohith2201/SmartMart?style=for-the-badge)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/t/rohith2201/SmartMart?style=for-the-badge)
-![Website](https://img.shields.io/website?url=https%3A%2F%2Fsmart--mart.vercel.app%2F&up_message=Online&down_message=Offline&style=for-the-badge&logo=googlechrome&logoColor=white)
-
+ShopFlow is a full-stack e-commerce platform designed to provide a seamless online shopping experience. It includes product browsing, cart management, wishlist, order management, invoice generation, payment integration, chatbot assistance, and analytics.
 
 ---
 
-## 📌 Overview  
-Smart Mart is a **full-stack E-Commerce platform** designed for seamless online shopping with dynamic product listings, order flow, cart-wishlist system & secure authentication.  
-Built using **Spring Boot + Hibernate (Backend)** and **Angular + Angular Material (Frontend)** with logging & analytics for tracking user behavior and platform growth.
+## 🚀 Features
+
+* 🛍️ **Product Catalog** – Browse and view available products.
+* 🛒 **Shopping Cart** – Add, update, and remove products from the cart.
+* ❤️ **Wishlist** – Save products for later.
+* 📦 **Order Management** – Place and manage orders.
+* 🧾 **Invoice Generation** – Generate invoices for orders.
+* 💳 **Payment Gateway** – Support for online payments.
+* 🤖 **Chatbot** – Provides assistance to users.
+* 📊 **Google Analytics** – Track application usage.
+* 📝 **Log4j** – Application logging.
+* 🎨 **Angular Material** – Modern UI components.
 
 ---
 
-## 🔥 Features  
-- 🛒 Product Catalog, Cart, Wishlist, Orders, Invoice Generation  
-- 💳 Integrated Payment Gateway  
-- 🤖 Customer Support Chatbot  
-- 📊 Google Analytics for traffic & behavior insights  
-- 📝 Log4j logging for monitoring + audit trails  
-- 🎨 Clean and responsive UI using Angular Material
+## 🛠️ Tech Stack
+
+### Frontend
+
+* Angular
+* Angular Material
+* HTML
+* CSS
+* TypeScript
+
+### Backend
+
+* Java
+* Spring Boot
+* Hibernate
+* REST APIs
+
+### Database
+
+* MySQL
+* PostgreSQL
+
+### Other Technologies
+
+* Log4j
+* Google Analytics
+* Payment Gateway
+* Chatbot
 
 ---
 
-## 🏗️ Tech Stack  
+## 📂 Project Structure
 
-| Category | Technology |
-|---------|------------|
-| Frontend | Angular, Angular Material |
-| Backend | Spring Boot, Hibernate |
-| Database | MySQL / PostgreSQL |
-| Monitoring | Log4j |
-| Analytics | Google Analytics |
-| Extra | Chatbot, Payment Gateway Integration |
-
----
-
-## 📂 Folder Structure  
+```text
+ShopFlow/
+│
+├── angularapp/
+│   ├── src/
+│   ├── angular.json
+│   ├── package.json
+│   └── ...
+│
+├── springapp/
+│   ├── src/
+│   ├── pom.xml
+│   └── ...
+│
+├── docs/
+│
+├── README.md
+├── LICENSE
+├── CODE_OF_CONDUCT.md
+└── .gitignore
 ```
-Smart-Mart/
-│── springapp/ # Spring Boot + Hibernate Services
-|    │── logs/ # Log4j output & audit logs
-│── angularapp// # Angular + Angular Material UI
-│── docs/ # Screenshots, diagrams, docs
-|    |── ui # Screenshots
-└── README.md
-```
-----
-## 🛠 Tech Used
-
-![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
-![Material UI](https://img.shields.io/badge/Angular%20Material-8E24AA?style=for-the-badge&logo=angular&logoColor=white)
-![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/SpringBoot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
-![Hibernate](https://img.shields.io/badge/Hibernate-59666C?style=for-the-badge&logo=hibernate&logoColor=yellow)
-
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
-![NeonDB](https://img.shields.io/badge/NeonDB-00E599?style=for-the-badge&logo=postgresql&logoColor=black)
-
-
-
-![Google Analytics](https://img.shields.io/badge/Google%20Analytics-E37400?style=for-the-badge&logo=googleanalytics&logoColor=white)
-![PayPal](https://img.shields.io/badge/PayPal%20Gateway-00457C?style=for-the-badge&logo=paypal&logoColor=white)
-
-
-![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)
-
 
 ---
 
-## ⚙️ Installation & Setup  
+## ⚙️ Prerequisites
 
-### 🔧 Backend – Spring Boot
+Before running the project, make sure you have:
+
+* Java
+* Maven
+* Node.js
+* Angular CLI
+* MySQL / PostgreSQL
+* Git
+
+---
+
+## 📥 Installation
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/Hemasri-bokka/ShopFlow-Smart-E-Commerce-Order-Management-System.git
+```
+
+```bash
+cd ShopFlow-Smart-E-Commerce-Order-Management-System
+```
+
+---
+
+## 🖥️ Frontend Setup
+
+Navigate to the Angular application:
+
+```bash
+cd angularapp
+```
+
+Install the required dependencies:
+
+```bash
+npm install
+```
+
+Run the application:
+
+```bash
+ng serve
+```
+
+Open your browser and visit:
+
+```text
+http://localhost:4200
+```
+
+---
+
+## ⚙️ Backend Setup
+
+Navigate to the Spring Boot application:
+
 ```bash
 cd springapp
-mvn clean install
-mvn spring-boot:run 
 ```
-> Runs server at `http://localhost:8080/`
 
--
+Build the project:
 
-💻 Frontend – Angular
 ```bash
-cd frontend
-npm install
-npm start
-
+mvn clean install
 ```
 
-> Live at `http://localhost:8081/`
+Run the Spring Boot application:
 
+```bash
+mvn spring-boot:run
+```
 
+---
 
-## 📸 Screenshots (To Add)
+## 🗄️ Database Configuration
 
-# 📄 Application UI Map
+Configure the database connection in the Spring Boot configuration file.
 
-| Page            | Path                          |
-|-----------------|-------------------------------|
-| Home UI         | `/docs/ui/home.png`             |
-| Product Listing | `/docs/ui/user/products.png`    |
-| Cart Page       | `/docs/ui/user/cart.png`        |
-| Order History   | `/docs/ui/user/Orders.png`      |
-| Submit Feedback | `/docs/ui/user/submitfeedback.png` |
-| View Feedback   | `/docs/ui/user/viewfeedback.png`   |
-| Admin Orders    | `/docs/ui/admin/orders.png`        |
-| Admin Feedback  | `/docs/ui/admin/feedback.png`      |
-| Manage Products | `/docs/ui/admin/manageProducts.png ` |
+The configuration should contain the required:
+
+```text
+Database URL
+Database Username
+Database Password
+Database Driver
+```
+
+Make sure the configured database is running before starting the backend.
+
+---
+
+## 🔄 Application Flow
+
+```text
+User
+  │
+  ▼
+Angular Frontend
+  │
+  │ REST API
+  ▼
+Spring Boot Backend
+  │
+  ▼
+Hibernate
+  │
+  ▼
+Database
+  │
+  ▼
+Response
+  │
+  ▼
+Angular Frontend
+```
+
+---
+
+## 🏗️ Architecture
+
+```text
+┌──────────────────────────────┐
+│            User              │
+└──────────────┬───────────────┘
+               │
+               ▼
+┌──────────────────────────────┐
+│      Angular Frontend        │
+│ HTML | CSS | TypeScript      │
+│ Angular Material             │
+└──────────────┬───────────────┘
+               │
+               │ REST API
+               ▼
+┌──────────────────────────────┐
+│       Spring Boot            │
+│ Controllers                  │
+│ Services                     │
+│ Repositories                 │
+└──────────────┬───────────────┘
+               │
+               ▼
+┌──────────────────────────────┐
+│          Hibernate           │
+└──────────────┬───────────────┘
+               │
+               ▼
+┌──────────────────────────────┐
+│      MySQL / PostgreSQL      │
+└──────────────────────────────┘
+```
+
+---
+
+## 🎯 Main Modules
+
+### 👤 User Management
+
+Users can register, log in, and manage their account.
+
+### 🛍️ Product Management
+
+Users can browse products and view product information.
+
+### 🛒 Cart Management
+
+Users can add products, modify quantities, and remove products.
+
+### ❤️ Wishlist Management
+
+Users can save products to their wishlist.
+
+### 📦 Order Management
+
+Users can place orders and view their order information.
+
+### 🧾 Invoice Management
+
+Invoices can be generated for orders.
+
+### 💳 Payment
+
+The system provides payment gateway integration for online purchases.
+
+### 🤖 Chatbot
+
+The chatbot provides assistance during the shopping experience.
+
+---
+
+## 👩‍💻 Author
+
+### Bokka HemaSri
+
+**GitHub:** [Hemasri-bokka](https://github.com/Hemasri-bokka)
+
+**Repository:** [ShopFlow – Smart E-Commerce & Order Management System](https://github.com/Hemasri-bokka/ShopFlow-Smart-E-Commerce-Order-Management-System)
+
+**LinkedIn:** [HemaSri](https://www.linkedin.com/in/hema-sri-2266302ba/)
+
+**Email:** [hemasri.bokka@sasi.ac.in](mailto:hemasri.bokka@sasi.ac.in)
 
 ---
 
 ## 📄 License
 
-Distributed under the **MIT License**.
+This project is licensed under the **MIT License**.
 
+See the `LICENSE` file for details.
 
-----
+---
 
-## Contributors
-<a href = "https://github.com/rohith2201/SmartMart">
-  <img src = "https://contrib.rocks/image?repo=rohith2201/SmartMart"/>
-</a>
+## ⭐ Show Your Support
 
+If you find this project useful, please consider giving it a ⭐ on GitHub.
 
+---
 
+# 🛍️ ShopFlow
+
+### Smart Shopping • Easy Ordering • Better Management
